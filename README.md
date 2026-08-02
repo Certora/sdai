@@ -2,6 +2,12 @@
 
 A tokenized wrapper around the DSR. Supports ERC4626. Share to asset conversions are real-time even if the pot hasn't been dripped in a while.
 
+## Design and verification
+
+See [Savings Dai design and verification properties](docs/savings-dai-design.md)
+for the accounting model, Maker integration assumptions, ERC-4626 rounding
+behavior, and properties intended for AutoProver.
+
 ## Deployments
 
 Commit `665879762f8b5df5d234463f45d1d6a49bd4fbeb` (no referral):
