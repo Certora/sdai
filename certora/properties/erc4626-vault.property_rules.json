@@ -1,0 +1,88 @@
+{
+  "deposit_accounting": [
+    "depositAccounting"
+  ],
+  "mint_accounting": [
+    "mintAccounting"
+  ],
+  "withdraw_accounting": [
+    "withdrawAccounting"
+  ],
+  "redeem_accounting": [
+    "redeemAccounting"
+  ],
+  "withdraw_redeem_require_authorization": [
+    "withdrawRedeemRequireAllowance"
+  ],
+  "invalid_receiver_rejected": [
+    "invalidReceiverRejected"
+  ],
+  "previews_match_operations": [
+    "previewDepositMatchesDeposit",
+    "previewMintMatchesMint",
+    "previewWithdrawMatchesWithdraw",
+    "previewRedeemMatchesRedeem"
+  ],
+  "conversions_round_in_vault_favor": [
+    "previewMintRoundsUp",
+    "previewWithdrawRoundsUp"
+  ],
+  "max_functions_consistent": [
+    "maxFunctionsConsistent",
+    "redeemAboveMaxReverts",
+    "withdrawAboveMaxReverts"
+  ],
+  "no_profit_from_deposit_redeem_roundtrip": [
+    "depositRedeemRoundtripNoProfit",
+    "mintWithdrawRoundtripNoProfit"
+  ],
+  "share_price_never_decreases": [
+    "sharePriceNeverDecreases"
+  ],
+  "vault_ops_do_not_affect_other_holders": [
+    "depositOpsDoNotAffectOthers",
+    "withdrawOpsDoNotAffectOthers"
+  ],
+  "_skipped": {},
+  "_expected_fail": {},
+  "_justification_rules": {
+    "potChiNeverDecreases": "supports the requirePotChiAtLeastRay trust assumption used in withdrawAccounting and mintWithdrawRoundtripNoProfit",
+    "daiSupplyIsSumPreserved": "supports requireDaiSupplyIsSum (DAI totalSupply == ghost sum of DaiMock balances; with the Sload hook gives balance <= totalSupply) used in withdrawAccounting and redeemAccounting"
+  },
+  "_status": {
+    "iter2": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/3b0aeea4-5664-41bf-a0a7-77b25258d6a1/report",
+      "result": "all VERIFIED (round 1 spec)"
+    },
+    "iter3": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report",
+      "rules": {
+        "daiSupplyIsSumPreserved": "VERIFIED",
+        "depositAccounting": "VERIFIED",
+        "depositOpsDoNotAffectOthers": "VERIFIED",
+        "depositRedeemRoundtripNoProfit": "VERIFIED",
+        "envfreeFuncsStaticCheck": "VERIFIED",
+        "invalidReceiverRejected": "VERIFIED",
+        "maxFunctionsConsistent": "VERIFIED",
+        "mintAccounting": "VERIFIED",
+        "mintWithdrawRoundtripNoProfit": "VERIFIED",
+        "potChiNeverDecreases": "VERIFIED",
+        "previewDepositMatchesDeposit": "VERIFIED",
+        "previewMintMatchesMint": "VERIFIED",
+        "previewMintRoundsUp": "VERIFIED",
+        "previewRedeemMatchesRedeem": "VERIFIED",
+        "previewWithdrawMatchesWithdraw": "VERIFIED",
+        "previewWithdrawRoundsUp": "VERIFIED",
+        "redeemAboveMaxReverts": "VERIFIED",
+        "redeemAccounting": "VERIFIED",
+        "sharePriceNeverDecreases": "VERIFIED",
+        "withdrawAboveMaxReverts": "VERIFIED",
+        "withdrawAccounting": "VERIFIED",
+        "withdrawOpsDoNotAffectOthers": "VERIFIED",
+        "withdrawRedeemRequireAllowance": "VERIFIED"
+      }
+    },
+    "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report",
+    "note": "iter 3 (round 2) full unfiltered run: all rules VERIFIED incl. rule_not_vacuous (confirmed from treeViewStatus_18.json by orchestrator; client disconnected before final summary)"
+  }
+}

@@ -1,0 +1,370 @@
+✓ Using ANTHROPIC_API_KEY from environment variables
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Found config file: /Users/shelly/skill-sdai/foundry.toml
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Auto-detected foundry file: /Users/shelly/skill-sdai/foundry.toml
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Auto-detected profile: default
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Parsing foundry config from /Users/shelly/skill-sdai/foundry.toml (profile: default)
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Parsed foundry config: solc=0.8.17, optimizer=True
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Successfully auto-detected Foundry configuration
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Using artifact directory from config: /Users/shelly/skill-sdai/out
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Found config file: /Users/shelly/skill-sdai/foundry.toml
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Auto-detected foundry file: /Users/shelly/skill-sdai/foundry.toml
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Auto-detected profile: default
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Parsing foundry config from /Users/shelly/skill-sdai/foundry.toml (profile: default)
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Parsed foundry config: solc=0.8.17, optimizer=True
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Successfully auto-detected Foundry configuration
+[02:05:44] [T8659181760] [FoundryManager] INFO: ℹ️ Using artifact directory from config: /Users/shelly/skill-sdai/out
+[02:05:45] [T8659181760] [Autosetup] INFO: ℹ️ Created .gitattributes with Certora linguist settings
+[02:05:45] [T8659181760] [Autosetup] INFO: ℹ️ Updated .gitignore with missing Certora ignore settings
+[02:05:45] [T8659181760] [Autosetup] INFO: ℹ️ Copied DummyERC20Impl.sol to mocks/
+[02:05:45] [T8659181760] [Autosetup] INFO: ℹ️ Added DummyERC20Impl to signature database
+[02:05:45] [T8659181760] [Autosetup] INFO: ℹ️ Auto-detected build system: foundry
+[02:05:45] [T8659181760] [Autosetup] INFO: ℹ️ Auto-detecting foundry configuration...
+[02:05:45] [T8659181760] [FoundryManager] INFO: ℹ️ Found config file: /Users/shelly/skill-sdai/foundry.toml
+[02:05:45] [T8659181760] [FoundryManager] INFO: ℹ️ Auto-detected foundry file: /Users/shelly/skill-sdai/foundry.toml
+[02:05:45] [T8659181760] [FoundryManager] INFO: ℹ️ Auto-detected profile: default
+[02:05:45] [T8659181760] [FoundryManager] INFO: ℹ️ Parsing foundry config from /Users/shelly/skill-sdai/foundry.toml (profile: default)
+[02:05:45] [T8659181760] [FoundryManager] INFO: ℹ️ Parsed foundry config: solc=0.8.17, optimizer=True
+[02:05:45] [T8659181760] [FoundryManager] INFO: ℹ️ Successfully auto-detected Foundry configuration
+[02:05:45] [T8659181760] [Autosetup] INFO: ℹ️ Solc version: 0.8.17
+[02:05:45] [T8659181760] [Autosetup] INFO: ℹ️ Optimizer: True (runs: 200)
+[02:05:45] [T8659181760] INFO: ℹ️ Found 2 Solidity file(s) in the project (dependencies: no, scripts/tests: no)
+[02:05:45] [T8659181760] [Autosetup] INFO: ℹ️ === COMPILATION ANALYSIS PHASE ===
+[02:05:45] [T8659181760] [Autosetup] INFO: ℹ️ Running compilation analysis to extract method information...
+[02:05:45] [T8659181760] [FoundryConfig] INFO: ℹ️ Ignoring FoundryConfig's optimizer setting by default; compilation workarounds will re-enable it if compilation requires it
+[02:05:45] [T8659181760] [FoundryManager] INFO: ℹ️ Found config file: /Users/shelly/skill-sdai/foundry.toml
+[02:05:45] [T8659181760] [FoundryManager] INFO: ℹ️ Auto-detected foundry file: /Users/shelly/skill-sdai/foundry.toml
+[02:05:45] [T8659181760] [FoundryManager] INFO: ℹ️ Auto-detected profile: default
+[02:05:45] [T8659181760] [FoundryManager] INFO: ℹ️ Parsing foundry config from /Users/shelly/skill-sdai/foundry.toml (profile: default)
+[02:05:45] [T8659181760] [FoundryManager] INFO: ℹ️ Parsed foundry config: solc=0.8.17, optimizer=True
+[02:05:45] [T8659181760] [FoundryManager] INFO: ℹ️ Successfully auto-detected Foundry configuration
+[02:05:45] [T8659181760] [FoundryManager] INFO: ℹ️ Using artifact directory from config: /Users/shelly/skill-sdai/out
+[02:05:45] [T8659181760] [Autosetup] INFO: ℹ️ Merged build system config into compilation config
+[02:05:45] [T8659181760] [Autosetup] INFO: ℹ️ Running: Compilation analysis
+[02:05:45] [T8659181760] [Autosetup] INFO: ℹ️ Full command: certoraRun .certora_internal/confs/compilation.conf --compilation_steps_only --dump_asts --msg "SavingsDai compilation analysis"
+[02:05:49] [T8659181760] [Autosetup] INFO: ℹ️ ✓ Compilation analysis completed successfully
+[02:05:49] [T8659181760] [Autosetup] INFO: ℹ️ Processing build json: /Users/shelly/skill-sdai/.certora_internal/26_10_21_02_05_46_032151478d/.certora_build.json
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ ✓ Processed 152 methods to .certora_internal/all_methods.json
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ ✓ Processed 6 source files to .certora_internal/all_sources.json (6 contracts, 0 libraries)
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ Copied AST file from .certora_internal/latest/.asts.json to .certora_internal/all_asts.json
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ Building AST parent graph...
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ ✓ AST parent graph saved to .certora_internal/all_ast_parent_graph.json
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ Extracting function signatures and creating signature database...
+[02:05:50] [T8659181760] INFO: ℹ️ Extracted 90 function signatures
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ Extracting inheritance info from .certora_internal/all_asts.json
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ Found 5 abstract/interface contracts to skip
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ Detected abstract contracts: {'DaiJoinLike', 'VatLike', 'DaiLike', 'IERC1271', 'PotLike'}
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ 🔄 Populating signature database with contract_infos and signatures...
+[02:05:50] [T8659181760] INFO: ℹ️ Populated signature database with 6 contracts (90 total signatures)
+[02:05:50] [T8659181760] INFO: ℹ️ Signature database dumped to: /Users/shelly/skill-sdai/.certora_internal/signature_state/signature_database.json
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ ✓ Generated signature database: /Users/shelly/skill-sdai/.certora_internal/signature_state/signature_database.json
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ ✓ No contracts with bytes mappings found
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ Analyzing AST for .code accesses...
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ ✓ No .code accesses found
+[02:05:50] [T8659181760] [Autosetup] INFO: ℹ️ Running setup_summaries to configure library summaries...
+✓ Using ANTHROPIC_API_KEY from environment variables
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️ Found 25 Solidity file(s) in the project (dependencies: yes, scripts/tests: no)
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️ Found 2 Solidity file(s) in the project (dependencies: no, scripts/tests: no)
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️   - src/ISavingsDai.sol
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️   - src/SavingsDai.sol
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️ Found 2 Solidity file(s) in the project (dependencies: no, scripts/tests: no)
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️   - src/ISavingsDai.sol
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️   - src/SavingsDai.sol
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️ Found 0 library file(s)
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️ === AUTOMATIC SUMMARY SETUP ===
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️ Main contract for analysis: SavingsDai
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️ LLM analysis not enabled (use --enable-llm flag)
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️ Matching summaries for SavingsDai...
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️ Found 0 summaries for SavingsDai (0 method tuples)
+[02:05:50] [T8659181760] [SummarySetup] INFO: ℹ️ Wrote /Users/shelly/skill-sdai/certora/specs/summaries/SavingsDai_base_summaries.spec with 0 import(s)
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ ✓ Setup summaries completed successfully
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ === ERC-7201 ANNOTATION PATCHING PHASE ===
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ 🔧 Running ERC-7201 annotation patching...
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ Skipping ERC-7201 annotation patching (LLM disabled)
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ === ERC-7201 DETECTION PHASE ===
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ 🔍 Running ERC-7201 storage pattern detection...
+[02:05:51] [T8659181760] INFO: ℹ️ Scanning 170 Solidity files for ERC-7201 patterns...
+Scanning files:   0%|          | 0/170 [00:00<?, ?it/s]Scanning files: 100%|██████████| 170/170 [00:00<00:00, 14207.21it/s]
+[02:05:51] [T8659181760] INFO: ℹ️ No ERC-7201 storage patterns found.
+[02:05:51] [T8659181760] INFO: ℹ️ No ERC-7201 patterns found, no files generated.
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ ✅ ERC-7201 detection completed successfully
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ Creating per-contract sanity specs
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ Computed import for sanity-SavingsDai.spec: import "summaries/SavingsDai_base_summaries.spec";
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ Computed import for sanity-SavingsDai.spec: import "summaries/SavingsDai_call_resolution.spec";
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ Prepended 2 import(s) to sanity-SavingsDai.spec
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ === CACHE WARMUP PHASE ===
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ Testing summary compilation...
+[02:05:51] [T8659181760] [FoundryConfig] INFO: ℹ️ Ignoring FoundryConfig's optimizer setting by default; compilation workarounds will re-enable it if compilation requires it
+[02:05:51] [T8659181760] [ConfigManager] INFO: ℹ️ Created configuration at /Users/shelly/skill-sdai/.certora_internal/confs/test_compilation-SavingsDai.conf
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ Running compilation test on SavingsDai...
+[02:05:51] [T8659181760] [Autosetup] INFO: ℹ️ Starting typechecker loop for: Compilation test on SavingsDai
+[02:05:51] [T8659181760] [TypecheckerLoop] INFO: ℹ️ Running typechecker (attempt 1/10) with command: certoraRun /Users/shelly/skill-sdai/.certora_internal/confs/test_compilation-SavingsDai.conf
+[02:05:54] [T8659181760] [TypecheckerLoop] INFO: ℹ️ ✓ Typechecker passed after 0 rounds
+[02:05:54] [T8659181760] [Autosetup] INFO: ℹ️ ✓ Typechecker loop completed successfully
+[02:05:54] [T8659181760] [Autosetup] INFO: ℹ️ ✅ Summary compilation test passed
+[02:05:54] [T8659181760] [Autosetup] INFO: ℹ️ 🔀 Running warmup for SavingsDai
+[02:05:54] [T8659181760] [Autosetup] INFO: ℹ️ 🚀 Preparing sanity job...
+[02:05:54] [T8659181760] [FoundryConfig] INFO: ℹ️ Ignoring FoundryConfig's optimizer setting by default; compilation workarounds will re-enable it if compilation requires it
+[02:05:54] [T8659181760] [Autosetup] INFO: ℹ️ Merged build system config into base config: ['solc', 'packages']
+[02:05:54] [T8659181760] [ConfigManager] INFO: ℹ️ Created configuration at /Users/shelly/skill-sdai/certora/confs/SavingsDai.conf
+[02:05:54] [T8659181760] [Autosetup] INFO: ℹ️ Created base config using ConfigManager: /Users/shelly/skill-sdai/certora/confs/SavingsDai.conf
+[02:05:54] [T6135934976] [Autosetup] INFO: ℹ️ 🔧 Running typechecker fixes for warmup SavingsDai: SavingsDai.conf
+[02:05:54] [T6135934976] [TypecheckerLoop] INFO: ℹ️ Running typechecker (attempt 1/10) with command: certoraRun /Users/shelly/skill-sdai/certora/confs/SavingsDai.conf --compilation_steps_only
+[02:05:56] [T6135934976] [TypecheckerLoop] INFO: ℹ️ ✓ Typechecker passed after 0 rounds
+[02:05:56] [T6135934976] [Autosetup] INFO: ℹ️ ✓ Config OK for warmup SavingsDai: SavingsDai.conf (no fixes needed)
+[02:05:56] [T8659181760] [Autosetup] INFO: ℹ️ 🔗 Running call resolution for SavingsDai
+[02:05:56] [T8659181760] INFO: ℹ️ Starting call resolution for SavingsDai
+[02:05:56] [T8659181760] INFO: ℹ️ Call resolution iteration 1 for SavingsDai
+[02:05:56] [T8659181760] [Autosetup] INFO: ℹ️ Found 25 Solidity file(s) in the project (dependencies: yes, scripts/tests: no)
+[02:05:57] [T8659181760] [Autosetup] INFO: ℹ️ Found 8 library file(s)
+[02:05:57] [T8659181760] INFO: ℹ️ Scanning 6 contract(s) for proxy patterns: ['DaiMock', 'DummyERC20Impl', 'Pot', 'SavingsDai', 'DaiJoinMock', 'VatMock']
+[02:05:57] [T8659181760] INFO: ℹ️ Analyzing DaiMock for proxy patterns...
+[02:05:57] [T8659181760] INFO: ℹ️ Analyzing DummyERC20Impl for proxy patterns...
+[02:05:57] [T8659181760] INFO: ℹ️ Analyzing Pot for proxy patterns...
+[02:05:57] [T8659181760] INFO: ℹ️ Analyzing SavingsDai for proxy patterns...
+[02:05:57] [T8659181760] INFO: ℹ️ Analyzing DaiJoinMock for proxy patterns...
+[02:05:57] [T8659181760] INFO: ℹ️ Analyzing VatMock for proxy patterns...
+[02:05:57] [T8659181760] ERROR: ❌ Error during proxy analysis for DummyERC20Impl: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CgEKwQEEtYYv3Bu6wKAQn'}
+[02:05:57] [T8659181760] WARNING: ⚠️ Proxy detection failed for DummyERC20Impl: Agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CgEKwQEEtYYv3Bu6wKAQn'}
+[02:05:57] [T8659181760] ERROR: ❌ Error during proxy analysis for DaiJoinMock: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CgEKwQEF4hi7VQpBQuJrG'}
+[02:05:57] [T8659181760] WARNING: ⚠️ Proxy detection failed for DaiJoinMock: Agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CgEKwQEF4hi7VQpBQuJrG'}
+[02:05:57] [T8659181760] ERROR: ❌ Error during proxy analysis for VatMock: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CgEKwQEF2nATsAff1wQ4V'}
+[02:05:57] [T8659181760] WARNING: ⚠️ Proxy detection failed for VatMock: Agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CgEKwQEF2nATsAff1wQ4V'}
+[02:05:57] [T8659181760] ERROR: ❌ Error during proxy analysis for SavingsDai: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CgEKwQEVgvq3ksJAuFxBJ'}
+[02:05:57] [T8659181760] WARNING: ⚠️ Proxy detection failed for SavingsDai: Agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CgEKwQEVgvq3ksJAuFxBJ'}
+[02:05:57] [T8659181760] ERROR: ❌ Error during proxy analysis for Pot: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CgEKwQEEubgt6m4CEMw5j'}
+[02:05:57] [T8659181760] WARNING: ⚠️ Proxy detection failed for Pot: Agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CgEKwQEEubgt6m4CEMw5j'}
+[02:05:57] [T8659181760] ERROR: ❌ Error during proxy analysis for DaiMock: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CgEKwQEVREULQi4iQ7YPG'}
+[02:05:57] [T8659181760] WARNING: ⚠️ Proxy detection failed for DaiMock: Agent error: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'invalid x-api-key'}, 'request_id': 'req_011CgEKwQEVREULQi4iQ7YPG'}
+[02:05:57] [T8659181760] INFO: ℹ️ Iteration 1 - running prover for SavingsDai
+[02:05:57] [T8659181760] [CloudRunner] INFO: ℹ️ [SavingsDai] Cloud prover request for call_resolution (cache_key: 6860afa22b9a1191...)
+[02:05:57] [T8659181760] [CloudRunner] INFO: ℹ️ Executing: certoraRun /Users/shelly/skill-sdai/certora/confs/SavingsDai.conf --server production --msg SavingsDai: SavingsDai (iteration 1)
+[02:06:04] [T8659181760] [CloudRunner] INFO: ℹ️ Cloud job submission failed after 6.9s: Encountered an exception generating autofinder .certora_internal/26_10_21_02_05_57_919012459a/.certora_sources/src/test/mocks/VatMock.sol (solc8.17 had an error:; CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+[02:06:04] [T8659181760] [CloudRunner] INFO: ℹ️ certoraRun output: WARNING: You are using certora-cli version 8.20.0; however, version 8.20.2 is available. It is recommended to upgrade by running: pip install certora-cli --upgrade
+or
+pip3 install certora-cli --upgrade
+Compiling certora/harnesses/Pot.sol...
+Compiling certora/harnesses/Pot.sol to expose internal function information and local variables...
+Compiling certora/mocks/DummyERC20Impl.sol...
+Compiling certora/mocks/DummyERC20Impl.sol to expose internal function information and local variables...
+Compiling src/SavingsDai.sol...
+Compiling src/SavingsDai.sol to expose internal function information and local variables...
+Compiling src/test/mocks/DaiJoinMock.sol...
+Compiling src/test/mocks/DaiJoinMock.sol to expose internal function information and local variables...
+Compiling src/test/mocks/DaiMock.sol...
+Compiling src/test/mocks/DaiMock.sol to expose internal function information and local variables...
+Compiling src/test/mocks/VatMock.sol...
+Compiling src/test/mocks/VatMock.sol to expose internal function information and local variables...
+Encountered an exception generating autofinder .certora_internal/26_10_21_02_05_57_919012459a/.certora_sources/src/test/mocks/VatMock.sol (solc8.17 had an error:
+CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+   --> /Users/shelly/skill-sdai/.certora_internal/26_10_21_02_05_57_919012459a/.certora_sources/src/test/mocks/VatMock.sol:233:61:
+    |
+233 |         require(either(dart <= 0, both(Art_ * rate_ <= ilks[i].line, debt_ <= Line)), "Vat/ceiling-exceeded");
+    |                                                             ^
+
+), falling back to original file VatMock.sol
+Compiling src/test/mocks/VatMock.sol to expose internal function information...
+
+Connecting to server...
+[32mStarting job as user shelly@certora.com in org Certora (certora). Reserved 120 minutes: 0 free, 120 billed to Certora.[0m
+
+[32mJob submitted to server[0m
+
+Manage your jobs at https://prover.certora.com/orgs/certora/jobs
+Follow your job and see verification results at https://prover.certora.com/orgs/certora/jobs/9a03c65f-d4e5-4238-85b8-092461930737/report
+
+[02:06:04] [T6135934976] [Autosetup] INFO: ℹ️ 🔧 Running typechecker fixes for call resolution SavingsDai: SavingsDai.conf
+[02:06:04] [T6135934976] [TypecheckerLoop] INFO: ℹ️ Running typechecker (attempt 1/10) with command: certoraRun /Users/shelly/skill-sdai/certora/confs/SavingsDai.conf --compilation_steps_only
+[02:06:07] [T6135934976] [TypecheckerLoop] INFO: ℹ️ ✓ Typechecker passed after 0 rounds
+[02:06:07] [T6135934976] [Autosetup] INFO: ℹ️ ✓ Config OK for call resolution SavingsDai: SavingsDai.conf (no fixes needed)
+[02:06:07] [T8659181760] INFO: ℹ️ Typechecker changed the conf; retrying the prover run
+[02:06:07] [T8659181760] [CloudRunner] INFO: ℹ️ [SavingsDai] Cloud prover request for call_resolution (cache_key: 6860afa22b9a1191...)
+[02:06:07] [T8659181760] [CloudRunner] INFO: ℹ️ Executing: certoraRun /Users/shelly/skill-sdai/certora/confs/SavingsDai.conf --server production --msg SavingsDai: SavingsDai (iteration 1)
+[02:06:13] [T8659181760] [CloudRunner] INFO: ℹ️ Cloud job submission failed after 5.8s: Encountered an exception generating autofinder .certora_internal/26_10_21_02_06_07_0069441b9e/.certora_sources/src/test/mocks/VatMock.sol (solc8.17 had an error:; CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+[02:06:13] [T8659181760] [CloudRunner] INFO: ℹ️ certoraRun output: WARNING: You are using certora-cli version 8.20.0; however, version 8.20.2 is available. It is recommended to upgrade by running: pip install certora-cli --upgrade
+or
+pip3 install certora-cli --upgrade
+Compiling certora/harnesses/Pot.sol...
+Compiling certora/harnesses/Pot.sol to expose internal function information and local variables...
+Compiling certora/mocks/DummyERC20Impl.sol...
+Compiling certora/mocks/DummyERC20Impl.sol to expose internal function information and local variables...
+Compiling src/SavingsDai.sol...
+Compiling src/SavingsDai.sol to expose internal function information and local variables...
+Compiling src/test/mocks/DaiJoinMock.sol...
+Compiling src/test/mocks/DaiJoinMock.sol to expose internal function information and local variables...
+Compiling src/test/mocks/DaiMock.sol...
+Compiling src/test/mocks/DaiMock.sol to expose internal function information and local variables...
+Compiling src/test/mocks/VatMock.sol...
+Compiling src/test/mocks/VatMock.sol to expose internal function information and local variables...
+Encountered an exception generating autofinder .certora_internal/26_10_21_02_06_07_0069441b9e/.certora_sources/src/test/mocks/VatMock.sol (solc8.17 had an error:
+CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+   --> /Users/shelly/skill-sdai/.certora_internal/26_10_21_02_06_07_0069441b9e/.certora_sources/src/test/mocks/VatMock.sol:233:61:
+    |
+233 |         require(either(dart <= 0, both(Art_ * rate_ <= ilks[i].line, debt_ <= Line)), "Vat/ceiling-exceeded");
+    |                                                             ^
+
+), falling back to original file VatMock.sol
+Compiling src/test/mocks/VatMock.sol to expose internal function information...
+
+Connecting to server...
+[32mStarting job as user shelly@certora.com in org Certora (certora). Reserved 120 minutes: 0 free, 120 billed to Certora.[0m
+
+[32mJob submitted to server[0m
+
+Manage your jobs at https://prover.certora.com/orgs/certora/jobs
+Follow your job and see verification results at https://prover.certora.com/orgs/certora/jobs/4fe54530-2f03-4375-a08a-88ce2f678f5b/report
+
+[02:06:13] [T8659181760] ERROR: ❌ Prover execution failed: Failed to submit job
+[02:06:13] [T8659181760] WARNING: ⚠️ Prover failed in iteration 1
+[02:06:13] [T8659181760] INFO: ℹ️ Iteration 1 completed in 15.77s for SavingsDai
+[02:06:13] [T8659181760] ERROR: ❌ Iteration 1 failed
+[02:06:13] [T8659181760] ERROR: ❌ Call resolution did not complete for SavingsDai: a prover run failed — the generated call-resolution spec may be incomplete
+[02:06:13] [T8659181760] INFO: ℹ️ Generated call resolution report: .CertoraProverLiteReports/20261021_020544/SavingsDai_call_resolution_report.md
+[02:06:13] [T8659181760] [Autosetup] INFO: ℹ️ Starting sanity optimization for config: /Users/shelly/skill-sdai/certora/confs/SavingsDai.conf
+[02:06:13] [T8659181760] [Sanity] INFO: ℹ️ [SavingsDai] Starting two-stage sanity optimization
+[02:06:13] [T8659181760] [Sanity] INFO: ℹ️ [SavingsDai] Stage 1: Finding optimal loop_iter
+[02:06:13] [T8659181760] [Sanity] INFO: ℹ️ [SavingsDai] Testing 3 loop_iter configurations in parallel with hashing_bound=1024
+[02:06:13] [T8659181760] [ConfigManager] INFO: ℹ️ Updated config SavingsDai_sanity_loop_iter_optimization_0.conf with properties: ['loop_iter', 'optimistic_loop', 'optimistic_hashing', 'rule_sanity', 'global_timeout', 'hashing_length_bound']
+[02:06:13] [T8659181760] [ConfigManager] INFO: ℹ️ Updated config SavingsDai_sanity_loop_iter_optimization_1.conf with properties: ['loop_iter', 'optimistic_loop', 'optimistic_hashing', 'rule_sanity', 'global_timeout', 'hashing_length_bound']
+[02:06:13] [T8659181760] [ConfigManager] INFO: ℹ️ Updated config SavingsDai_sanity_loop_iter_optimization_2.conf with properties: ['loop_iter', 'optimistic_loop', 'optimistic_hashing', 'rule_sanity', 'global_timeout', 'hashing_length_bound']
+[02:06:13] [T8659181760] [CloudRunner] INFO: ℹ️ 🚀 Submitting and processing 3 verification jobs...
+[02:06:13] [T8659181760] [CloudRunner] INFO: ℹ️ Starting parallel execution for 3 jobs with early termination
+[02:06:13] [T8659181760] [CloudRunner] INFO: ℹ️ [SavingsDai] Cloud job submission for sanity_loop_iter_optimization_0 (cache_key: 76acd254ae0ddf22...)
+[02:06:13] [T8659181760] [CloudRunner] INFO: ℹ️ Executing: certoraRun /Users/shelly/skill-sdai/.certora_internal/confs/SavingsDai_sanity_loop_iter_optimization_0.conf --server production --msg SavingsDai: SavingsDai_sanity_loop_iter_optimization_0
+[02:06:13] [T8659181760] [CloudRunner] INFO: ℹ️ [SavingsDai] Cloud job submission for sanity_loop_iter_optimization_1 (cache_key: 55504edd315d70d6...)
+[02:06:13] [T8659181760] [CloudRunner] INFO: ℹ️ Executing: certoraRun /Users/shelly/skill-sdai/.certora_internal/confs/SavingsDai_sanity_loop_iter_optimization_1.conf --server production --msg SavingsDai: SavingsDai_sanity_loop_iter_optimization_1
+[02:06:13] [T8659181760] [CloudRunner] INFO: ℹ️ [SavingsDai] Cloud job submission for sanity_loop_iter_optimization_2 (cache_key: d727afd82fda2462...)
+[02:06:13] [T8659181760] [CloudRunner] INFO: ℹ️ Executing: certoraRun /Users/shelly/skill-sdai/.certora_internal/confs/SavingsDai_sanity_loop_iter_optimization_2.conf --server production --msg SavingsDai: SavingsDai_sanity_loop_iter_optimization_2
+[02:06:19] [T8659181760] [CloudRunner] INFO: ℹ️ Cloud job submission failed after 6.1s: Encountered an exception generating autofinder .certora_internal/26_10_21_02_06_13_924776708e/.certora_sources/src/test/mocks/VatMock.sol (solc8.17 had an error:; CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+[02:06:19] [T8659181760] [CloudRunner] INFO: ℹ️ certoraRun output: WARNING: You are using certora-cli version 8.20.0; however, version 8.20.2 is available. It is recommended to upgrade by running: pip install certora-cli --upgrade
+or
+pip3 install certora-cli --upgrade
+Compiling certora/harnesses/Pot.sol...
+Compiling certora/harnesses/Pot.sol to expose internal function information and local variables...
+Compiling certora/mocks/DummyERC20Impl.sol...
+Compiling certora/mocks/DummyERC20Impl.sol to expose internal function information and local variables...
+Compiling src/SavingsDai.sol...
+Compiling src/SavingsDai.sol to expose internal function information and local variables...
+Compiling src/test/mocks/DaiJoinMock.sol...
+Compiling src/test/mocks/DaiJoinMock.sol to expose internal function information and local variables...
+Compiling src/test/mocks/DaiMock.sol...
+Compiling src/test/mocks/DaiMock.sol to expose internal function information and local variables...
+Compiling src/test/mocks/VatMock.sol...
+Compiling src/test/mocks/VatMock.sol to expose internal function information and local variables...
+Encountered an exception generating autofinder .certora_internal/26_10_21_02_06_13_924776708e/.certora_sources/src/test/mocks/VatMock.sol (solc8.17 had an error:
+CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+   --> /Users/shelly/skill-sdai/.certora_internal/26_10_21_02_06_13_924776708e/.certora_sources/src/test/mocks/VatMock.sol:233:61:
+    |
+233 |         require(either(dart <= 0, both(Art_ * rate_ <= ilks[i].line, debt_ <= Line)), "Vat/ceiling-exceeded");
+    |                                                             ^
+
+), falling back to original file VatMock.sol
+Compiling src/test/mocks/VatMock.sol to expose internal function information...
+
+Connecting to server...
+[32mStarting job as user shelly@certora.com in org Certora (certora). Reserved 120 minutes: 0 free, 120 billed to Certora.[0m
+
+[32mJob submitted to server[0m
+
+Manage your jobs at https://prover.certora.com/orgs/certora/jobs
+Follow your job and see verification results at https://prover.certora.com/orgs/certora/jobs/277222ea-696c-4060-b20e-31d6bfc095c0/report
+
+[02:06:19] [T8659181760] [CloudRunner] INFO: ℹ️ ✗ Submission marked as failed for SavingsDai for sanity_loop_iter_optimization_2
+[02:06:19] [T8659181760] [CloudRunner] INFO: ℹ️ Symlink race condition detected but handled gracefully for SavingsDai
+[02:06:19] [T8659181760] [CloudRunner] INFO: ℹ️ ❌ No job URL found in certoraRun output for SavingsDai:sanity_loop_iter_optimization_0
+[02:06:19] [T8659181760] [CloudRunner] INFO: ℹ️ ✗ Submission marked as failed for SavingsDai for sanity_loop_iter_optimization_0
+[02:06:19] [T8659181760] [CloudRunner] INFO: ℹ️ Cloud job submission failed after 6.5s: Encountered an exception generating autofinder .certora_internal/26_10_21_02_06_13_2114872174/.certora_sources/src/test/mocks/VatMock.sol (solc8.17 had an error:; CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+[02:06:19] [T8659181760] [CloudRunner] INFO: ℹ️ certoraRun output: WARNING: You are using certora-cli version 8.20.0; however, version 8.20.2 is available. It is recommended to upgrade by running: pip install certora-cli --upgrade
+or
+pip3 install certora-cli --upgrade
+Compiling certora/harnesses/Pot.sol...
+Compiling certora/harnesses/Pot.sol to expose internal function information and local variables...
+Compiling certora/mocks/DummyERC20Impl.sol...
+Compiling certora/mocks/DummyERC20Impl.sol to expose internal function information and local variables...
+Compiling src/SavingsDai.sol...
+Compiling src/SavingsDai.sol to expose internal function information and local variables...
+Compiling src/test/mocks/DaiJoinMock.sol...
+Compiling src/test/mocks/DaiJoinMock.sol to expose internal function information and local variables...
+Compiling src/test/mocks/DaiMock.sol...
+Compiling src/test/mocks/DaiMock.sol to expose internal function information and local variables...
+Compiling src/test/mocks/VatMock.sol...
+Compiling src/test/mocks/VatMock.sol to expose internal function information and local variables...
+Encountered an exception generating autofinder .certora_internal/26_10_21_02_06_13_2114872174/.certora_sources/src/test/mocks/VatMock.sol (solc8.17 had an error:
+CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+   --> /Users/shelly/skill-sdai/.certora_internal/26_10_21_02_06_13_2114872174/.certora_sources/src/test/mocks/VatMock.sol:233:61:
+    |
+233 |         require(either(dart <= 0, both(Art_ * rate_ <= ilks[i].line, debt_ <= Line)), "Vat/ceiling-exceeded");
+    |                                                             ^
+
+), falling back to original file VatMock.sol
+Compiling src/test/mocks/VatMock.sol to expose internal function information...
+
+Connecting to server...
+[32mStarting job as user shelly@certora.com in org Certora (certora). Reserved 120 minutes: 0 free, 120 billed to Certora.[0m
+
+[32mJob submitted to server[0m
+
+Manage your jobs at https://prover.certora.com/orgs/certora/jobs
+Follow your job and see verification results at https://prover.certora.com/orgs/certora/jobs/3751fbe5-cddf-46b9-8f17-919d20bc7cb1/report
+
+[02:06:19] [T8659181760] [CloudRunner] INFO: ℹ️ ✗ Submission marked as failed for SavingsDai for sanity_loop_iter_optimization_1
+[02:06:19] [T8659181760] [CloudRunner] INFO: ℹ️ ✅ Completed 0/3 jobs successfully
+[02:06:19] [T8659181760] [Sanity] INFO: ℹ️ [SavingsDai] Parallel testing completed (loop_iter_optimization): 0/0 configurations succeeded
+[02:06:19] [T8659181760] [Sanity] WARNING: ⚠️ [SavingsDai] No successful loop_iter configurations found
+[02:06:19] [T8659181760] [Sanity] ERROR: ❌ [SavingsDai] Stage 1 failed - no sufficient loop_iter found. Duration: 6.517039060592651
+[02:06:19] [T8659181760] [Autosetup] INFO: ℹ️ ✅ Sanity optimization completed for SavingsDai
+[02:06:19] [T8659181760] [ConfigManager] INFO: ℹ️ Created config copy SavingsDai_test_run.conf with args: {'verifyTACDumps': '', 'testMode': '', 'checkRuleDigest': '', 'callTraceHardFail': 'on'}
+[02:06:19] [T8659181760] [Autosetup] INFO: ℹ️ Computed import for warmup-SavingsDai.spec: import "../../certora/specs/sanity-SavingsDai.spec";
+[02:06:19] [T8659181760] [Autosetup] INFO: ℹ️ Injected summaries import into warmup-SavingsDai.spec
+[02:06:19] [T8659181760] [ConfigManager] INFO: ℹ️ Created config copy SavingsDai_warmup.conf with args: {}
+[02:06:19] [T8659181760] [ConfigManager] INFO: ℹ️ Updated config to use spec: warmup-SavingsDai.spec
+[02:06:19] [T8659181760] [CloudRunner] INFO: ℹ️ 🚀 Submitting and processing 1 verification jobs...
+[02:06:19] [T8659181760] [CloudRunner] INFO: ℹ️ [SavingsDai] Cloud job submission for Sanity Warmup - warmup (cache_key: d5c4482d85d59614...)
+[02:06:19] [T8659181760] [CloudRunner] INFO: ℹ️ Executing: certoraRun /Users/shelly/skill-sdai/.certora_internal/confs/SavingsDai_warmup.conf --server production --msg SavingsDai: SavingsDai_warmup
+[02:06:25] [T8659181760] [CloudRunner] INFO: ℹ️ Cloud job submission failed after 5.8s: Encountered an exception generating autofinder .certora_internal/26_10_21_02_06_19_3997664ea0/.certora_sources/src/test/mocks/VatMock.sol (solc8.17 had an error:; CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+[02:06:25] [T8659181760] [CloudRunner] INFO: ℹ️ certoraRun output: WARNING: You are using certora-cli version 8.20.0; however, version 8.20.2 is available. It is recommended to upgrade by running: pip install certora-cli --upgrade
+or
+pip3 install certora-cli --upgrade
+Compiling certora/harnesses/Pot.sol...
+Compiling certora/harnesses/Pot.sol to expose internal function information and local variables...
+Compiling certora/mocks/DummyERC20Impl.sol...
+Compiling certora/mocks/DummyERC20Impl.sol to expose internal function information and local variables...
+Compiling src/SavingsDai.sol...
+Compiling src/SavingsDai.sol to expose internal function information and local variables...
+Compiling src/test/mocks/DaiJoinMock.sol...
+Compiling src/test/mocks/DaiJoinMock.sol to expose internal function information and local variables...
+Compiling src/test/mocks/DaiMock.sol...
+Compiling src/test/mocks/DaiMock.sol to expose internal function information and local variables...
+Compiling src/test/mocks/VatMock.sol...
+Compiling src/test/mocks/VatMock.sol to expose internal function information and local variables...
+Encountered an exception generating autofinder .certora_internal/26_10_21_02_06_19_3997664ea0/.certora_sources/src/test/mocks/VatMock.sol (solc8.17 had an error:
+CompilerError: Stack too deep. Try compiling with `--via-ir` (cli) or the equivalent `viaIR: true` (standard JSON) while enabling the optimizer. Otherwise, try removing local variables.
+   --> /Users/shelly/skill-sdai/.certora_internal/26_10_21_02_06_19_3997664ea0/.certora_sources/src/test/mocks/VatMock.sol:233:61:
+    |
+233 |         require(either(dart <= 0, both(Art_ * rate_ <= ilks[i].line, debt_ <= Line)), "Vat/ceiling-exceeded");
+    |                                                             ^
+
+), falling back to original file VatMock.sol
+Compiling src/test/mocks/VatMock.sol to expose internal function information...
+
+Connecting to server...
+[32mStarting job as user shelly@certora.com in org Certora (certora). Reserved 120 minutes: 0 free, 120 billed to Certora.[0m
+
+[32mJob submitted to server[0m
+
+Manage your jobs at https://prover.certora.com/orgs/certora/jobs
+Follow your job and see verification results at https://prover.certora.com/orgs/certora/jobs/5089246e-f70e-4234-ad8c-ee6005111838/report
+
+[02:06:25] [T8659181760] [CloudRunner] INFO: ℹ️ ✗ Submission marked as failed for SavingsDai for Sanity Warmup - warmup
+[02:06:25] [T8659181760] [CloudRunner] INFO: ℹ️ ✅ Completed 0/1 jobs successfully
+[02:06:25] [T8659181760] [Autosetup] ERROR: ❌ ✗ Failed: Sanity Warmup - warmup
+[02:06:25] [T8659181760] [Autosetup] ERROR: ❌ ❌ Sanity warmup job failed - please check the build status job URL above for details
+Traceback (most recent call last):
+  File "/Users/shelly/.claude-iso/sdai-with-skill/bin/certora-autosetup", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/Users/shelly/.local/share/uv/tools/ai-composer/lib/python3.12/site-packages/certora_autosetup/autosetup/cli.py", line 265, in main
+    result = autosetup.run(main_contract_handle, skip_warmup=args.skip_warmup)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/shelly/.local/share/uv/tools/ai-composer/lib/python3.12/site-packages/certora_autosetup/autosetup/autosetup.py", line 305, in run
+    raise RuntimeError("Cache warmup failed - stopping orchestration")
+RuntimeError: Cache warmup failed - stopping orchestration

@@ -1,0 +1,202 @@
+WARNING: You are using certora-cli version 8.20.0; however, version 8.20.2 is available. It is recommended to upgrade by running: pip install certora-cli --upgrade
+or
+pip3 install certora-cli --upgrade
+Compiling certora/harnesses/Pot.sol...
+Compiling certora/harnesses/Pot.sol to expose internal function information and local variables...
+Compiling certora/harnesses/Vat.sol...
+Compiling certora/harnesses/Vat.sol to expose internal function information and local variables...
+Compiling src/SavingsDai.sol...
+Compiling src/SavingsDai.sol to expose internal function information and local variables...
+Compiling src/test/mocks/DaiJoinMock.sol...
+Compiling src/test/mocks/DaiJoinMock.sol to expose internal function information and local variables...
+Compiling src/test/mocks/DaiMock.sol...
+Compiling src/test/mocks/DaiMock.sol to expose internal function information and local variables...
+
+Connecting to server...
+[32mStarting job as user shelly@certora.com in org Certora (certora). Reserved 120 minutes: 0 free, 120 billed to Certora.[0m
+
+[32mJob submitted to server[0m
+
+Manage your jobs at https://prover.certora.com/orgs/certora/jobs
+Follow your job and see verification results at https://prover.certora.com/orgs/certora/jobs/b91ff71e-7cb3-4cc9-85b5-b30457145a95/report
+Output:
+processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |The scene contains 24 contracts:
+DaiJoinMock : 0xce4604a0000000000000000000000015,
+DaiMock : 0xce4604a000000000000000000000001a,
+Vat : 0xce4604a0000000000000000000000005,
+Pot : 0xce4604a0000000000000000000000002,
+SavingsDai : 0xce4604a0000000000000000000000010,
+ecrecover : 0x1,
+sha256 : 0x2,
+ripemd160 : 0x3,
+identity : 0x4,
+bigmod : 0x5,
+bn256Add : 0x6,
+bn256ScalarMul : 0x7,
+bn256Pairing : 0x8,
+Precompiled244 : 0xf4,
+Precompiled245 : 0xf5,
+Precompiled246 : 0xf6,
+Precompiled247 : 0xf7,
+Precompiled248 : 0xf8,
+Precompiled249 : 0xf9,
+Precompiled250 : 0xfa,
+Precompiled251 : 0xfb,
+Precompiled252 : 0xfc,
+Precompiled253 : 0xfd,
+Precompiled254 : 0xfe
+Running initial transformations
+Has CVL checks.
+Checking CVL certora/specs/invariants.spec for contract SavingsDai
+Unrolling loops 1 time, unwinding condition is assumed
+Verified: totalSupplyIsSumOfBalances-Induction base: After the constructor
+Verified: sharesBackedByPie-Induction base: After the constructor
+Verified: zeroAndSelfHoldNoShares-Induction base: After the constructor
+Violated: totalSupplyIsSumOfBalances-Induction base: After the constructor-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Induction base: After the constructor-invariant_not_trivial_postcondition
+Violated: zeroAndSelfHoldNoShares-Induction base: After the constructor-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Induction base: After the constructor-rule_not_vacuous
+Violated: sharesBackedByPie-Induction base: After the constructor-rule_not_vacuous
+Violated: zeroAndSelfHoldNoShares-Induction base: After the constructor-rule_not_vacuous
+Verified: totalSupplyIsSumOfBalances-Using general requirements-approve(address,uint256)
+Verified: totalSupplyIsSumOfBalances-Using general requirements-decreaseAllowance(address,uint256)
+Verified: totalSupplyIsSumOfBalances-Using general requirements-increaseAllowance(address,uint256)
+Verified: totalSupplyIsSumOfBalances-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Verified: totalSupplyIsSumOfBalances-Using general requirements-transfer(address,uint256)
+Verified: totalSupplyIsSumOfBalances-Using general requirements-permit(address,address,uint256,uint256,bytes)
+Verified: sharesBackedByPie-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Verified: sharesBackedByPie-Using general requirements-permit(address,address,uint256,uint256,bytes)
+Verified: totalSupplyIsSumOfBalances-Using general requirements-transferFrom(address,address,uint256)
+Verified: zeroAndSelfHoldNoShares-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Violated: totalSupplyIsSumOfBalances-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Violated: totalSupplyIsSumOfBalances-Using general requirements-decreaseAllowance(address,uint256)-rule_not_vacuous
+Violated: totalSupplyIsSumOfBalances-Using general requirements-increaseAllowance(address,uint256)-rule_not_vacuous
+Violated: totalSupplyIsSumOfBalances-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Violated: totalSupplyIsSumOfBalances-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Violated: totalSupplyIsSumOfBalances-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Verified: sharesBackedByPie-Using general requirements-approve(address,uint256)
+Violated: totalSupplyIsSumOfBalances-Using general requirements-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Violated: sharesBackedByPie-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Verified: sharesBackedByPie-Using general requirements-transfer(address,uint256)
+Verified: zeroAndSelfHoldNoShares-Using general requirements-approve(address,uint256)
+Verified: totalSupplyIsSumOfBalances-Using general requirements-redeem(uint256,address,address)
+Violated: sharesBackedByPie-Using general requirements-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Violated: zeroAndSelfHoldNoShares-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Verified: zeroAndSelfHoldNoShares-Using general requirements-transfer(address,uint256)
+Verified: zeroAndSelfHoldNoShares-Using general requirements-decreaseAllowance(address,uint256)
+Verified: zeroAndSelfHoldNoShares-Using general requirements-increaseAllowance(address,uint256)
+Verified: totalSupplyIsSumOfBalances-Using general requirements-mint(uint256,address)
+Verified: totalSupplyIsSumOfBalances-Using general requirements-mint(uint256,address,uint16)
+Verified: zeroAndSelfHoldNoShares-Using general requirements-permit(address,address,uint256,uint256,bytes)
+Verified: sharesBackedByPie-Using general requirements-decreaseAllowance(address,uint256)
+Verified: totalSupplyIsSumOfBalances-Using general requirements-deposit(uint256,address,uint16)
+Verified: sharesBackedByPie-Using general requirements-increaseAllowance(address,uint256)
+Verified: totalSupplyIsSumOfBalances-Using general requirements-deposit(uint256,address)
+Verified: zeroAndSelfHoldNoShares-Using general requirements-transferFrom(address,address,uint256)
+Verified: sharesBackedByPie-Using general requirements-transferFrom(address,address,uint256)
+Verified: totalSupplyIsSumOfBalances-Using general requirements-withdraw(uint256,address,address)
+Violated: sharesBackedByPie-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Violated: zeroAndSelfHoldNoShares-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Violated: sharesBackedByPie-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Verified: zeroAndSelfHoldNoShares-Using general requirements-mint(uint256,address,uint16)
+Verified: zeroAndSelfHoldNoShares-Using general requirements-redeem(uint256,address,address)
+Verified: zeroAndSelfHoldNoShares-Using general requirements-mint(uint256,address)
+Verified: sharesBackedByPie-Using general requirements-redeem(uint256,address,address)
+Violated: zeroAndSelfHoldNoShares-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Verified: sharesBackedByPie-Using general requirements-mint(uint256,address,uint16)
+Violated: zeroAndSelfHoldNoShares-Using general requirements-decreaseAllowance(address,uint256)-rule_not_vacuous
+Verified: sharesBackedByPie-Using general requirements-mint(uint256,address)
+Exception in thread "Thread-1" java.io.IOException: Cannot run program "killall": Exec failed, error: 2 (No such file or directory) 
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+	at java.base/java.lang.Runtime.exec(Runtime.java:681)
+	at java.base/java.lang.Runtime.exec(Runtime.java:530)
+	at utils.LongProcessKiller.run(LongProcessKiller.kt:44)
+Caused by: java.io.IOException: Exec failed, error: 2 (No such file or directory) 
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:295)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:225)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126)
+	... 4 more
+Verified: zeroAndSelfHoldNoShares-Using general requirements-withdraw(uint256,address,address)
+Ping 1m - Processed 1/4 (25%) rules. 60 tasks complete, 25 pending.
+Verified: zeroAndSelfHoldNoShares-Using general requirements-deposit(uint256,address,uint16)
+Violated: zeroAndSelfHoldNoShares-Using general requirements-increaseAllowance(address,uint256)-rule_not_vacuous
+Verified: sharesBackedByPie-Using general requirements-withdraw(uint256,address,address)
+Verified: zeroAndSelfHoldNoShares-Using general requirements-deposit(uint256,address)
+Verified: sharesBackedByPie-Using general requirements-deposit(uint256,address,uint16)
+Violated: totalSupplyIsSumOfBalances-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-decreaseAllowance(address,uint256)-rule_not_vacuous
+Verified: sharesBackedByPie-Using general requirements-deposit(uint256,address)
+Violated: totalSupplyIsSumOfBalances-Using general requirements-permit(address,address,uint256,uint256,bytes)-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-increaseAllowance(address,uint256)-rule_not_vacuous
+Violated: totalSupplyIsSumOfBalances-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Using general requirements-decreaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: zeroAndSelfHoldNoShares-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Violated: zeroAndSelfHoldNoShares-Using general requirements-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Violated: totalSupplyIsSumOfBalances-Using general requirements-increaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Using general requirements-deposit(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Using general requirements-mint(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Using general requirements-withdraw(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Using general requirements-redeem(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Using general requirements-deposit(uint256,address)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Violated: totalSupplyIsSumOfBalances-Using general requirements-mint(uint256,address)-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Using general requirements-redeem(uint256,address,address)-rule_not_vacuous
+Violated: zeroAndSelfHoldNoShares-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: zeroAndSelfHoldNoShares-Using general requirements-permit(address,address,uint256,uint256,bytes)-invariant_not_trivial_postcondition
+Violated: zeroAndSelfHoldNoShares-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Violated: zeroAndSelfHoldNoShares-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Violated: zeroAndSelfHoldNoShares-Using general requirements-decreaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Using general requirements-deposit(uint256,address,uint16)-rule_not_vacuous
+Violated: totalSupplyIsSumOfBalances-Using general requirements-deposit(uint256,address)-rule_not_vacuous
+Violated: zeroAndSelfHoldNoShares-Using general requirements-increaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: zeroAndSelfHoldNoShares-Using general requirements-mint(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: zeroAndSelfHoldNoShares-Using general requirements-deposit(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Using general requirements-withdraw(uint256,address,address)-rule_not_vacuous
+Violated: zeroAndSelfHoldNoShares-Using general requirements-withdraw(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: zeroAndSelfHoldNoShares-Using general requirements-redeem(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: zeroAndSelfHoldNoShares-Using general requirements-mint(uint256,address)-rule_not_vacuous
+Violated: zeroAndSelfHoldNoShares-Using general requirements-redeem(uint256,address,address)-rule_not_vacuous
+Violated: zeroAndSelfHoldNoShares-Using general requirements-deposit(uint256,address)-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Using general requirements-mint(uint256,address)-rule_not_vacuous
+Violated: zeroAndSelfHoldNoShares-Using general requirements-mint(uint256,address)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-redeem(uint256,address,address)-rule_not_vacuous
+Violated: zeroAndSelfHoldNoShares-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: zeroAndSelfHoldNoShares-Using general requirements-withdraw(uint256,address,address)-rule_not_vacuous
+Violated: zeroAndSelfHoldNoShares-Using general requirements-mint(uint256,address,uint16)-rule_not_vacuous
+Violated: sharesBackedByPie-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: totalSupplyIsSumOfBalances-Using general requirements-mint(uint256,address,uint16)-rule_not_vacuous
+Violated: sharesBackedByPie-Using general requirements-permit(address,address,uint256,uint256,bytes)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-withdraw(uint256,address,address)-rule_not_vacuous
+Violated: sharesBackedByPie-Using general requirements-decreaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-increaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-mint(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-deposit(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-withdraw(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-redeem(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-deposit(uint256,address)-invariant_not_trivial_postcondition
+Violated: zeroAndSelfHoldNoShares-Using general requirements-deposit(uint256,address,uint16)-rule_not_vacuous
+Violated: sharesBackedByPie-Using general requirements-mint(uint256,address)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: sharesBackedByPie-Using general requirements-mint(uint256,address)-rule_not_vacuous
+Violated: sharesBackedByPie-Using general requirements-mint(uint256,address,uint16)-rule_not_vacuous
+Violated: sharesBackedByPie-Using general requirements-deposit(uint256,address,uint16)-rule_not_vacuous
+Violated: zeroAndSelfHoldNoShares-Using general requirements-deposit(uint256,address)-rule_not_vacuous
+Violated: sharesBackedByPie-Using general requirements-deposit(uint256,address)-rule_not_vacuous
+Warning: Summarization for internal calls of SavingsDai._rpow(uint256 x, uint256 n) is unused
+Done 1m
+Done 1m
+[INFO]: Live-mirror upload summary: 741 uploads, 652 unique keys, 89 redundant re-uploads, 1.14 uploads/key.
+[INFO]: s5cmd: cp /home/appuser/code/b91ff71e7cb34cc985b5b30457145a95.tar.gz s3://certora-prod/outputs/60724/output_b91ff71e7cb34cc985b5b30457145a95/b91ff71e7cb34cc985b5b30457145a95.tar.gz
+[INFO]: s5cmd transferred 681 file(s)
+[INFO]: Cache upload took 0.5325 seconds
+[INFO]: Timings :: prover=93.4725 seconds, exit_code=0, timed_out=False
+
+Finished verification request
+[32mNo errors found by Prover![0m
+EXIT 0

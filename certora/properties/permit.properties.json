@@ -1,0 +1,6 @@
+[
+  {"title": "permit_revert_on_expired_or_zero_owner", "sort": "safety_property", "description": "permit reverts if block.timestamp > deadline or owner is the zero address."},
+  {"title": "permit_effects", "sort": "safety_property", "description": "A successful permit(owner, spender, value, ...) sets allowance[owner][spender] to exactly value, increments nonces[owner] by exactly one, and changes no other allowance, nonce or balance."},
+  {"title": "nonces_only_increase_via_permit", "sort": "safety_property", "description": "For any SavingsDai method, nonces never decrease; a nonce changes only by a successful permit for that owner, and then by exactly one."},
+  {"title": "permit_signature_forms_equivalent", "sort": "safety_property", "description": "permit(owner, spender, value, deadline, v, r, s) behaves exactly like permit(owner, spender, value, deadline, abi.encodePacked(r, s, v)): same revert behaviour and same resulting allowance and nonce."}
+]

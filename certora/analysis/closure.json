@@ -1,0 +1,12 @@
+{
+  "main": "src/SavingsDai.sol:SavingsDai",
+  "scene": [
+    {"contract": "SavingsDai", "path": "src/SavingsDai.sol", "kind": "main"},
+    {"contract": "Pot", "path": "certora/harnesses/Pot.sol", "kind": "external model (dss pot.sol port; PotMock lacks drip())", "linked_from": ["SavingsDai.pot"]},
+    {"contract": "Vat", "path": "certora/harnesses/Vat.sol", "kind": "external model (Vat DAI ledger; VatMock reduced to hope/move/suck/heal because VatMock.frob fails instrumentation with stack-too-deep)", "linked_from": ["SavingsDai.vat", "Pot.vat", "DaiJoinMock.vat"]},
+    {"contract": "DaiJoinMock", "path": "src/test/mocks/DaiJoinMock.sol", "kind": "external model (DaiJoin)", "linked_from": ["SavingsDai.daiJoin"]},
+    {"contract": "DaiMock", "path": "src/test/mocks/DaiMock.sol", "kind": "ERC20 asset model (Dai, with mint/burn used by DaiJoin)", "linked_from": ["SavingsDai.dai", "DaiJoinMock.dai"]}
+  ],
+  "excluded": [{"what": "ERC1271 signer", "why": "arbitrary external code; unresolved staticcall is acceptable (view, return value only)"}],
+  "multi_instance_harnesses": []
+}

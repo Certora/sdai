@@ -1,0 +1,8 @@
+{
+  "total_supply_equals_sum_of_balances": ["totalSupplyIsSumOfBalances"],
+  "shares_backed_by_pot_pie": ["sharesBackedByPie"],
+  "zero_and_self_hold_no_shares": ["zeroAndSelfHoldNoShares"],
+  "_skipped": {},
+  "_expected_fail": {},
+  "_status": {"run": "https://prover.certora.com/orgs/certora/jobs/b91ff71e-7cb3-4cc9-85b5-b30457145a95/report", "totalSupplyIsSumOfBalances": "VERIFIED", "sharesBackedByPie": "VERIFIED", "zeroAndSelfHoldNoShares": "VERIFIED"}
+}

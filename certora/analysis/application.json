@@ -1,0 +1,54 @@
+{
+  "application_type": "Yield-bearing vault (ERC4626 wrapper)",
+  "description": "Savings Dai (sDAI) is a tokenized wrapper around MakerDAO's Dai Savings Rate. Users deposit DAI, which is joined into the Vat and then into the Pot; they receive transferable ERC20 shares that represent normalized Pot balance (pie) and accrue value as the Pot's rate accumulator chi grows. It implements ERC4626 with real-time share/asset conversion and EIP-2612/ERC-1271 permit.",
+  "explicit_contracts": [
+    {"name": "SavingsDai", "solidity_identifier": "SavingsDai", "path": "src/SavingsDai.sol", "sort": "singleton",
+     "description": "The sDAI token and ERC4626 vault. Holds the protocol's whole Pot position (pie) in its own name and issues one share per unit of pie."}
+  ],
+  "external_actors": [
+    {"name": "Pot", "interface_path": "src/SavingsDai.sol", "role": "MakerDAO Dai Savings Rate module: tracks normalized savings balances (pie), the rate accumulator chi, last-drip time rho and the savings rate dsr.",
+     "assumptions": ["chi is a RAY-scaled accumulator and drip() sets chi to rpow(dsr, now - rho) * chi / RAY and rho to now", "join(wad) credits pie to msg.sender only, and requires rho == now", "exit(wad) debits pie of msg.sender only", "Modelled by certora/harnesses/Pot.sol, a 0.8 port of dss pot.sol"]},
+    {"name": "Vat", "interface_path": "src/SavingsDai.sol", "role": "MakerDAO CDP engine holding internal DAI balances (rad).",
+     "assumptions": ["move(src,dst,rad) requires src to have authorised msg.sender via hope, and is conserving", "Modelled by src/test/mocks/VatMock.sol"]},
+    {"name": "DaiJoin", "interface_path": "src/SavingsDai.sol", "role": "Adapter converting ERC20 DAI to Vat DAI and back.",
+     "assumptions": ["join(usr,wad) burns wad DAI from msg.sender and moves wad*RAY Vat DAI to usr", "exit(usr,wad) moves wad*RAY Vat DAI from msg.sender and mints wad DAI to usr", "Modelled by src/test/mocks/DaiJoinMock.sol"]},
+    {"name": "Dai", "interface_path": "src/SavingsDai.sol", "role": "The DAI ERC20 token (the vault asset).",
+     "assumptions": ["Standard ERC20 transferFrom semantics, mint/burn by the authorised DaiJoin", "Modelled by src/test/mocks/DaiMock.sol"]},
+    {"name": "ERC1271 signer", "interface_path": "src/SavingsDai.sol", "role": "Smart-contract wallet that may validate permit signatures.",
+     "assumptions": ["Arbitrary code; only its return value matters for permit"]},
+    {"name": "Users", "role": "Token holders, spenders and depositors (EOAs or contracts).", "assumptions": ["Arbitrary behaviour"]}
+  ],
+  "components": {
+    "SavingsDai": [
+      {"name": "ERC20 token",
+       "description": "Transferable share token with allowances.",
+       "entry_points": ["transfer", "transferFrom", "approve", "increaseAllowance", "decreaseAllowance", "balanceOf", "allowance", "totalSupply"],
+       "state": ["totalSupply", "balanceOf", "allowance"],
+       "requirements": [
+         "The implementation must conserve total supply on transfers and move exactly the requested amount between the two accounts.",
+         "The implementation must reject transfers to the zero address and to the token contract itself.",
+         "The implementation must only let a spender move another account's tokens up to its allowance, and must not decrease an infinite allowance.",
+         "The implementation must only change allowances of the caller, except via transferFrom/withdraw/redeem spending and permit."],
+       "interactions": []},
+      {"name": "ERC4626 vault",
+       "description": "Deposit/mint DAI for shares and withdraw/redeem shares for DAI, with previews and conversions at the current (possibly un-dripped) chi.",
+       "entry_points": ["deposit", "deposit(referral)", "mint", "mint(referral)", "withdraw", "redeem", "convertToShares", "convertToAssets", "previewDeposit", "previewMint", "previewWithdraw", "previewRedeem", "maxDeposit", "maxMint", "maxWithdraw", "maxRedeem", "totalAssets", "asset"],
+       "state": ["totalSupply", "balanceOf", "allowance"],
+       "requirements": [
+         "The implementation must back every outstanding share by one unit of pie held by SavingsDai in the Pot.",
+         "The implementation must charge depositors and pay withdrawers amounts consistent with chi, rounding in favour of the vault.",
+         "The implementation must make preview functions agree with the actual operation at the same chi.",
+         "The implementation must only burn an owner's shares by the owner or a sufficiently approved spender."],
+       "interactions": ["Pot (drip, chi, rho, dsr, join, exit)", "DaiJoin (join, exit)", "Dai (transferFrom)"]},
+      {"name": "Permit",
+       "description": "EIP-2612 approvals by ECDSA signature or ERC-1271 contract signature, with per-owner nonces.",
+       "entry_points": ["permit(bytes)", "permit(v,r,s)", "nonces", "DOMAIN_SEPARATOR"],
+       "state": ["nonces", "allowance"],
+       "requirements": [
+         "The implementation must reject expired permits and the zero owner.",
+         "The implementation must consume exactly one nonce per successful permit and only set the allowance of the signing owner.",
+         "The implementation must never decrease a nonce."],
+       "interactions": ["ERC1271 signer (isValidSignature)"]}
+    ]
+  }
+}

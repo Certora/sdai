@@ -1,0 +1,600 @@
+{
+  "main_contract": "src/SavingsDai.sol:SavingsDai",
+  "repo": "https://github.com/makerdao/sdai",
+  "properties": [
+    {
+      "title": "total_supply_equals_sum_of_balances",
+      "sort": "invariant",
+      "description": "totalSupply always equals the sum of balanceOf over all accounts.",
+      "component": "Structural invariants",
+      "rules": [
+        {
+          "rule": "totalSupplyIsSumOfBalances",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b91ff71e-7cb3-4cc9-85b5-b30457145a95/report"
+        }
+      ]
+    },
+    {
+      "title": "shares_backed_by_pot_pie",
+      "sort": "invariant",
+      "description": "The normalized Pot balance held by SavingsDai (pot.pie(sDAI)) is always at least totalSupply, so every outstanding share is backed by one unit of pie.",
+      "component": "Structural invariants",
+      "rules": [
+        {
+          "rule": "sharesBackedByPie",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b91ff71e-7cb3-4cc9-85b5-b30457145a95/report"
+        }
+      ]
+    },
+    {
+      "title": "zero_and_self_hold_no_shares",
+      "sort": "invariant",
+      "description": "The zero address and the SavingsDai contract itself never hold shares.",
+      "component": "Structural invariants",
+      "rules": [
+        {
+          "rule": "zeroAndSelfHoldNoShares",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b91ff71e-7cb3-4cc9-85b5-b30457145a95/report"
+        }
+      ]
+    },
+    {
+      "title": "transfer_moves_exact_amount",
+      "sort": "safety_property",
+      "description": "A successful transfer(to, v) decreases the caller's balance by v and increases to's balance by v (no change when to == caller), leaves every other balance and totalSupply unchanged, and returns true.",
+      "component": "ERC20 token",
+      "rules": [
+        {
+          "rule": "transferMovesExactAmount",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+        }
+      ]
+    },
+    {
+      "title": "transfer_revert_conditions",
+      "sort": "safety_property",
+      "description": "transfer(to, v) (with no ETH sent) reverts if and only if to is the zero address, to is SavingsDai, or the caller's balance is below v.",
+      "component": "ERC20 token",
+      "rules": [
+        {
+          "rule": "transferRevertConditions",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+        }
+      ]
+    },
+    {
+      "title": "transferFrom_moves_exact_amount_and_spends_allowance",
+      "sort": "safety_property",
+      "description": "A successful transferFrom(from, to, v) moves exactly v from from to to, leaves totalSupply unchanged, and if the caller is not from and the allowance is finite, decreases allowance[from][caller] by exactly v; an infinite allowance or a self-spend leaves the allowance unchanged.",
+      "component": "ERC20 token",
+      "rules": [
+        {
+          "rule": "transferFromMovesExactAmountAndSpendsAllowance",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+        }
+      ]
+    },
+    {
+      "title": "transferFrom_revert_conditions",
+      "sort": "safety_property",
+      "description": "transferFrom(from, to, v) (no ETH) reverts if and only if to is zero or SavingsDai, from's balance is below v, or the caller is not from and has a finite allowance below v.",
+      "component": "ERC20 token",
+      "rules": [
+        {
+          "rule": "transferFromRevertConditions",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+        }
+      ]
+    },
+    {
+      "title": "approve_and_allowance_adjustments_are_exact",
+      "sort": "safety_property",
+      "description": "approve sets allowance[caller][spender] to exactly the value; increaseAllowance adds exactly the value (reverting on overflow); decreaseAllowance subtracts exactly the value and reverts iff it exceeds the current allowance. None of them change any balance or other allowance.",
+      "component": "ERC20 token",
+      "rules": [
+        {
+          "rule": "approveIsExact",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+        },
+        {
+          "rule": "increaseAllowanceIsExact",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+        },
+        {
+          "rule": "decreaseAllowanceIsExact",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+        }
+      ]
+    },
+    {
+      "title": "balance_decrease_requires_owner_or_allowance",
+      "sort": "safety_property",
+      "description": "For any SavingsDai method, if an account's share balance decreases by d and the caller is not that account, the caller held an allowance of at least d from that account beforehand.",
+      "component": "ERC20 token",
+      "rules": [
+        {
+          "rule": "balanceDecreaseRequiresOwnerOrAllowance",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+        }
+      ]
+    },
+    {
+      "title": "allowance_changes_only_by_authorized_actions",
+      "sort": "safety_property",
+      "description": "allowance[owner][spender] can increase only through a call by owner (approve/increaseAllowance) or a permit for owner; it can decrease only when the caller is owner or spender, or via permit.",
+      "component": "ERC20 token",
+      "rules": [
+        {
+          "rule": "allowanceChangesOnlyByAuthorizedActions",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+        }
+      ]
+    },
+    {
+      "title": "third_party_balances_unaffected",
+      "sort": "safety_property",
+      "description": "No SavingsDai method changes the share balance of an account that is neither the caller nor an address argument of the call (from/to/receiver/owner).",
+      "component": "ERC20 token",
+      "rules": [
+        {
+          "rule": "thirdPartyBalancesUnaffected",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+        }
+      ]
+    },
+    {
+      "title": "total_supply_changes_only_via_vault_operations",
+      "sort": "safety_property",
+      "description": "totalSupply increases only through deposit/mint and decreases only through withdraw/redeem; ERC20 and permit methods never change it.",
+      "component": "ERC20 token",
+      "rules": [
+        {
+          "rule": "totalSupplyChangesOnlyViaVaultOperations",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+        }
+      ]
+    },
+    {
+      "title": "deposit_accounting",
+      "sort": "safety_property",
+      "description": "A successful deposit(assets, receiver) returns shares = assets*RAY/chi with chi the Pot accumulator after drip, increases receiver's balance and totalSupply by exactly shares, moves exactly assets DAI from the caller, and increases SavingsDai's pie by exactly shares.",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "depositAccounting",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        }
+      ]
+    },
+    {
+      "title": "mint_accounting",
+      "sort": "safety_property",
+      "description": "A successful mint(shares, receiver) returns assets = ceil(shares*chi/RAY), increases receiver's balance and totalSupply by exactly shares, and moves exactly assets DAI from the caller.",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "mintAccounting",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        }
+      ]
+    },
+    {
+      "title": "withdraw_accounting",
+      "sort": "safety_property",
+      "description": "A successful withdraw(assets, receiver, owner) burns shares = ceil(assets*RAY/chi) from owner, decreases totalSupply and SavingsDai's pie by shares, and credits receiver with exactly assets DAI.",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "withdrawAccounting",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        }
+      ]
+    },
+    {
+      "title": "redeem_accounting",
+      "sort": "safety_property",
+      "description": "A successful redeem(shares, receiver, owner) burns exactly shares from owner, decreases totalSupply and SavingsDai's pie by shares, returns assets = floor(shares*chi/RAY) and credits receiver with exactly assets DAI.",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "redeemAccounting",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        }
+      ]
+    },
+    {
+      "title": "withdraw_redeem_require_authorization",
+      "sort": "safety_property",
+      "description": "withdraw/redeem by a caller other than owner succeed only if allowance[owner][caller] covers the burned shares, and spend exactly that many shares of a finite allowance.",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "withdrawRedeemRequireAllowance",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        }
+      ]
+    },
+    {
+      "title": "invalid_receiver_rejected",
+      "sort": "safety_property",
+      "description": "deposit and mint revert when the receiver is the zero address or SavingsDai itself.",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "invalidReceiverRejected",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        }
+      ]
+    },
+    {
+      "title": "previews_match_operations",
+      "sort": "safety_property",
+      "description": "In the same state and block, previewDeposit/previewMint/previewWithdraw/previewRedeem return exactly what deposit/mint/withdraw/redeem then return, even when the Pot has not been dripped.",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "previewDepositMatchesDeposit",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        },
+        {
+          "rule": "previewMintMatchesMint",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        },
+        {
+          "rule": "previewWithdrawMatchesWithdraw",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        },
+        {
+          "rule": "previewRedeemMatchesRedeem",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        }
+      ]
+    },
+    {
+      "title": "conversions_round_in_vault_favor",
+      "sort": "safety_property",
+      "description": "previewMint(s) >= convertToAssets(s) and previewWithdraw(a) >= convertToShares(a): operations where the user specifies the output never charge less than the exact conversion.",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "previewMintRoundsUp",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        },
+        {
+          "rule": "previewWithdrawRoundsUp",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        }
+      ]
+    },
+    {
+      "title": "max_functions_consistent",
+      "sort": "safety_property",
+      "description": "maxRedeem(owner) equals owner's share balance and maxWithdraw(owner) equals convertToAssets of that balance; maxDeposit and maxMint are unbounded.",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "maxFunctionsConsistent",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        },
+        {
+          "rule": "redeemAboveMaxReverts",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        },
+        {
+          "rule": "withdrawAboveMaxReverts",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        }
+      ]
+    },
+    {
+      "title": "no_profit_from_deposit_redeem_roundtrip",
+      "sort": "attack_vector",
+      "description": "Rounding cannot be exploited: within one block, depositing assets and immediately redeeming the received shares never returns more DAI than deposited, and minting shares then withdrawing the paid assets never needs fewer shares than minted.",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "depositRedeemRoundtripNoProfit",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        },
+        {
+          "rule": "mintWithdrawRoundtripNoProfit",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        }
+      ]
+    },
+    {
+      "title": "share_price_never_decreases",
+      "sort": "attack_vector",
+      "description": "No SavingsDai operation decreases the Pot rate accumulator chi, so the DAI value of a share (convertToAssets) cannot be lowered by any user action.",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "sharePriceNeverDecreases",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        }
+      ]
+    },
+    {
+      "title": "vault_ops_do_not_affect_other_holders",
+      "sort": "attack_vector",
+      "description": "deposit/mint/withdraw/redeem do not change the share balance of any account other than the receiver (deposit/mint) or owner (withdraw/redeem), so one user cannot dilute or drain another.",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "depositOpsDoNotAffectOthers",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        },
+        {
+          "rule": "withdrawOpsDoNotAffectOthers",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+        }
+      ]
+    },
+    {
+      "title": "permit_revert_on_expired_or_zero_owner",
+      "sort": "safety_property",
+      "description": "permit reverts if block.timestamp > deadline or owner is the zero address.",
+      "component": "Permit",
+      "rules": [
+        {
+          "rule": "permitRevertsOnExpiredOrZeroOwner",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+        }
+      ]
+    },
+    {
+      "title": "permit_effects",
+      "sort": "safety_property",
+      "description": "A successful permit(owner, spender, value, ...) sets allowance[owner][spender] to exactly value, increments nonces[owner] by exactly one, and changes no other allowance, nonce or balance.",
+      "component": "Permit",
+      "rules": [
+        {
+          "rule": "permitEffects",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+        }
+      ]
+    },
+    {
+      "title": "nonces_only_increase_via_permit",
+      "sort": "safety_property",
+      "description": "For any SavingsDai method, nonces never decrease; a nonce changes only by a successful permit for that owner, and then by exactly one.",
+      "component": "Permit",
+      "rules": [
+        {
+          "rule": "noncesNeverDecrease",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+        },
+        {
+          "rule": "nonceChangesOnlyViaPermit",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+        },
+        {
+          "rule": "permitEffects",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+        }
+      ]
+    },
+    {
+      "title": "permit_signature_forms_equivalent",
+      "sort": "safety_property",
+      "description": "permit(owner, spender, value, deadline, v, r, s) behaves exactly like permit(owner, spender, value, deadline, abi.encodePacked(r, s, v)): same revert behaviour and same resulting allowance and nonce.",
+      "component": "Permit",
+      "rules": [
+        {
+          "rule": "permitSignatureFormsEquivalent",
+          "status": "VIOLATED (expected: prover_limitation)",
+          "outcome": "BAD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report",
+          "expected_fail": {
+            "reason": "prover_limitation",
+            "detail": "The packed 65-byte signature is pinned in CVL byte by byte (signature[i] == byte i of r/s, signature[64] == v). The prover's model of a CVL `bytes` value is a map from byte offset to 32-byte word that is not kept coherent across offsets: the word the contract mloads at offset 0x20 (s) is not tied to the bytes constrained at indices 32..63 (run 53186bb4: sWord = 0xd, byte 63 = 0x0d, yet the word read at 0x20 = 0xc). The bytes form therefore decodes a different s, ecrecover misses owner, the NONDET ERC-1271 fallback fails and only that call reverts. Not a contract behaviour; same result with precise_bitwise_ops. Covered soundly by permitVrsDecodesPackedSignature + permitSignatureFormsSameEffects."
+          }
+        },
+        {
+          "rule": "permitVrsDecodesPackedSignature",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+        },
+        {
+          "rule": "permitSignatureFormsSameEffects",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "title": "Share accounting integrity",
+      "description": "totalSupply equals the sum of balances, zero/self hold nothing, and every share is backed by Pot pie held by sDAI.",
+      "properties": [
+        "total_supply_equals_sum_of_balances",
+        "shares_backed_by_pot_pie",
+        "zero_and_self_hold_no_shares"
+      ]
+    },
+    {
+      "title": "ERC20 transfer correctness",
+      "description": "transfer/transferFrom move exact amounts, conserve supply, and revert exactly when they should.",
+      "properties": [
+        "transfer_moves_exact_amount",
+        "transfer_revert_conditions",
+        "transferFrom_moves_exact_amount_and_spends_allowance",
+        "transferFrom_revert_conditions"
+      ]
+    },
+    {
+      "title": "Allowance and authorization",
+      "description": "Allowances change only by authorized actions and exactly as requested; nobody can reduce another's balance without allowance.",
+      "properties": [
+        "approve_and_allowance_adjustments_are_exact",
+        "balance_decrease_requires_owner_or_allowance",
+        "allowance_changes_only_by_authorized_actions",
+        "withdraw_redeem_require_authorization"
+      ]
+    },
+    {
+      "title": "Isolation between holders",
+      "description": "No operation touches the share balance of an uninvolved account; supply changes only through vault operations.",
+      "properties": [
+        "third_party_balances_unaffected",
+        "vault_ops_do_not_affect_other_holders",
+        "total_supply_changes_only_via_vault_operations"
+      ]
+    },
+    {
+      "title": "Vault deposit/withdraw accounting",
+      "description": "deposit/mint/withdraw/redeem charge and pay exactly per chi with correct rounding, mint/burn exact shares and move exact pie and DAI.",
+      "properties": [
+        "deposit_accounting",
+        "mint_accounting",
+        "withdraw_accounting",
+        "redeem_accounting",
+        "invalid_receiver_rejected"
+      ]
+    },
+    {
+      "title": "ERC4626 view consistency",
+      "description": "Previews equal the actual operations (also before drip), conversions round in the vault's favour, max* functions are consistent.",
+      "properties": [
+        "previews_match_operations",
+        "conversions_round_in_vault_favor",
+        "max_functions_consistent"
+      ]
+    },
+    {
+      "title": "Economic attack resistance",
+      "description": "No rounding round-trip profit; no user action lowers the share price.",
+      "properties": [
+        "no_profit_from_deposit_redeem_roundtrip",
+        "share_price_never_decreases"
+      ]
+    },
+    {
+      "title": "Permit (EIP-2612 / ERC-1271)",
+      "description": "permit rejects expired/zero-owner, sets exactly one allowance, consumes exactly one nonce, and both signature forms agree.",
+      "properties": [
+        "permit_revert_on_expired_or_zero_owner",
+        "permit_effects",
+        "nonces_only_increase_via_permit",
+        "permit_signature_forms_equivalent"
+      ]
+    }
+  ],
+  "justification_rules": [
+    {
+      "rule": "potChiNeverDecreases",
+      "component": "ERC4626 vault",
+      "status": "VERIFIED",
+      "supports": "requirePotChiAtLeastRay (Pot.chi >= RAY) in withdrawAccounting, mintWithdrawRoundtripNoProfit"
+    },
+    {
+      "rule": "daiSupplyIsSumPreserved",
+      "component": "ERC4626 vault",
+      "status": "VERIFIED",
+      "supports": "requireDaiSupplyIsSum (DAI totalSupply == sum of balances) in withdrawAccounting, redeemAccounting"
+    }
+  ],
+  "skipped": [],
+  "findings": [],
+  "coverage_gaps": [
+    {
+      "rule": "permitSignatureFormsEquivalent",
+      "property": "permit_signature_forms_equivalent",
+      "reason": "prover_limitation",
+      "detail": "The packed 65-byte signature is pinned in CVL byte by byte (signature[i] == byte i of r/s, signature[64] == v). The prover's model of a CVL `bytes` value is a map from byte offset to 32-byte word that is not kept coherent across offsets: the word the contract mloads at offset 0x20 (s) is not tied to the bytes constrained at indices 32..63 (run 53186bb4: sWord = 0xd, byte 63 = 0x0d, yet the word read at 0x20 = 0xc). The bytes form therefore decodes a different s, ecrecover misses owner, the NONDET ERC-1271 fallback fails and only that call reverts. Not a contract behaviour; same result with precise_bitwise_ops. Covered soundly by permitVrsDecodesPackedSignature + permitSignatureFormsSameEffects."
+    }
+  ],
+  "rule_outcome_counts": {
+    "GOOD": 40,
+    "BAD": 1
+  },
+  "runs": {
+    "invariants": "https://prover.certora.com/orgs/certora/jobs/b91ff71e-7cb3-4cc9-85b5-b30457145a95/report",
+    "erc20-token": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report",
+    "erc4626-vault": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report",
+    "permit": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report",
+    "sanity": "https://prover.certora.com/orgs/certora/jobs/d5cc3f4a-60d8-4f1f-bae2-f2cab5e629a9/report"
+  },
+  "resolver_hooks": []
+}

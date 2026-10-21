@@ -1,0 +1,1 @@
+{"source": "resolved plan (forge compiler resolve; foundry.toml solc = 0.8.17)", "versions": ["0.8.17"], "closure_versions": ["0.8.17"], "alias_dir": "/Users/shelly/skill-sdai/certora/solc-bin", "aliases": {"solc8.17": "0.8.17"}}

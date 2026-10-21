@@ -1,0 +1,47 @@
+{
+  "transfer_moves_exact_amount": [
+    "transferMovesExactAmount"
+  ],
+  "transfer_revert_conditions": [
+    "transferRevertConditions"
+  ],
+  "transferFrom_moves_exact_amount_and_spends_allowance": [
+    "transferFromMovesExactAmountAndSpendsAllowance"
+  ],
+  "transferFrom_revert_conditions": [
+    "transferFromRevertConditions"
+  ],
+  "approve_and_allowance_adjustments_are_exact": [
+    "approveIsExact",
+    "increaseAllowanceIsExact",
+    "decreaseAllowanceIsExact"
+  ],
+  "balance_decrease_requires_owner_or_allowance": [
+    "balanceDecreaseRequiresOwnerOrAllowance"
+  ],
+  "allowance_changes_only_by_authorized_actions": [
+    "allowanceChangesOnlyByAuthorizedActions"
+  ],
+  "third_party_balances_unaffected": [
+    "thirdPartyBalancesUnaffected"
+  ],
+  "total_supply_changes_only_via_vault_operations": [
+    "totalSupplyChangesOnlyViaVaultOperations"
+  ],
+  "_skipped": {},
+  "_expected_fail": {},
+  "_status": {
+    "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report",
+    "transferMovesExactAmount": "VERIFIED",
+    "transferRevertConditions": "VERIFIED",
+    "transferFromMovesExactAmountAndSpendsAllowance": "VERIFIED",
+    "transferFromRevertConditions": "VERIFIED",
+    "approveIsExact": "VERIFIED",
+    "increaseAllowanceIsExact": "VERIFIED",
+    "decreaseAllowanceIsExact": "VERIFIED",
+    "balanceDecreaseRequiresOwnerOrAllowance": "VERIFIED",
+    "allowanceChangesOnlyByAuthorizedActions": "VERIFIED",
+    "thirdPartyBalancesUnaffected": "VERIFIED",
+    "totalSupplyChangesOnlyViaVaultOperations": "VERIFIED"
+  }
+}

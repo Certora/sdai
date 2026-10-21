@@ -1,0 +1,5 @@
+[
+  {"title": "total_supply_equals_sum_of_balances", "sort": "invariant", "description": "totalSupply always equals the sum of balanceOf over all accounts."},
+  {"title": "shares_backed_by_pot_pie", "sort": "invariant", "description": "The normalized Pot balance held by SavingsDai (pot.pie(sDAI)) is always at least totalSupply, so every outstanding share is backed by one unit of pie."},
+  {"title": "zero_and_self_hold_no_shares", "sort": "invariant", "description": "The zero address and the SavingsDai contract itself never hold shares."}
+]

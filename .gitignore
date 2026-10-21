@@ -1,3 +1,10 @@
 cache/
 out/
 broadcast/
+
+# Certora directories
+**/.certora_internal
+**/.CertoraProverLiteReports
+
+# machine-local solc alias directory (symlinks into ~/.solc-select)
+certora/solc-bin/
