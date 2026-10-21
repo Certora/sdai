@@ -1,0 +1,270 @@
+WARNING: You are using certora-cli version 8.20.0; however, version 8.20.2 is available. It is recommended to upgrade by running: pip install certora-cli --upgrade
+or
+pip3 install certora-cli --upgrade
+Compiling certora/harnesses/Dai.sol...
+Compiling certora/harnesses/Dai.sol to expose internal function information and local variables...
+Compiling certora/harnesses/DaiJoin.sol...
+Compiling certora/harnesses/DaiJoin.sol to expose internal function information and local variables...
+Compiling certora/harnesses/Pot.sol...
+Compiling certora/harnesses/Pot.sol to expose internal function information and local variables...
+Compiling certora/harnesses/SigPacker.sol...
+Compiling certora/harnesses/SigPacker.sol to expose internal function information and local variables...
+Compiling certora/harnesses/Vat.sol...
+Compiling certora/harnesses/Vat.sol to expose internal function information and local variables...
+Compiling src/SavingsDai.sol...
+Compiling src/SavingsDai.sol to expose internal function information and local variables...
+
+Connecting to server...
+[32mStarting job as user shelly@certora.com in org Certora (certora). Reserved 120 minutes: 0 free, 120 billed to Certora.[0m
+
+[32mJob submitted to server[0m
+
+Manage your jobs at https://prover.certora.com/orgs/certora/jobs
+Follow your job and see verification results at https://prover.certora.com/orgs/certora/jobs/5aacf739-5e66-4366-8f6b-f47b269f62ba/report
+Output:
+processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -[INFO]: prover-container-version: 1.1.5
+[INFO]: Overcommit memory value: 1
+[INFO]: s5cmd: cp s3://certora-prod/uploadFiles/60724/5aacf7395e6643668f6bf47b269f62ba.zip /home/appuser/code/job.zip
+[INFO]: s5cmd: cp s3://tac-optimizer-artifacts/8.20.0/tac_optimizer-8.20.0 /home/appuser/bin/tac_optimizer
+[INFO]: s5cmd: cp s3://prover-artifacts/8.20.0/emv-8.20.0.jar /home/appuser/bin/emv.jar
+[INFO]: inputs download time :: 0.8797 seconds
+[INFO]: tac optimizer ready on PATH at /home/appuser/bin/tac_optimizer
+[INFO]: s5cmd transferred 1936 file(s)
+[INFO]: cache download time :: 1.1907 seconds
+[INFO]: Command: java -Xmx31999m -XX:+UseParallelGC -XX:MaxHeapFreeRatio=10 -XX:MinHeapFreeRatio=5 -XX:G1PeriodicGCInterval=15 -XX:NewRatio=5 -XX:+CrashOnOutOfMemoryError -XX:ErrorFile=/home/appuser/code/java_error/java_error%p.log -DoutputUrl=s3://certora-prod/outputs/60724/output_5aacf7395e6643668f6bf47b269f62ba/ -DjobId=5aacf7395e6643668f6bf47b269f62ba -DuserId=60724 -jar /home/appuser/bin/emv.jar -cache 6107b3944737244cfd807a4cf6c9231379ad051b7a6d1b7b47c9495a14b87e53-optimisticTrue-iterNone-None--certora-cli-8.20.0 -assumeUnwindCond -contract SavingsDai -ruleSanityChecks basic -quiet -destructiveOptimizations twostage -userGlobalTimeout 7200 -globalTimeout 7500
+Start Wed Oct 21 01:48:13 GMT 2026
+Start Wed Oct 21 01:48:13 GMT 2026
+Warning: Syntax warning in spec file maker-integration.spec:282:5: maxWithdraw is called with `@withrevert`, it's return values [maxAssets] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+The scene contains 25 contracts:
+Vat : 0xce4604a000000000000000000000000f,
+Dai : 0xce4604a0000000000000000000000001,
+DaiJoin : 0xce4604a0000000000000000000000006,
+Pot : 0xce4604a000000000000000000000000a,
+SavingsDai : 0xce4604a000000000000000000000001a,
+SigPacker : 0xce4604a000000000000000000000000d,
+ecrecover : 0x1,
+sha256 : 0x2,
+ripemd160 : 0x3,
+identity : 0x4,
+bigmod : 0x5,
+bn256Add : 0x6,
+bn256ScalarMul : 0x7,
+bn256Pairing : 0x8,
+Precompiled244 : 0xf4,
+Precompiled245 : 0xf5,
+Precompiled246 : 0xf6,
+Precompiled247 : 0xf7,
+Precompiled248 : 0xf8,
+Precompiled249 : 0xf9,
+Precompiled250 : 0xfa,
+Precompiled251 : 0xfb,
+Precompiled252 : 0xfc,
+Precompiled253 : 0xfd,
+Precompiled254 : 0xfe
+Running initial transformations
+Has CVL checks.
+Checking CVL certora/specs/maker-integration.spec for contract SavingsDai
+Unrolling loops 1 time, unwinding condition is assumed
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-approve(address,uint256)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-allowance(address,address)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-permit(address,address,uint256,uint256,bytes)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-decreaseAllowance(address,uint256)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-increaseAllowance(address,uint256)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-transfer(address,uint256)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-redeem(uint256,address,address)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-mint(uint256,address,uint16)
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-approve(address,uint256)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-increaseAllowance(address,uint256)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-decreaseAllowance(address,uint256)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-allowance(address,address)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-transfer(address,uint256)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-deposit(uint256,address,uint16)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-dai()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-daiJoin()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-symbol()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-version()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-deploymentChainId()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-totalAssets()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-pot()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-asset()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-vat()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-DOMAIN_SEPARATOR()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-decimals()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-PERMIT_TYPEHASH()
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-totalSupply()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-name()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-maxDeposit(address)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-convertToAssets(uint256)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-maxRedeem(address)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-previewMint(uint256)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-previewRedeem(uint256)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-previewDeposit(uint256)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-maxMint(address)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-convertToShares(uint256)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-previewWithdraw(uint256)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-nonces(address)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-withdraw(uint256,address,address)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-maxWithdraw(address)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-balanceOf(address)
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-transferFrom(address,address,uint256)
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-dai()-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-daiJoin()-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-symbol()-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-version()-rule_not_vacuous
+Verified: setupApprovalsPreserved-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Verified: setupApprovalsPreserved-approve(address,uint256)
+Verified: setupApprovalsPreserved-permit(address,address,uint256,uint256,bytes)
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-redeem(uint256,address,address)-rule_not_vacuous
+Verified: setupApprovalsPreserved-decreaseAllowance(address,uint256)
+Verified: setupApprovalsPreserved-increaseAllowance(address,uint256)
+Verified: setupApprovalsPreserved-transfer(address,uint256)
+Verified: setupApprovalsPreserved-allowance(address,address)
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-mint(uint256,address,uint16)-rule_not_vacuous
+Verified: setupApprovalsPreserved-dai()
+Verified: setupApprovalsPreserved-deploymentChainId()
+Verified: setupApprovalsPreserved-totalAssets()
+Verified: setupApprovalsPreserved-daiJoin()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-mint(uint256,address)
+Verified: setupApprovalsPreserved-symbol()
+Verified: setupApprovalsPreserved-version()
+Verified: setupApprovalsPreserved-pot()
+Verified: setupApprovalsPreserved-vat()
+Verified: setupApprovalsPreserved-asset()
+Verified: setupApprovalsPreserved-DOMAIN_SEPARATOR()
+Verified: setupApprovalsPreserved-PERMIT_TYPEHASH()
+Verified: vaultNeverPaysRoundingFromOwnVatBalance-deposit(uint256,address)
+Verified: setupApprovalsPreserved-decimals()
+Verified: setupApprovalsPreserved-totalSupply()
+Verified: setupApprovalsPreserved-name()
+Verified: setupApprovalsPreserved-mint(uint256,address,uint16)
+Verified: setupApprovalsPreserved-convertToAssets(uint256)
+Verified: setupApprovalsPreserved-redeem(uint256,address,address)
+Verified: ownerCanRedeemAll
+Verified: setupApprovalsPreserved-maxDeposit(address)
+Verified: setupApprovalsPreserved-previewDeposit(uint256)
+Verified: setupApprovalsPreserved-previewMint(uint256)
+Verified: setupApprovalsPreserved-previewRedeem(uint256)
+Verified: setupApprovalsPreserved-maxRedeem(address)
+Verified: setupApprovalsPreserved-convertToShares(uint256)
+Verified: setupApprovalsPreserved-previewWithdraw(uint256)
+Verified: setupApprovalsPreserved-maxMint(address)
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-deposit(uint256,address,uint16)-rule_not_vacuous
+Verified: setupApprovalsPreserved-deposit(uint256,address,uint16)
+Verified: setupApprovalsPreserved-nonces(address)
+Verified: setupApprovalsPreserved-balanceOf(address)
+Verified: setupApprovalsPreserved-withdraw(uint256,address,address)
+Verified: setupApprovalsPreserved-maxWithdraw(address)
+Verified: ownerCanWithdrawMax
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-deploymentChainId()-rule_not_vacuous
+Verified: setupApprovalsPreserved-transferFrom(address,address,uint256)
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-pot()-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-asset()-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-vat()-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-decimals()-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-PERMIT_TYPEHASH()-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-totalSupply()-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-DOMAIN_SEPARATOR()-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-maxDeposit(address)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-name()-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-totalAssets()-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-maxRedeem(address)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-convertToAssets(uint256)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-maxMint(address)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-nonces(address)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-balanceOf(address)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-previewMint(uint256)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-previewRedeem(uint256)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-transferFrom(address,address,uint256)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-previewDeposit(uint256)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-maxWithdraw(address)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-convertToShares(uint256)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-previewWithdraw(uint256)-rule_not_vacuous
+Exception in thread "Thread-1" java.io.IOException: Cannot run program "killall": Exec failed, error: 2 (No such file or directory) 
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+	at java.base/java.lang.Runtime.exec(Runtime.java:681)
+	at java.base/java.lang.Runtime.exec(Runtime.java:530)
+	at utils.LongProcessKiller.run(LongProcessKiller.kt:44)
+Caused by: java.io.IOException: Exec failed, error: 2 (No such file or directory) 
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:295)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:225)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126)
+	... 4 more
+Ping 1m - Processed 3/7 (42%) rules. 137 tasks complete, 18 pending.
+Violated: setupApprovalsPreserved-approve(address,uint256)-rule_not_vacuous
+Violated: setupApprovalsPreserved-increaseAllowance(address,uint256)-rule_not_vacuous
+Violated: setupApprovalsPreserved-decreaseAllowance(address,uint256)-rule_not_vacuous
+Violated: setupApprovalsPreserved-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Violated: setupApprovalsPreserved-allowance(address,address)-rule_not_vacuous
+Violated: setupApprovalsPreserved-transfer(address,uint256)-rule_not_vacuous
+Violated: setupApprovalsPreserved-dai()-rule_not_vacuous
+Violated: setupApprovalsPreserved-deploymentChainId()-rule_not_vacuous
+Violated: setupApprovalsPreserved-daiJoin()-rule_not_vacuous
+Violated: setupApprovalsPreserved-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Violated: setupApprovalsPreserved-totalAssets()-rule_not_vacuous
+Verified: setupApprovalsPreserved-mint(uint256,address)
+Verified: setupApprovalsPreserved-deposit(uint256,address)
+Violated: setupApprovalsPreserved-version()-rule_not_vacuous
+Violated: setupApprovalsPreserved-symbol()-rule_not_vacuous
+Violated: setupApprovalsPreserved-pot()-rule_not_vacuous
+Violated: setupApprovalsPreserved-asset()-rule_not_vacuous
+Violated: setupApprovalsPreserved-vat()-rule_not_vacuous
+Violated: setupApprovalsPreserved-PERMIT_TYPEHASH()-rule_not_vacuous
+Violated: setupApprovalsPreserved-DOMAIN_SEPARATOR()-rule_not_vacuous
+Violated: redeemDoesNotDependOnDrip
+Violated: setupApprovalsPreserved-decimals()-rule_not_vacuous
+received `signalSkip` for rule redeemDoesNotDependOnDrip-rule_not_vacuous
+Violated: setupApprovalsPreserved-totalSupply()-rule_not_vacuous
+Violated: setupApprovalsPreserved-name()-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-withdraw(uint256,address,address)-rule_not_vacuous
+Violated: setupApprovalsPreserved-maxDeposit(address)-rule_not_vacuous
+Violated: setupApprovalsPreserved-convertToAssets(uint256)-rule_not_vacuous
+Violated: setupApprovalsPreserved-maxRedeem(address)-rule_not_vacuous
+Violated: setupApprovalsPreserved-previewRedeem(uint256)-rule_not_vacuous
+Violated: setupApprovalsPreserved-previewMint(uint256)-rule_not_vacuous
+Violated: setupApprovalsPreserved-previewDeposit(uint256)-rule_not_vacuous
+Violated: setupApprovalsPreserved-maxMint(address)-rule_not_vacuous
+Violated: setupApprovalsPreserved-convertToShares(uint256)-rule_not_vacuous
+Violated: setupApprovalsPreserved-nonces(address)-rule_not_vacuous
+Violated: setupApprovalsPreserved-previewWithdraw(uint256)-rule_not_vacuous
+Violated: setupApprovalsPreserved-balanceOf(address)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-mint(uint256,address)-rule_not_vacuous
+Violated: vaultNeverPaysRoundingFromOwnVatBalance-deposit(uint256,address)-rule_not_vacuous
+Violated: setupApprovalsPreserved-transferFrom(address,address,uint256)-rule_not_vacuous
+Verified: depositLiveness
+Violated: setupApprovalsPreserved-maxWithdraw(address)-rule_not_vacuous
+Violated: setupApprovalsPreserved-redeem(uint256,address,address)-rule_not_vacuous
+Violated: setupApprovalsPreserved-mint(uint256,address,uint16)-rule_not_vacuous
+Violated: setupApprovalsPreserved-withdraw(uint256,address,address)-rule_not_vacuous
+Violated: setupApprovalsPreserved-deposit(uint256,address,uint16)-rule_not_vacuous
+Violated: setupApprovalsPreserved-mint(uint256,address)-rule_not_vacuous
+Violated: setupApprovalsPreserved-deposit(uint256,address)-rule_not_vacuous
+Violated: ownerCanRedeemAll-rule_not_vacuous
+Violated: ownerCanWithdrawMax-rule_not_vacuous
+Violated: depositLiveness-rule_not_vacuous
+Warning: Summarization for external calls of _.approve(address, uint256) is unused
+Warning: Summarization for external calls of _.hope(address) is unused
+Warning: Summarization for external calls of _.dai() is unused
+Warning: Summarization for external calls of _.vat() is unused
+Ping 2m - Processed 7/7 (100%) rules. 189 tasks complete, 0 pending.
+Done 2m
+Done 2m
+[INFO]: Live-mirror upload summary: 910 uploads, 783 unique keys, 127 redundant re-uploads, 1.16 uploads/key.
+[INFO]: s5cmd: cp /home/appuser/code/5aacf7395e6643668f6bf47b269f62ba.tar.gz s3://certora-prod/outputs/60724/output_5aacf7395e6643668f6bf47b269f62ba/5aacf7395e6643668f6bf47b269f62ba.tar.gz
+[INFO]: s5cmd transferred 2138 file(s)
+[INFO]: Cache upload took 1.4233 seconds
+[INFO]: Timings :: prover=132.1760 seconds, exit_code=100, timed_out=False
+
+Finished verification request
+ERROR: Prover found violations:
+
+[rule] redeemDoesNotDependOnDrip: FAIL
+report url: https://prover.certora.com/orgs/certora/jobs/5aacf739-5e66-4366-8f6b-f47b269f62ba/report
+
+Violations were found
+
+EXIT 1

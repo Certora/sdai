@@ -1,3 +1,5 @@
+> **Pass-1 sections below are SUPERSEDED by the "Pass 2" section**: permitSignatureFormsEquivalent now VERIFIES (SigPacker), and noncesNeverDecrease no longer has a bare require.
+
 # permit: commentary
 
 Final full unfiltered run (iter 4): https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report
@@ -27,3 +29,37 @@ Earlier runs: iter 1 `e5d74496-0be2-43d4-87c7-f7820535d9c2` (full; same picture 
 ## Requests (scene)
 - Optional: replace the NONDET summary of `_.isValidSignature(bytes32, bytes)` with a deterministic one, for example a ghost function `isValidSigG(calledContract, digest, keccak256(signature))` returning bytes4 (`expect bytes4`). This stays sound, because a staticcall to view code with the same input in the same state is deterministic, and it would make ERC-1271-path equivalence expressible across two executions. It would still not fix the CVL `bytes` construction limitation. A harness exposing `abi.encodePacked(r, s, v)` would, but that is outside this component's deliverables.
 - No new structural invariants needed.
+
+## Pass 2
+
+Final full unfiltered run (pass 2 iter 1): https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report
+All seven rules VERIFIED with rule_sanity basic ("No errors found by Prover!"). There are no expected failures any more.
+
+### Changes
+- `using SigPacker as packer;` was added, with `SigPacker.pack(uint8, bytes32, bytes32)` declared envfree. There is no alias clash: invariants.spec declares only `pot`, and scene.spec declares no aliases.
+- `permitSignatureFormsEquivalent` was rewritten and now VERIFIES. It replaces the pass-1 expected-fail version that used CVL byte-indexed `bytes`.
+  - The packed signature is now `packed = packer.pack(v, r, s)`. SigPacker computes `abi.encodePacked(r, s, v)` in Solidity, and the result is returned into CVL and passed to `permit(owner, spender, value, deadline, packed)`. Bytes returned from a contract and passed back stay coherent: the bytes form decodes exactly (v, r, s). So the pass-1 limitation, which came from building the 65 bytes element by element in CVL, does not bite on this route. `requirePacked` is no longer used by this rule.
+  - From the same `storage init`, the rule runs permit(v, r, s) and permit(bytes). It asserts identical revert status, identical `allowance[owner][spender]` and identical `nonces[owner]`.
+  - Assumption: `forall bytes32 d. ecrecover(d, v, r, s) == owner`. This is the same assumption as in pass 1's `permitVrsDecodesPackedSignature`, and it constrains only the uninterpreted ecrecover function.
+    - It is non-vacuous: the sanity check passed.
+    - It is non-trivialising. If either form decoded anything other than (v, r, s), ecrecover there would be unconstrained, the call would reach the NONDET `isValidSignature` staticcall, and the two runs could disagree.
+    - Every digest is quantified because the digest (with the "\x19\x01" prefix) cannot be recomputed in CVL.
+- `noncesNeverDecrease` now has no precondition. The bare `require nonceBefore < max_uint256` was removed, and the assertion is `nonces(holder) >= nonceBefore || (nonceBefore == max_uint256 && nonces(holder) == 0)`. It permits exactly the wrap of the unchecked `nonces[owner]++`, nothing else (judge suggestion 1).
+- `permitVrsDecodesPackedSignature` and `permitSignatureFormsSameEffects` are unchanged. The second still uses `requirePacked`. As the judge noted, under the CVL-`bytes` model that constraint does not tie the bytes the contract reads to (r, s, v), so the rule is effectively signature-agnostic: both forms revert on an expired deadline or a zero owner, and they have the same effects when both succeed.
+
+### Remaining gap (ERC-1271 path)
+- Equivalence is proven when ECDSA decides, that is when ecrecover(digest, v, r, s) == owner.
+- When it does not, both forms reach `owner.staticcall(isValidSignature(digest, packed))`. In the real EVM, the two calls are identical: same state (the nonce is incremented before the call in both forms), same digest, same bytes, and a view callee. So they return the same answer.
+- In the scene, `_.isValidSignature` is NONDET, so the two executions get independent answers, and equivalence of the revert status cannot be stated there. A deterministic ghost was tried at scene level and reverted (scene.spec note, invariants run 401dc586).
+- What is still proven on that path:
+  - When both forms succeed, they produce identical effects (`permitSignatureFormsSameEffects`, `permitEffects`).
+  - Both forms revert on an expired deadline or a zero owner.
+  - The v-form is literally `permit(..., abi.encodePacked(r, s, v))`, so its 1271 call receives exactly the bytes the bytes form would receive.
+
+### Trust assumptions (pass 2)
+- ecrecover is the prover's deterministic uninterpreted function. Two rules use the ECDSA-accepts quantifier over digests: the equivalence rule and the decode rule.
+- `isValidSignature` is NONDET (scene).
+- No other bare requires remain, except the ones in `permitEffects` that define "other" addresses.
+
+### Pass 2 judge note
+ERC-1271 gap caveat: even in the real EVM the two entry points reach the isValidSignature staticcall with different gas remaining, so a gas-dependent signer could answer differently; equivalence on the 1271 path is therefore only expected modulo gas-dependent signers. Judge pass 2 round 1: ACCEPT (permit.judge-pass2-round1.md).

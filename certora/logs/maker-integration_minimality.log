@@ -1,0 +1,295 @@
+WARNING: You are using certora-cli version 8.20.0; however, version 8.20.2 is available. It is recommended to upgrade by running: pip install certora-cli --upgrade
+or
+pip3 install certora-cli --upgrade
+Compiling certora/harnesses/Dai.sol...
+Compiling certora/harnesses/Dai.sol to expose internal function information and local variables...
+Compiling certora/harnesses/DaiJoin.sol...
+Compiling certora/harnesses/DaiJoin.sol to expose internal function information and local variables...
+Compiling certora/harnesses/Pot.sol...
+Compiling certora/harnesses/Pot.sol to expose internal function information and local variables...
+Compiling certora/harnesses/SigPacker.sol...
+Compiling certora/harnesses/SigPacker.sol to expose internal function information and local variables...
+Compiling certora/harnesses/Vat.sol...
+Compiling certora/harnesses/Vat.sol to expose internal function information and local variables...
+Compiling src/SavingsDai.sol...
+Compiling src/SavingsDai.sol to expose internal function information and local variables...
+
+Connecting to server...
+[32mStarting job as user shelly@certora.com in org Certora (certora). Reserved 120 minutes: 0 free, 120 billed to Certora.[0m
+
+[32mJob submitted to server[0m
+
+Manage your jobs at https://prover.certora.com/orgs/certora/jobs
+Follow your job and see verification results at https://prover.certora.com/orgs/certora/jobs/355dfa44-7771-4e21-a854-810363897918/report
+Output:
+processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |[INFO]: prover-container-version: 1.1.5
+[INFO]: Overcommit memory value: 1
+[INFO]: s5cmd: cp s3://tac-optimizer-artifacts/8.20.0/tac_optimizer-8.20.0 /home/appuser/bin/tac_optimizer
+[INFO]: s5cmd: cp s3://certora-prod/uploadFiles/60724/355dfa4477714e21a854810363897918.zip /home/appuser/code/job.zip
+[INFO]: s5cmd: cp s3://prover-artifacts/8.20.0/emv-8.20.0.jar /home/appuser/bin/emv.jar
+[INFO]: inputs download time :: 0.8828 seconds
+[INFO]: tac optimizer ready on PATH at /home/appuser/bin/tac_optimizer
+[INFO]: s5cmd transferred 2438 file(s)
+[INFO]: cache download time :: 1.5206 seconds
+[INFO]: Command: java -Xmx31999m -XX:+UseParallelGC -XX:MaxHeapFreeRatio=10 -XX:MinHeapFreeRatio=5 -XX:G1PeriodicGCInterval=15 -XX:NewRatio=5 -XX:+CrashOnOutOfMemoryError -XX:ErrorFile=/home/appuser/code/java_error/java_error%p.log -DoutputUrl=s3://certora-prod/outputs/60724/output_355dfa4477714e21a854810363897918/ -DjobId=355dfa4477714e21a854810363897918 -DuserId=60724 -jar /home/appuser/bin/emv.jar -cache 6107b3944737244cfd807a4cf6c9231379ad051b7a6d1b7b47c9495a14b87e53-optimisticTrue-iterNone-None--certora-cli-8.20.0 -assumeUnwindCond -contract SavingsDai -rule min* -ruleSanityChecks basic -quiet -destructiveOptimizations twostage -userGlobalTimeout 7200 -globalTimeout 7500
+Start Wed Oct 21 01:55:52 GMT 2026
+Start Wed Oct 21 01:55:52 GMT 2026
+Warning: Syntax warning in spec file maker-integration.spec:282:5: maxWithdraw is called with `@withrevert`, it's return values [maxAssets] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:407:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:461:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:515:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:569:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:623:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:677:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:731:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:785:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:839:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:893:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:947:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:1001:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:1055:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:1109:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:1163:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:1217:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:1271:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:1325:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+Warning: Syntax warning in spec file maker-integration.spec:1379:5: maxWithdraw is called with `@withrevert`, it's return values [m] are undefined if this call reverts. Make sure to check that `!lastReverted` before using them
+The scene contains 25 contracts:
+Vat : 0xce4604a000000000000000000000000f,
+Dai : 0xce4604a0000000000000000000000001,
+DaiJoin : 0xce4604a0000000000000000000000006,
+Pot : 0xce4604a000000000000000000000000a,
+SavingsDai : 0xce4604a000000000000000000000001a,
+SigPacker : 0xce4604a000000000000000000000000d,
+ecrecover : 0x1,
+sha256 : 0x2,
+ripemd160 : 0x3,
+identity : 0x4,
+bigmod : 0x5,
+bn256Add : 0x6,
+bn256ScalarMul : 0x7,
+bn256Pairing : 0x8,
+Precompiled244 : 0xf4,
+Precompiled245 : 0xf5,
+Precompiled246 : 0xf6,
+Precompiled247 : 0xf7,
+Precompiled248 : 0xf8,
+Precompiled249 : 0xf9,
+Precompiled250 : 0xfa,
+Precompiled251 : 0xfb,
+Precompiled252 : 0xfc,
+Precompiled253 : 0xfd,
+Precompiled254 : 0xfe
+Running initial transformations
+Has CVL checks.
+Checking CVL certora/specs/maker-integration.spec for contract SavingsDai
+Unrolling loops 1 time, unwinding condition is assumed
+Exception in thread "Thread-1" java.io.IOException: Cannot run program "killall": Exec failed, error: 2 (No such file or directory) 
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+	at java.base/java.lang.Runtime.exec(Runtime.java:681)
+	at java.base/java.lang.Runtime.exec(Runtime.java:530)
+	at utils.LongProcessKiller.run(LongProcessKiller.kt:44)
+Caused by: java.io.IOException: Exec failed, error: 2 (No such file or directory) 
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:295)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:225)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126)
+	... 4 more
+Ping 1m - Processed 0/59 (0%) rules. 0 tasks complete, 59 pending.
+Violated: minR_noEther
+Violated: minR_potSolvent
+received `signalSkip` for rule minR_noEther-rule_not_vacuous
+received `signalSkip` for rule minR_potSolvent-rule_not_vacuous
+Violated: minR_daiJoinLive
+Violated: minR_rpowMonotone
+Violated: minR_hopeDaiJoin
+received `signalSkip` for rule minR_daiJoinLive-rule_not_vacuous
+received `signalSkip` for rule minR_rpowMonotone-rule_not_vacuous
+received `signalSkip` for rule minR_hopeDaiJoin-rule_not_vacuous
+Violated: minR_potSucks
+Violated: minW_rpowMonotone
+received `signalSkip` for rule minR_potSucks-rule_not_vacuous
+Violated: minR_daiJoinMints
+received `signalSkip` for rule minW_rpowMonotone-rule_not_vacuous
+received `signalSkip` for rule minR_daiJoinMints-rule_not_vacuous
+Violated: minW_potSolvent
+Violated: minW_daiJoinLive
+received `signalSkip` for rule minW_potSolvent-rule_not_vacuous
+received `signalSkip` for rule minW_daiJoinLive-rule_not_vacuous
+Violated: minW_PieCovers
+received `signalSkip` for rule minW_PieCovers-rule_not_vacuous
+Violated: minW_daiJoinMints
+received `signalSkip` for rule minW_daiJoinMints-rule_not_vacuous
+Violated: minW_hopeDaiJoin
+received `signalSkip` for rule minW_hopeDaiJoin-rule_not_vacuous
+Ping 2m - Processed 13/59 (22%) rules. 33 tasks complete, 46 pending.
+Violated: minW_noEther
+received `signalSkip` for rule minW_noEther-rule_not_vacuous
+Violated: minR_PieCovers
+received `signalSkip` for rule minR_PieCovers-rule_not_vacuous
+Violated: minR_dripSin
+Violated: minW_potSucks
+received `signalSkip` for rule minR_dripSin-rule_not_vacuous
+received `signalSkip` for rule minW_potSucks-rule_not_vacuous
+Violated: minR_dripDebt
+received `signalSkip` for rule minR_dripDebt-rule_not_vacuous
+Violated: minW_dripSin
+Violated: minR_exitPotDai
+received `signalSkip` for rule minW_dripSin-rule_not_vacuous
+Violated: minR_exitSdaiDai
+received `signalSkip` for rule minR_exitPotDai-rule_not_vacuous
+received `signalSkip` for rule minR_exitSdaiDai-rule_not_vacuous
+Violated: minR_dripRpowChi
+received `signalSkip` for rule minR_dripRpowChi-rule_not_vacuous
+Violated: minW_dripRpowChi
+received `signalSkip` for rule minW_dripRpowChi-rule_not_vacuous
+Violated: minR_dripVice
+received `signalSkip` for rule minR_dripVice-rule_not_vacuous
+Violated: minR_exitJoinDai
+received `signalSkip` for rule minR_exitJoinDai-rule_not_vacuous
+Violated: minW_exitPotDai
+received `signalSkip` for rule minW_exitPotDai-rule_not_vacuous
+Violated: minW_dripDebt
+Violated: minW_dripVice
+received `signalSkip` for rule minW_dripDebt-rule_not_vacuous
+received `signalSkip` for rule minW_dripVice-rule_not_vacuous
+Ping 3m - Processed 28/59 (47%) rules. 48 tasks complete, 31 pending.
+Violated: minW_exitJoinDai
+Violated: minR_exitDaiBal
+received `signalSkip` for rule minW_exitJoinDai-rule_not_vacuous
+received `signalSkip` for rule minR_exitDaiBal-rule_not_vacuous
+Violated: minR_invariants
+received `signalSkip` for rule minR_invariants-rule_not_vacuous
+Violated: minR_exitDaiSupply
+received `signalSkip` for rule minR_exitDaiSupply-rule_not_vacuous
+Violated: minR_dsr
+received `signalSkip` for rule minR_dsr-rule_not_vacuous
+Violated: minW_dsr
+Violated: minW_exitDaiSupply
+received `signalSkip` for rule minW_dsr-rule_not_vacuous
+received `signalSkip` for rule minW_exitDaiSupply-rule_not_vacuous
+Violated: minD_receiverValid
+received `signalSkip` for rule minD_receiverValid-rule_not_vacuous
+Violated: minW_exitSdaiDai
+received `signalSkip` for rule minW_exitSdaiDai-rule_not_vacuous
+Violated: minW_exitDaiBal
+Violated: minD_callerBal
+received `signalSkip` for rule minW_exitDaiBal-rule_not_vacuous
+received `signalSkip` for rule minD_callerBal-rule_not_vacuous
+Violated: minD_noEther
+Violated: minD_callerAllow
+Violated: minW_invariants
+received `signalSkip` for rule minD_noEther-rule_not_vacuous
+received `signalSkip` for rule minD_callerAllow-rule_not_vacuous
+received `signalSkip` for rule minW_invariants-rule_not_vacuous
+Violated: minD_chi
+received `signalSkip` for rule minD_chi-rule_not_vacuous
+Violated: minD_dsr
+received `signalSkip` for rule minD_dsr-rule_not_vacuous
+Violated: minD_time
+received `signalSkip` for rule minD_time-rule_not_vacuous
+Violated: minD_PieCovers
+received `signalSkip` for rule minD_PieCovers-rule_not_vacuous
+Violated: minD_dripRpowChi
+received `signalSkip` for rule minD_dripRpowChi-rule_not_vacuous
+Ping 4m - Processed 47/59 (79%) rules. 67 tasks complete, 12 pending.
+Violated: minD_hopePot
+Violated: minD_rpowMonotone
+received `signalSkip` for rule minD_hopePot-rule_not_vacuous
+received `signalSkip` for rule minD_rpowMonotone-rule_not_vacuous
+Violated: minD_potSucks
+Violated: minD_supplyHolders
+received `signalSkip` for rule minD_potSucks-rule_not_vacuous
+received `signalSkip` for rule minD_supplyHolders-rule_not_vacuous
+Violated: minD_daiBacked
+received `signalSkip` for rule minD_daiBacked-rule_not_vacuous
+Violated: minD_dripDebt
+received `signalSkip` for rule minD_dripDebt-rule_not_vacuous
+Violated: minD_joinSdaiDai
+received `signalSkip` for rule minD_joinSdaiDai-rule_not_vacuous
+Violated: minD_joinPotDai
+received `signalSkip` for rule minD_joinPotDai-rule_not_vacuous
+Violated: minD_allowJoin
+received `signalSkip` for rule minD_allowJoin-rule_not_vacuous
+Violated: minD_dripVice
+received `signalSkip` for rule minD_dripVice-rule_not_vacuous
+Violated: minD_dripSin
+received `signalSkip` for rule minD_dripSin-rule_not_vacuous
+Violated: minD_joinPie
+received `signalSkip` for rule minD_joinPie-rule_not_vacuous
+Done 4m
+Done 4m
+[INFO]: Live-mirror upload summary: 629 uploads, 390 unique keys, 239 redundant re-uploads, 1.61 uploads/key.
+[INFO]: s5cmd: cp /home/appuser/code/355dfa4477714e21a854810363897918.tar.gz s3://certora-prod/outputs/60724/output_355dfa4477714e21a854810363897918/355dfa4477714e21a854810363897918.tar.gz
+[INFO]: s5cmd transferred 510 file(s)
+[INFO]: Cache upload took 0.7296 seconds
+[INFO]: Timings :: prover=278.2100 seconds, exit_code=100, timed_out=False
+
+Finished verification request
+ERROR: Prover found violations:
+
+[rule] minD_PieCovers: FAIL
+[rule] minD_allowJoin: FAIL
+[rule] minD_callerAllow: FAIL
+[rule] minD_callerBal: FAIL
+[rule] minD_chi: FAIL
+[rule] minD_daiBacked: FAIL
+[rule] minD_dripDebt: FAIL
+[rule] minD_dripRpowChi: FAIL
+[rule] minD_dripSin: FAIL
+[rule] minD_dripVice: FAIL
+[rule] minD_dsr: FAIL
+[rule] minD_hopePot: FAIL
+[rule] minD_joinPie: FAIL
+[rule] minD_joinPotDai: FAIL
+[rule] minD_joinSdaiDai: FAIL
+[rule] minD_noEther: FAIL
+[rule] minD_potSucks: FAIL
+[rule] minD_receiverValid: FAIL
+[rule] minD_rpowMonotone: FAIL
+[rule] minD_supplyHolders: FAIL
+[rule] minD_time: FAIL
+[rule] minR_PieCovers: FAIL
+[rule] minR_daiJoinLive: FAIL
+[rule] minR_daiJoinMints: FAIL
+[rule] minR_dripDebt: FAIL
+[rule] minR_dripRpowChi: FAIL
+[rule] minR_dripSin: FAIL
+[rule] minR_dripVice: FAIL
+[rule] minR_dsr: FAIL
+[rule] minR_exitDaiBal: FAIL
+[rule] minR_exitDaiSupply: FAIL
+[rule] minR_exitJoinDai: FAIL
+[rule] minR_exitPotDai: FAIL
+[rule] minR_exitSdaiDai: FAIL
+[rule] minR_hopeDaiJoin: FAIL
+[rule] minR_invariants: FAIL
+[rule] minR_noEther: FAIL
+[rule] minR_potSolvent: FAIL
+[rule] minR_potSucks: FAIL
+[rule] minR_rpowMonotone: FAIL
+[rule] minW_PieCovers: FAIL
+[rule] minW_daiJoinLive: FAIL
+[rule] minW_daiJoinMints: FAIL
+[rule] minW_dripDebt: FAIL
+[rule] minW_dripRpowChi: FAIL
+[rule] minW_dripSin: FAIL
+[rule] minW_dripVice: FAIL
+[rule] minW_dsr: FAIL
+[rule] minW_exitDaiBal: FAIL
+[rule] minW_exitDaiSupply: FAIL
+[rule] minW_exitJoinDai: FAIL
+[rule] minW_exitPotDai: FAIL
+[rule] minW_exitSdaiDai: FAIL
+[rule] minW_hopeDaiJoin: FAIL
+[rule] minW_invariants: FAIL
+[rule] minW_noEther: FAIL
+[rule] minW_potSolvent: FAIL
+[rule] minW_potSucks: FAIL
+[rule] minW_rpowMonotone: FAIL
+report url: https://prover.certora.com/orgs/certora/jobs/355dfa44-7771-4e21-a854-810363897918/report
+
+Violations were found
+
+EXIT 1

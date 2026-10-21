@@ -1,0 +1,7 @@
+[
+  {"title": "setup_approvals_preserved", "sort": "safety_property", "description": "No SavingsDai method revokes sDAI's Vat hope for DaiJoin or Pot, or lowers its DAI allowance to DaiJoin below type(uint256).max (both set up by the constructor)."},
+  {"title": "owner_can_always_redeem", "sort": "safety_property", "description": "Given a live Maker system (DaiJoin.live == 1, sDAI's constructor approvals in place, Pot authorised on the Vat, Pot's Vat balance covering sDAI's pie, dsr >= RAY), an owner's redeem of their whole balance and withdraw of maxWithdraw never revert."},
+  {"title": "redeem_does_not_depend_on_drip", "sort": "attack_vector", "description": "Probe: owners can redeem even when Pot.drip would revert (e.g. dsr < RAY). Expected to expose that sDAI withdrawals require a successful drip whenever rho < now, while direct Pot users can still exit."},
+  {"title": "deposit_liveness", "sort": "safety_property", "description": "Under the same live-system assumptions, deposit(assets, receiver) by a caller with enough DAI balance and allowance to sDAI does not revert for a valid receiver."},
+  {"title": "vault_never_pays_rounding_from_own_vat_balance", "sort": "attack_vector", "description": "No deposit/mint/withdraw/redeem decreases sDAI's own Vat dai balance: rounding dust always accrues to the vault, never drains it."}
+]

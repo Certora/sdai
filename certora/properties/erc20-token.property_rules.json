@@ -31,7 +31,7 @@
   "_skipped": {},
   "_expected_fail": {},
   "_status": {
-    "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report",
+    "run": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report",
     "transferMovesExactAmount": "VERIFIED",
     "transferRevertConditions": "VERIFIED",
     "transferFromMovesExactAmountAndSpendsAllowance": "VERIFIED",
@@ -42,6 +42,8 @@
     "balanceDecreaseRequiresOwnerOrAllowance": "VERIFIED",
     "allowanceChangesOnlyByAuthorizedActions": "VERIFIED",
     "thirdPartyBalancesUnaffected": "VERIFIED",
-    "totalSupplyChangesOnlyViaVaultOperations": "VERIFIED"
+    "totalSupplyChangesOnlyViaVaultOperations": "VERIFIED",
+    "pass1_run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report",
+    "pass2_note": "Barrier re-run on the pass-2 scene (real dss Dai/DaiJoin ports, SigPacker): full unfiltered, all VERIFIED; spec unchanged."
   }
 }

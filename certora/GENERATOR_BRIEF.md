@@ -3,8 +3,8 @@
 Project root: `/Users/shelly/skill-sdai`. Main contract: `src/SavingsDai.sol:SavingsDai`.
 
 ## Scene (fixed — do not edit these files; hand back requests instead)
-- `certora/confs/base.conf` — autosetup base conf + explicit `link`s (SavingsDai.pot/vat/daiJoin/dai, DaiJoinMock.vat/dai, Pot.vat).
-- Contracts: `SavingsDai`, `Pot` (certora/harnesses/Pot.sol, port of dss pot.sol with real `drip`), `Vat` (certora/harnesses/Vat.sol, DAI ledger only), `DaiJoinMock`, `DaiMock` (src/test/mocks).
+- `certora/confs/base.conf` — autosetup base conf + explicit `link`s (SavingsDai.pot/vat/daiJoin/dai, DaiJoin.vat/dai, Pot.vat).
+- Contracts (PASS 2 scene): `SavingsDai`, `Pot` (certora/harnesses/Pot.sol, port of dss pot.sol), `Vat` (certora/harnesses/Vat.sol, DAI ledger only), `DaiJoin` (certora/harnesses/DaiJoin.sol, port of the real dss DaiJoin: has `live`/`cage`, `exit` requires live == 1), `Dai` (certora/harnesses/Dai.sol, port of mainnet dss dai.sol v1: checked math, no receiver checks, push/pull/move, DAI-style permit), `SigPacker` (certora/harnesses/SigPacker.sol: `pack(v, r, s)` returns abi.encodePacked(r, s, v)). DaiJoinMock / DaiMock are NO LONGER in the scene.
 - `certora/specs/scene.spec` — `_rpow` in SavingsDai and Pot summarized by one ghost function `rpowG(x, n, base)`; `_.isValidSignature` NONDET. Defines `RAY()`.
 - `certora/specs/invariants.spec` — proven structural invariants: `totalSupplyIsSumOfBalances()`, `sharesBackedByPie()`, `zeroAndSelfHoldNoShares()` (plus the `sumOfBalances` ghost + hooks). It declares `using Pot as pot;` and envfree `totalSupply`, `balanceOf`, `Pot.pie`.
 
@@ -15,7 +15,7 @@ import "summaries/SavingsDai_call_resolution.spec";
 import "scene.spec";
 import "invariants.spec";
 ```
-(Importing invariants.spec brings in `using Pot as pot` — do not redeclare that alias; add your own `using` lines for other contracts, e.g. `using DaiMock as daiToken; using Vat as vat;` — check alias names don't clash with SavingsDai getters like `dai()`, `vat()`, `pot()`.)
+(Importing invariants.spec brings in `using Pot as pot` — do not redeclare that alias; add your own `using` lines for other contracts, e.g. `using Dai as daiToken; using Vat as vatC; using DaiJoin as join;` — check alias names don't clash with SavingsDai getters like `dai()`, `vat()`, `pot()`.)
 
 ## Conf
 Write `certora/confs/<slug>.conf` = `certora/confs/invariants.conf` with `verify` changed to `SavingsDai:certora/specs/<slug>.spec` and `msg` to `"<slug> iter N"` (msg chars: letters, digits, spaces and `()[]'"-_.,:/\=*$` only). Keep `rule_sanity: basic`, `optimistic_loop`, `wait_for_results: all`, `parametric_contracts: ["SavingsDai"]`, links. You may add `"rule": [...]` for cheap iterations but the final run must have no rule filter. If you need `precise_bitwise_ops` or `smt_timeout`/`prover_args` tweaks, add them to your own conf only and note it.

@@ -9,3 +9,6 @@ Run (iter 2, full, unfiltered): https://prover.certora.com/orgs/certora/jobs/b91
 - Trust assumptions: `_rpow` summarized by the ghost function `rpowG` (never reverts). Pot and Vat are verification models (certora/harnesses).
 - `parametric_contracts: ["SavingsDai"]`: invariants range over SavingsDai's methods; the scene models (Pot, Vat, DaiJoinMock, DaiMock) are external MakerDAO components whose own correctness is outside this task. `optimistic_loop` only affects permit's memory-copy loops (rpow loops are summarized), which these invariants don't read.
 - Judge round 1: ACCEPT (certora/properties/invariants.judge-round1.md).
+
+## Pass 2
+Scene changed (DaiMock/DaiJoinMock -> faithful dss Dai/DaiJoin ports, SigPacker added). Spec unchanged; barrier re-run, full and unfiltered: all VERIFIED — https://prover.certora.com/orgs/certora/jobs/7a094bd0-a0b9-4458-aaaa-d308a0c25dbd/report

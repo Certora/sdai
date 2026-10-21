@@ -1,0 +1,38 @@
+{
+  "setup_approvals_preserved": [
+    "setupApprovalsPreserved"
+  ],
+  "owner_can_always_redeem": [
+    "ownerCanRedeemAll",
+    "ownerCanWithdrawMax"
+  ],
+  "redeem_does_not_depend_on_drip": [
+    "redeemDoesNotDependOnDrip"
+  ],
+  "deposit_liveness": [
+    "depositLiveness"
+  ],
+  "vault_never_pays_rounding_from_own_vat_balance": [
+    "vaultNeverPaysRoundingFromOwnVatBalance"
+  ],
+  "_skipped": {},
+  "_expected_fail": {
+    "redeemDoesNotDependOnDrip": {
+      "reason": "finding",
+      "detail": "With every live-system precondition except dsr >= RAY, an owner's redeem of their full balance reverts: when block.timestamp > Pot.rho, SavingsDai.redeem calls Pot.drip, which computes chi' = rmul(rpow(dsr, now - rho), chi) < chi for dsr < RAY and reverts on the checked `tmp - chi` underflow. CEX (run d239cba6/5aacf739): dsr = 0.5 RAY, rho = 4, now = 7, rpow(dsr,1) < RAY, owner holds 1 share; Pot.drip reverts, so redeem reverts. Impact: if governance ever files dsr < RAY (Pot.file has no lower bound), every sDAI deposit/mint/withdraw/redeem reverts from the next block on, and since Pot.file itself requires rho == now (which needs a successful drip) the rate cannot be corrected except by Pot.cage (which resets dsr = RAY). Direct Pot depositors are not affected: Pot.exit has no rho == now requirement and lets them leave at the last stored chi. sDAI holders' DAI is frozen until cage.",
+      "cex_note": "Trace values (run d239cba6): dsr=0.5 RAY, rho=4, now=7, rpowG(0.5 RAY,3,RAY)=1 (uninterpreted; real _rpow gives 0.125 RAY), chi~2.4e55. Holds for the real _rpow for every dsr < RAY."
+    }
+  },
+  "_status": {
+    "run": "https://prover.certora.com/orgs/certora/jobs/d239cba6-7903-4e49-b2ed-66a9b0b66288/report",
+    "rules": {
+      "setupApprovalsPreserved": "VERIFIED (40/40 methods)",
+      "vaultNeverPaysRoundingFromOwnVatBalance": "VERIFIED (40/40 methods)",
+      "ownerCanRedeemAll": "VERIFIED",
+      "ownerCanWithdrawMax": "VERIFIED",
+      "depositLiveness": "VERIFIED",
+      "redeemDoesNotDependOnDrip": "VIOLATED (expected: finding)"
+    },
+    "minimality_run": "https://prover.certora.com/orgs/certora/jobs/355dfa44-7771-4e21-a854-810363897918/report"
+  }
+}

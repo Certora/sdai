@@ -47,7 +47,7 @@
   "_expected_fail": {},
   "_justification_rules": {
     "potChiNeverDecreases": "supports the requirePotChiAtLeastRay trust assumption used in withdrawAccounting and mintWithdrawRoundtripNoProfit",
-    "daiSupplyIsSumPreserved": "supports requireDaiSupplyIsSum (DAI totalSupply == ghost sum of DaiMock balances; with the Sload hook gives balance <= totalSupply) used in withdrawAccounting and redeemAccounting"
+    "daiSupplyIsSumPreserved": "pass 2: proves every state-changing Dai entry point (transfer, transferFrom, mint, burn, approve, push, pull, move, rely, deny, permit) preserves Dai.totalSupply == ghost sum of Dai balances. No vault rule consumes requireDaiSupplyIsSum anymore (the real Dai's checked add makes a wrap revert, not succeed), so it is retained as a proven fact about the DAI model, not as a justification for any bare require."
   },
   "_status": {
     "iter2": {
@@ -82,7 +82,35 @@
         "withdrawRedeemRequireAllowance": "VERIFIED"
       }
     },
-    "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report",
-    "note": "iter 3 (round 2) full unfiltered run: all rules VERIFIED incl. rule_not_vacuous (confirmed from treeViewStatus_18.json by orchestrator; client disconnected before final summary)"
+    "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report",
+    "note": "pass 2 iter 1 (new scene: Dai + DaiJoin) full unfiltered run, rule_sanity basic: all 23 rules VERIFIED, all 225 tree nodes incl. every rule_not_vacuous child VERIFIED (read from treeViewStatus_18.json in the job archive; the local client disconnected with HTTP 401 before the final summary, so the log's 'Violations were found' is the disconnect, not a result)",
+    "pass2_iter1": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report",
+      "rules": {
+        "daiSupplyIsSumPreserved": "VERIFIED",
+        "depositAccounting": "VERIFIED",
+        "depositOpsDoNotAffectOthers": "VERIFIED",
+        "depositRedeemRoundtripNoProfit": "VERIFIED",
+        "envfreeFuncsStaticCheck": "VERIFIED",
+        "invalidReceiverRejected": "VERIFIED",
+        "maxFunctionsConsistent": "VERIFIED",
+        "mintAccounting": "VERIFIED",
+        "mintWithdrawRoundtripNoProfit": "VERIFIED",
+        "potChiNeverDecreases": "VERIFIED",
+        "previewDepositMatchesDeposit": "VERIFIED",
+        "previewMintMatchesMint": "VERIFIED",
+        "previewMintRoundsUp": "VERIFIED",
+        "previewRedeemMatchesRedeem": "VERIFIED",
+        "previewWithdrawMatchesWithdraw": "VERIFIED",
+        "previewWithdrawRoundsUp": "VERIFIED",
+        "redeemAboveMaxReverts": "VERIFIED",
+        "redeemAccounting": "VERIFIED",
+        "sharePriceNeverDecreases": "VERIFIED",
+        "withdrawAboveMaxReverts": "VERIFIED",
+        "withdrawAccounting": "VERIFIED",
+        "withdrawOpsDoNotAffectOthers": "VERIFIED",
+        "withdrawRedeemRequireAllowance": "VERIFIED"
+      }
+    }
   }
 }

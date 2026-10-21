@@ -19,3 +19,6 @@ No summaries beyond those in the shared scene (scene.spec: `rpowG` ghost for `_r
 
 ## Expected failures / skipped
 None.
+
+## Pass 2
+Scene changed (DaiMock/DaiJoinMock -> faithful dss Dai/DaiJoin ports, SigPacker added). Spec unchanged; barrier re-run, full and unfiltered: all VERIFIED — https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report

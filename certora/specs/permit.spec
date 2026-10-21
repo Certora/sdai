@@ -3,6 +3,10 @@ import "summaries/SavingsDai_call_resolution.spec";
 import "scene.spec";
 import "invariants.spec";
 
+// SigPacker (certora/harnesses/SigPacker.sol): pure helper, pack(v, r, s) = abi.encodePacked(r, s, v).
+// Alias `packer` does not clash with invariants.spec (`pot`) or scene.spec (no aliases).
+using SigPacker as packer;
+
 /*
  * Permit (EIP-2612 / ERC-1271) properties of SavingsDai (batch slug: permit).
  * Properties: certora/properties/permit.properties.json
@@ -18,6 +22,7 @@ import "invariants.spec";
 methods {
     function nonces(address) external returns (uint256) envfree;
     function allowance(address, address) external returns (uint256) envfree;
+    function SigPacker.pack(uint8, bytes32, bytes32) external returns (bytes) envfree;
 }
 
 definition TWO_256() returns mathint = 2^256;
@@ -95,21 +100,17 @@ rule permitEffects(env e, bool bytesForm, address owner, address spender, uint25
 // ---------------------------------------------------------------------------
 
 /// nonces_only_increase_via_permit (monotonicity part)
-/// No SavingsDai method decreases any nonce.
+/// No SavingsDai method decreases any nonce, except the wrap max_uint256 -> 0 of the unchecked
+/// increment, which the assertion names explicitly (no precondition).
 rule noncesNeverDecrease(env e, method f, calldataarg args, address holder) {
     uint256 nonceBefore = nonces(holder);
-    // Trust assumption (documented): nonces[holder] == max_uint256 is excluded. Every nonce
-    // starts at 0 and the only write to `nonces` is the unchecked `nonces[owner]++` in
-    // permit, which advances it by exactly one per successful permit (nonceChangesOnlyViaPermit
-    // / permitEffects prove this without any such assumption). Reaching max_uint256 therefore
-    // needs 2^256 - 1 successful permit transactions for one owner, which is physically
-    // infeasible. At that single unreachable value the increment would wrap to 0; see
-    // permit.commentary.md.
-    require nonceBefore < max_uint256;
 
     f(e, args);
 
-    assert nonces(holder) >= nonceBefore;
+    // No assumption: the single permitted "decrease" is the wrap of the unchecked
+    // `nonces[owner]++` at max_uint256 (unreachable in practice: it needs 2^256 - 1 successful
+    // permits for one owner, each advancing the nonce by exactly one - nonceChangesOnlyViaPermit).
+    assert nonces(holder) >= nonceBefore || (nonceBefore == max_uint256 && nonces(holder) == 0);
 }
 
 /// nonces_only_increase_via_permit (only-permit / exactly-one part)
@@ -211,30 +212,26 @@ function requirePacked(bytes signature, uint256 rWord, uint256 sWord, uint8 v) {
 
 /// permit_signature_forms_equivalent
 /// From the same pre-state, permit(owner, spender, value, deadline, v, r, s) and
-/// permit(owner, spender, value, deadline, abi.encodePacked(r, s, v)) have the same revert
-/// behaviour and leave the same allowance[owner][spender] and nonces[owner].
+/// permit(owner, spender, value, deadline, packed) with packed = abi.encodePacked(r, s, v) have the same
+/// revert behaviour and leave the same allowance[owner][spender] and nonces[owner].
 ///
-/// Scope: the ECDSA path decides. ecrecover is a deterministic uninterpreted function, but the
-/// digest cannot be recomputed in CVL (abi.encodePacked with the 2-byte "\x19\x01" prefix), so
-/// (v, r, s) is assumed to recover `owner` for every digest. This constrains only the ecrecover
-/// model, not the contract; with it, both forms must accept exactly when deadline/owner/msg.value
-/// allow. If the v-form decoded different (v, r, s) than were passed, ecrecover would be
-/// unconstrained there and the rule would fail. The ERC-1271 path cannot be compared across two
-/// executions because isValidSignature is NONDET in the scene (each call returns a fresh value);
-/// that case is covered by permitSignatureFormsSameEffects below and recorded in the commentary.
+/// packed is built by Solidity (SigPacker.pack, a pure abi.encodePacked(r, s, v)), not in CVL, so the
+/// bytes value handed to permit(bytes) is the contract-built packed encoding.
 ///
-/// EXPECTED TO FAIL (prover limitation): the prover's model of a CVL `bytes` value does not keep
-/// byte-indexed elements coherent with the 32-byte words the contract mloads, so the bytes form
-/// decodes a different (r, s) than requirePacked pinned (see permit.commentary.md, run 53186bb4).
-/// The sound replacement is permitVrsDecodesPackedSignature.
+/// Scope: the ECDSA path decides. The digest cannot be recomputed in CVL (abi.encodePacked with the
+/// 2-byte "\x19\x01" prefix), so (v, r, s) is assumed to recover `owner` for every digest. This
+/// constrains only the uninterpreted ecrecover function, not the contract. If either form decoded
+/// anything other than (v, r, s) from its bytes, ecrecover would be unconstrained there, the call
+/// would fall through to the NONDET ERC-1271 staticcall and the two runs could disagree, so the
+/// rule would fail. Not covered: signatures for which ecrecover does not return owner, where the
+/// ERC-1271 fallback decides; under the NONDET scene summary the two executions' isValidSignature
+/// answers are independent (see permit.commentary.md, Pass 2).
 rule permitSignatureFormsEquivalent(env e, address owner, address spender, uint256 value,
-                                    uint256 deadline, uint8 v, uint256 rWord, uint256 sWord,
-                                    bytes signature) {
-    bytes32 r = to_bytes32(rWord);
-    bytes32 s = to_bytes32(sWord);
-    requirePacked(signature, rWord, sWord, v);
-    // ECDSA path accepts (see rule comment): an assumption on the ecrecover ghost only.
+                                    uint256 deadline, uint8 v, bytes32 r, bytes32 s) {
+    // ECDSA path accepts (see rule comment): an assumption on the ecrecover function only.
     require forall bytes32 d. ecrecover(d, v, r, s) == owner;
+
+    bytes packed = packer.pack(v, r, s);
 
     storage init = lastStorage;
 
@@ -243,7 +240,7 @@ rule permitSignatureFormsEquivalent(env e, address owner, address spender, uint2
     uint256 allowanceVrs = allowance(owner, spender);
     uint256 nonceVrs = nonces(owner);
 
-    permit@withrevert(e, owner, spender, value, deadline, signature) at init;
+    permit@withrevert(e, owner, spender, value, deadline, packed) at init;
     bool revertedBytes = lastReverted;
     uint256 allowanceBytes = allowance(owner, spender);
     uint256 nonceBytes = nonces(owner);

@@ -10,6 +10,9 @@
  *
  * isValidSignature: ERC-1271 signer contracts are arbitrary external code reached through a
  * staticcall, so they cannot change state; a NONDET return value is a sound model.
+ * (Pass 2 tried a deterministic ghost of (signer, digest, keccak256(signature)) via a CVL
+ * function taking `bytes`; the prover then reported impossible storage changes inside
+ * permit(bytes) (invariants run 401dc586), so the NONDET model was restored.)
  *
  * hope / approve / vat / dai (wildcard, UNRESOLVED policy only): these apply only to calls whose
  * target the prover cannot resolve, which in this scene happens solely in SavingsDai's
@@ -18,7 +21,7 @@
  * code, so no callee can re-enter it; NONDET therefore cannot hide any change to SavingsDai
  * state, Pot.pie or CVL ghosts; it only stops the default havoc from wiping ghosts in the
  * invariant base case. It DOES drop the constructor's real writes to Vat.can and
- * DaiMock.allowance, so no invariant reading those may rely on this summary for its base case.
+ * Dai.allowance, so no invariant reading those may rely on this summary for its base case.
  */
 
 definition RAY() returns uint256 = 10^27;

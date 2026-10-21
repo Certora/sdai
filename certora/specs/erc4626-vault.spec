@@ -10,7 +10,7 @@ import "invariants.spec";
  * `pot` (alias of the Pot model) comes from invariants.spec.
  */
 
-using DaiMock as daiToken;
+using Dai as daiToken;
 
 methods {
     function allowance(address, address) external returns (uint256) envfree;
@@ -20,8 +20,8 @@ methods {
     function Pot.chi() external returns (uint256) envfree;
     function Pot.rho() external returns (uint256) envfree;
     function Pot.dsr() external returns (uint256) envfree;
-    function DaiMock.balanceOf(address) external returns (uint256) envfree;
-    function DaiMock.totalSupply() external returns (uint256) envfree;
+    function Dai.balanceOf(address) external returns (uint256) envfree;
+    function Dai.totalSupply() external returns (uint256) envfree;
 }
 
 // ---------------------------------------------------------------------------
@@ -63,8 +63,10 @@ function requirePotChiAtLeastRay() {
 }
 
 // ---------------------------------------------------------------------------
-// DAI token sum of balances (ghost + hooks on DaiMock.balanceOf, via the daiToken alias).
+// DAI token sum of balances (ghost + hooks on Dai.balanceOf, via the daiToken alias).
 // Separate ghost from invariants.spec's sumOfBalances (which tracks SavingsDai.balanceOf).
+// Pass 2: the real Dai uses checked add/sub everywhere, so no vault rule needs this anymore
+// (see commentary); it is kept as a proven fact about the DAI model.
 // ---------------------------------------------------------------------------
 
 ghost mathint sumDaiBalances {
@@ -80,14 +82,9 @@ hook Sload uint256 bal daiToken.balanceOf[KEY address a] {
     require sumDaiBalances >= to_mathint(bal);
 }
 
-/// DAI totalSupply equals the sum of all DAI balances. Justified by:
-///  - base case: DaiMock's constructor writes no balance and leaves totalSupply = 0 (and the
-///    ghost's init_state is 0);
-///  - step: the justification rule `daiSupplyIsSumPreserved` (below) proves every state-changing
-///    DaiMock entry point preserves it. Only DaiMock writes DaiMock storage, so this also covers
-///    DaiMock calls made by DaiJoinMock and SavingsDai.
-/// Combined with the Sload hook it yields balanceOf(a) <= totalSupply for every account a read,
-/// which is what DaiMock.mint's unchecked `balanceOf[to] + value` relies on.
+/// DAI totalSupply equals the sum of all DAI balances. Used only as the induction hypothesis of
+/// `daiSupplyIsSumPreserved`. Base case: Dai's constructor writes no balance and leaves
+/// totalSupply = 0 (and the ghost's init_state is 0).
 function requireDaiSupplyIsSum() {
     require to_mathint(daiToken.totalSupply()) == sumDaiBalances;
     return;
@@ -196,7 +193,6 @@ rule mintAccounting(env e, uint256 shares, address receiver) {
 rule withdrawAccounting(env e, uint256 assets, address receiver, address owner) {
     requireStructuralInvariants();
     requirePotChiAtLeastRay();
-    requireDaiSupplyIsSum();
 
     mathint chiExpected   = expectedChi(e);
     mathint ownerBefore   = balanceOf(owner);
@@ -221,7 +217,6 @@ rule withdrawAccounting(env e, uint256 assets, address receiver, address owner) 
 
 rule redeemAccounting(env e, uint256 shares, address receiver, address owner) {
     requireStructuralInvariants();
-    requireDaiSupplyIsSum();
 
     mathint chiExpected   = expectedChi(e);
     mathint ownerBefore   = balanceOf(owner);
@@ -452,42 +447,39 @@ rule potChiNeverDecreases(env e, uint8 which, uint256 x, bytes32 what, address a
 }
 
 // ---------------------------------------------------------------------------
-// Justification rule for requireDaiSupplyIsSum: every state-changing DaiMock entry point,
-// called directly with an arbitrary env and arguments, preserves totalSupply == sum of balances.
+// DAI supply == sum of balances is preserved by every state-changing Dai entry point, called
+// directly with an arbitrary env and arguments. Only Dai code writes Dai storage, so this also
+// covers the Dai calls made by DaiJoin (mint/burn) and SavingsDai (transferFrom/approve).
+// Dai's arithmetic is checked (add/sub helpers), so unlike the pass-1 DaiMock version no
+// pairwise balance bound is needed: an overflowing credit reverts.
 // ---------------------------------------------------------------------------
 
-rule daiSupplyIsSumPreserved(env e, uint8 which, address a, address b, uint256 x, uint256 deadline,
-                             bytes signature, uint8 v, bytes32 r, bytes32 s) {
+rule daiSupplyIsSumPreserved(env e, uint8 which, address a, address b, uint256 x, uint256 y,
+                             bool allowed, uint8 v, bytes32 r, bytes32 s) {
     requireDaiSupplyIsSum(); // induction hypothesis
-    // The ghost is the sum of all (non-negative) balances, so two DISTINCT accounts' balances
-    // together never exceed it. (The Sload hook only bounds single balances.) Needed for the
-    // unchecked `balanceOf[to] += value` in transfer/transferFrom; the pairs are exactly the
-    // (from, to) pairs those functions touch.
-    require e.msg.sender != a => daiToken.balanceOf(e.msg.sender) + daiToken.balanceOf(a) <= sumDaiBalances;
-    require a != b => daiToken.balanceOf(a) + daiToken.balanceOf(b) <= sumDaiBalances;
 
     if (which == 0) {
         daiToken.transfer(e, a, x);
     } else if (which == 1) {
         daiToken.transferFrom(e, a, b, x);
     } else if (which == 2) {
-        daiToken.approve(e, a, x);
-    } else if (which == 3) {
-        daiToken.increaseAllowance(e, a, x);
-    } else if (which == 4) {
-        daiToken.decreaseAllowance(e, a, x);
-    } else if (which == 5) {
         daiToken.mint(e, a, x);
-    } else if (which == 6) {
+    } else if (which == 3) {
         daiToken.burn(e, a, x);
+    } else if (which == 4) {
+        daiToken.approve(e, a, x);
+    } else if (which == 5) {
+        daiToken.push(e, a, x);
+    } else if (which == 6) {
+        daiToken.pull(e, a, x);
     } else if (which == 7) {
-        daiToken.rely(e, a);
+        daiToken.move(e, a, b, x);
     } else if (which == 8) {
-        daiToken.deny(e, a);
+        daiToken.rely(e, a);
     } else if (which == 9) {
-        daiToken.permit(e, a, b, x, deadline, signature);
+        daiToken.deny(e, a);
     } else {
-        daiToken.permit(e, a, b, x, deadline, v, r, s);
+        daiToken.permit(e, a, b, x, y, allowed, v, r, s);
     }
 
     assert to_mathint(daiToken.totalSupply()) == sumDaiBalances, "DAI totalSupply != sum of balances";

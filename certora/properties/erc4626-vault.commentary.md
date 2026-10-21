@@ -32,3 +32,19 @@ None.
 
 ## Requests
 - Structural invariant for the scene: `Pot.chi() >= RAY` (would replace bare require #1; needs a setup where Pot's constructor/state is in scope, e.g. a Pot-verifying conf).
+
+## Pass 2 (scene: DaiMock -> Dai, DaiJoinMock -> DaiJoin)
+Final full unfiltered run (pass2 iter 1, rule_sanity basic): https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report. All 23 rules VERIFIED, and all 225 tree nodes, including every `rule_not_vacuous` child, are VERIFIED. The local client disconnected (HTTP 401) before the final summary, so the statuses were read from `treeViewStatus_18.json` in the job's output archive.
+
+Changes:
+- `using DaiMock as daiToken` became `using Dai as daiToken`. The methods entries `DaiMock.balanceOf`/`totalSupply` became `Dai.*`. The ghost hooks still go through the `daiToken` alias, which now points at `Dai.balanceOf`. The spec never named DaiJoin, so nothing changed there.
+- `daiSupplyIsSumPreserved` now calls every state-changing entry point of the real Dai: transfer, transferFrom, mint, burn, approve, push, pull, move, rely, deny, and the DAI-style `permit(holder, spender, nonce, expiry, allowed, v, r, s)`. DaiMock's increase/decreaseAllowance and its two EIP-2612 permits no longer exist and were dropped.
+- **Removed the pairwise require** (`bal(p) + bal(q) <= sum` for distinct p and q) from `daiSupplyIsSumPreserved`. It was needed only because DaiMock's transfer added without a check. Dai's `add` is checked, so an overflowing credit reverts and the rule verifies with only the induction hypothesis.
+- **Removed `requireDaiSupplyIsSum()` from withdrawAccounting and redeemAccounting.** In pass 1 it ruled out a spurious success where DaiMock.mint's unchecked `balanceOf[usr] + wad` wrapped. Dai.mint uses the checked `add` for both the balance and totalSupply, so a would-be wrap now reverts. These success-only rules make no claim about reverting paths, so they hold without the assumption, and both VERIFIED without it.
+- `requireDaiSupplyIsSum()` now appears only as the induction hypothesis inside `daiSupplyIsSumPreserved`. That rule is kept as a proven fact about the DAI model, but no vault rule depends on it anymore.
+- DaiJoin's `live` flag and `exit` (which requires live == 1) only add revert paths to withdraw and redeem. No rule needed a change. `withdrawAboveMaxReverts` and `redeemAboveMaxReverts` are one-directional (above max => revert), so extra reverts cannot break them.
+
+Remaining bare requires:
+1. `requirePotChiAtLeastRay()` in withdrawAccounting and mintWithdrawRoundtripNoProfit. It is unchanged from pass 1 and justified by `potChiNeverDecreases` plus Pot's constructor.
+2. `spender != owner` and `other != receiver/owner`. These are part of the property statements, unchanged.
+3. `requireDaiSupplyIsSum()` as the induction hypothesis of `daiSupplyIsSumPreserved` only.

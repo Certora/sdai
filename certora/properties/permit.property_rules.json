@@ -1,22 +1,29 @@
 {
-  "permit_revert_on_expired_or_zero_owner": ["permitRevertsOnExpiredOrZeroOwner"],
-  "permit_effects": ["permitEffects"],
-  "nonces_only_increase_via_permit": ["noncesNeverDecrease", "nonceChangesOnlyViaPermit", "permitEffects"],
-  "permit_signature_forms_equivalent": ["permitSignatureFormsEquivalent", "permitVrsDecodesPackedSignature", "permitSignatureFormsSameEffects"],
+  "permit_revert_on_expired_or_zero_owner": [
+    "permitRevertsOnExpiredOrZeroOwner"
+  ],
+  "permit_effects": [
+    "permitEffects"
+  ],
+  "nonces_only_increase_via_permit": [
+    "noncesNeverDecrease",
+    "nonceChangesOnlyViaPermit",
+    "permitEffects"
+  ],
+  "permit_signature_forms_equivalent": [
+    "permitSignatureFormsEquivalent",
+    "permitVrsDecodesPackedSignature",
+    "permitSignatureFormsSameEffects"
+  ],
   "_skipped": {},
-  "_expected_fail": {
-    "permitSignatureFormsEquivalent": {
-      "reason": "prover_limitation",
-      "detail": "The packed 65-byte signature is pinned in CVL byte by byte (signature[i] == byte i of r/s, signature[64] == v). The prover's model of a CVL `bytes` value is a map from byte offset to 32-byte word that is not kept coherent across offsets: the word the contract mloads at offset 0x20 (s) is not tied to the bytes constrained at indices 32..63 (run 53186bb4: sWord = 0xd, byte 63 = 0x0d, yet the word read at 0x20 = 0xc). The bytes form therefore decodes a different s, ecrecover misses owner, the NONDET ERC-1271 fallback fails and only that call reverts. Not a contract behaviour; same result with precise_bitwise_ops. Covered soundly by permitVrsDecodesPackedSignature + permitSignatureFormsSameEffects."
-    }
-  },
+  "_expected_fail": {},
   "_status": {
-    "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report",
+    "run": "https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report",
     "permitRevertsOnExpiredOrZeroOwner": "VERIFIED",
     "permitEffects": "VERIFIED",
     "noncesNeverDecrease": "VERIFIED",
     "nonceChangesOnlyViaPermit": "VERIFIED",
-    "permitSignatureFormsEquivalent": "VIOLATED (expected: prover_limitation)",
+    "permitSignatureFormsEquivalent": "VERIFIED",
     "permitVrsDecodesPackedSignature": "VERIFIED",
     "permitSignatureFormsSameEffects": "VERIFIED"
   }

@@ -1,6 +1,7 @@
 {
   "main_contract": "src/SavingsDai.sol:SavingsDai",
   "repo": "https://github.com/makerdao/sdai",
+  "pass": 2,
   "properties": [
     {
       "title": "total_supply_equals_sum_of_balances",
@@ -12,7 +13,7 @@
           "rule": "totalSupplyIsSumOfBalances",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b91ff71e-7cb3-4cc9-85b5-b30457145a95/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7a094bd0-a0b9-4458-aaaa-d308a0c25dbd/report"
         }
       ]
     },
@@ -26,7 +27,7 @@
           "rule": "sharesBackedByPie",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b91ff71e-7cb3-4cc9-85b5-b30457145a95/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7a094bd0-a0b9-4458-aaaa-d308a0c25dbd/report"
         }
       ]
     },
@@ -40,7 +41,7 @@
           "rule": "zeroAndSelfHoldNoShares",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b91ff71e-7cb3-4cc9-85b5-b30457145a95/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7a094bd0-a0b9-4458-aaaa-d308a0c25dbd/report"
         }
       ]
     },
@@ -54,7 +55,7 @@
           "rule": "transferMovesExactAmount",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report"
         }
       ]
     },
@@ -68,7 +69,7 @@
           "rule": "transferRevertConditions",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report"
         }
       ]
     },
@@ -82,7 +83,7 @@
           "rule": "transferFromMovesExactAmountAndSpendsAllowance",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report"
         }
       ]
     },
@@ -96,7 +97,7 @@
           "rule": "transferFromRevertConditions",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report"
         }
       ]
     },
@@ -110,19 +111,19 @@
           "rule": "approveIsExact",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report"
         },
         {
           "rule": "increaseAllowanceIsExact",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report"
         },
         {
           "rule": "decreaseAllowanceIsExact",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report"
         }
       ]
     },
@@ -136,7 +137,7 @@
           "rule": "balanceDecreaseRequiresOwnerOrAllowance",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report"
         }
       ]
     },
@@ -150,7 +151,7 @@
           "rule": "allowanceChangesOnlyByAuthorizedActions",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report"
         }
       ]
     },
@@ -164,7 +165,7 @@
           "rule": "thirdPartyBalancesUnaffected",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report"
         }
       ]
     },
@@ -178,7 +179,7 @@
           "rule": "totalSupplyChangesOnlyViaVaultOperations",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report"
         }
       ]
     },
@@ -192,7 +193,7 @@
           "rule": "depositAccounting",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         }
       ]
     },
@@ -206,7 +207,7 @@
           "rule": "mintAccounting",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         }
       ]
     },
@@ -220,7 +221,7 @@
           "rule": "withdrawAccounting",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         }
       ]
     },
@@ -234,7 +235,7 @@
           "rule": "redeemAccounting",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         }
       ]
     },
@@ -248,7 +249,7 @@
           "rule": "withdrawRedeemRequireAllowance",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         }
       ]
     },
@@ -262,7 +263,7 @@
           "rule": "invalidReceiverRejected",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         }
       ]
     },
@@ -276,25 +277,25 @@
           "rule": "previewDepositMatchesDeposit",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         },
         {
           "rule": "previewMintMatchesMint",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         },
         {
           "rule": "previewWithdrawMatchesWithdraw",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         },
         {
           "rule": "previewRedeemMatchesRedeem",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         }
       ]
     },
@@ -308,13 +309,13 @@
           "rule": "previewMintRoundsUp",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         },
         {
           "rule": "previewWithdrawRoundsUp",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         }
       ]
     },
@@ -328,19 +329,19 @@
           "rule": "maxFunctionsConsistent",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         },
         {
           "rule": "redeemAboveMaxReverts",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         },
         {
           "rule": "withdrawAboveMaxReverts",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         }
       ]
     },
@@ -354,13 +355,13 @@
           "rule": "depositRedeemRoundtripNoProfit",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         },
         {
           "rule": "mintWithdrawRoundtripNoProfit",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         }
       ]
     },
@@ -374,7 +375,7 @@
           "rule": "sharePriceNeverDecreases",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         }
       ]
     },
@@ -388,13 +389,13 @@
           "rule": "depositOpsDoNotAffectOthers",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         },
         {
           "rule": "withdrawOpsDoNotAffectOthers",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
         }
       ]
     },
@@ -408,7 +409,7 @@
           "rule": "permitRevertsOnExpiredOrZeroOwner",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report"
         }
       ]
     },
@@ -422,7 +423,7 @@
           "rule": "permitEffects",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report"
         }
       ]
     },
@@ -436,19 +437,19 @@
           "rule": "noncesNeverDecrease",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report"
         },
         {
           "rule": "nonceChangesOnlyViaPermit",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report"
         },
         {
           "rule": "permitEffects",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report"
         }
       ]
     },
@@ -460,25 +461,102 @@
       "rules": [
         {
           "rule": "permitSignatureFormsEquivalent",
-          "status": "VIOLATED (expected: prover_limitation)",
-          "outcome": "BAD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report",
-          "expected_fail": {
-            "reason": "prover_limitation",
-            "detail": "The packed 65-byte signature is pinned in CVL byte by byte (signature[i] == byte i of r/s, signature[64] == v). The prover's model of a CVL `bytes` value is a map from byte offset to 32-byte word that is not kept coherent across offsets: the word the contract mloads at offset 0x20 (s) is not tied to the bytes constrained at indices 32..63 (run 53186bb4: sWord = 0xd, byte 63 = 0x0d, yet the word read at 0x20 = 0xc). The bytes form therefore decodes a different s, ecrecover misses owner, the NONDET ERC-1271 fallback fails and only that call reverts. Not a contract behaviour; same result with precise_bitwise_ops. Covered soundly by permitVrsDecodesPackedSignature + permitSignatureFormsSameEffects."
-          }
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report"
         },
         {
           "rule": "permitVrsDecodesPackedSignature",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report"
         },
         {
           "rule": "permitSignatureFormsSameEffects",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report"
+        }
+      ]
+    },
+    {
+      "title": "setup_approvals_preserved",
+      "sort": "safety_property",
+      "description": "No SavingsDai method revokes sDAI's Vat hope for DaiJoin or Pot, or lowers its DAI allowance to DaiJoin below type(uint256).max (both set up by the constructor).",
+      "component": "Maker integration & liveness",
+      "rules": [
+        {
+          "rule": "setupApprovalsPreserved",
+          "status": "VERIFIED (40/40 methods)",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/d239cba6-7903-4e49-b2ed-66a9b0b66288/report"
+        }
+      ]
+    },
+    {
+      "title": "owner_can_always_redeem",
+      "sort": "safety_property",
+      "description": "Given a live Maker system (DaiJoin.live == 1, sDAI's constructor approvals in place, Pot authorised on the Vat, Pot's Vat balance covering sDAI's pie, dsr >= RAY), an owner's redeem of their whole balance and withdraw of maxWithdraw never revert.",
+      "component": "Maker integration & liveness",
+      "rules": [
+        {
+          "rule": "ownerCanRedeemAll",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/d239cba6-7903-4e49-b2ed-66a9b0b66288/report"
+        },
+        {
+          "rule": "ownerCanWithdrawMax",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/d239cba6-7903-4e49-b2ed-66a9b0b66288/report"
+        }
+      ]
+    },
+    {
+      "title": "redeem_does_not_depend_on_drip",
+      "sort": "attack_vector",
+      "description": "Probe: owners can redeem even when Pot.drip would revert (e.g. dsr < RAY). Expected to expose that sDAI withdrawals require a successful drip whenever rho < now, while direct Pot users can still exit.",
+      "component": "Maker integration & liveness",
+      "rules": [
+        {
+          "rule": "redeemDoesNotDependOnDrip",
+          "status": "VIOLATED (expected: finding)",
+          "outcome": "BAD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/d239cba6-7903-4e49-b2ed-66a9b0b66288/report",
+          "expected_fail": {
+            "reason": "finding",
+            "detail": "With every live-system precondition except dsr >= RAY, an owner's redeem of their full balance reverts: when block.timestamp > Pot.rho, SavingsDai.redeem calls Pot.drip, which computes chi' = rmul(rpow(dsr, now - rho), chi) < chi for dsr < RAY and reverts on the checked `tmp - chi` underflow. CEX (run d239cba6/5aacf739): dsr = 0.5 RAY, rho = 4, now = 7, rpow(dsr,1) < RAY, owner holds 1 share; Pot.drip reverts, so redeem reverts. Impact: if governance ever files dsr < RAY (Pot.file has no lower bound), every sDAI deposit/mint/withdraw/redeem reverts from the next block on, and since Pot.file itself requires rho == now (which needs a successful drip) the rate cannot be corrected except by Pot.cage (which resets dsr = RAY). Direct Pot depositors are not affected: Pot.exit has no rho == now requirement and lets them leave at the last stored chi. sDAI holders' DAI is frozen until cage.",
+            "cex_note": "Trace values (run d239cba6): dsr=0.5 RAY, rho=4, now=7, rpowG(0.5 RAY,3,RAY)=1 (uninterpreted; real _rpow gives 0.125 RAY), chi~2.4e55. Holds for the real _rpow for every dsr < RAY."
+          }
+        }
+      ]
+    },
+    {
+      "title": "deposit_liveness",
+      "sort": "safety_property",
+      "description": "Under the same live-system assumptions, deposit(assets, receiver) by a caller with enough DAI balance and allowance to sDAI does not revert for a valid receiver.",
+      "component": "Maker integration & liveness",
+      "rules": [
+        {
+          "rule": "depositLiveness",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/d239cba6-7903-4e49-b2ed-66a9b0b66288/report"
+        }
+      ]
+    },
+    {
+      "title": "vault_never_pays_rounding_from_own_vat_balance",
+      "sort": "attack_vector",
+      "description": "No deposit/mint/withdraw/redeem decreases sDAI's own Vat dai balance: rounding dust always accrues to the vault, never drains it.",
+      "component": "Maker integration & liveness",
+      "rules": [
+        {
+          "rule": "vaultNeverPaysRoundingFromOwnVatBalance",
+          "status": "VERIFIED (40/40 methods)",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/d239cba6-7903-4e49-b2ed-66a9b0b66288/report"
         }
       ]
     }
@@ -486,7 +564,7 @@
   "groups": [
     {
       "title": "Share accounting integrity",
-      "description": "totalSupply equals the sum of balances, zero/self hold nothing, and every share is backed by Pot pie held by sDAI.",
+      "description": "totalSupply equals the sum of balances, zero/self hold nothing, every share is backed by Pot pie held by sDAI.",
       "properties": [
         "total_supply_equals_sum_of_balances",
         "shares_backed_by_pot_pie",
@@ -495,7 +573,7 @@
     },
     {
       "title": "ERC20 transfer correctness",
-      "description": "transfer/transferFrom move exact amounts, conserve supply, and revert exactly when they should.",
+      "description": "transfer/transferFrom move exact amounts, conserve supply, revert exactly when they should.",
       "properties": [
         "transfer_moves_exact_amount",
         "transfer_revert_conditions",
@@ -505,7 +583,7 @@
     },
     {
       "title": "Allowance and authorization",
-      "description": "Allowances change only by authorized actions and exactly as requested; nobody can reduce another's balance without allowance.",
+      "description": "Allowances change only by authorized actions and exactly; nobody reduces another's balance without allowance.",
       "properties": [
         "approve_and_allowance_adjustments_are_exact",
         "balance_decrease_requires_owner_or_allowance",
@@ -515,7 +593,7 @@
     },
     {
       "title": "Isolation between holders",
-      "description": "No operation touches the share balance of an uninvolved account; supply changes only through vault operations.",
+      "description": "No operation touches an uninvolved account; supply changes only through vault operations.",
       "properties": [
         "third_party_balances_unaffected",
         "vault_ops_do_not_affect_other_holders",
@@ -524,7 +602,7 @@
     },
     {
       "title": "Vault deposit/withdraw accounting",
-      "description": "deposit/mint/withdraw/redeem charge and pay exactly per chi with correct rounding, mint/burn exact shares and move exact pie and DAI.",
+      "description": "Exact chi-based pricing with vault-favouring rounding; exact share, pie and DAI movements.",
       "properties": [
         "deposit_accounting",
         "mint_accounting",
@@ -535,7 +613,7 @@
     },
     {
       "title": "ERC4626 view consistency",
-      "description": "Previews equal the actual operations (also before drip), conversions round in the vault's favour, max* functions are consistent.",
+      "description": "Previews equal operations (also before drip), conversions round for the vault, max* consistent.",
       "properties": [
         "previews_match_operations",
         "conversions_round_in_vault_favor",
@@ -544,57 +622,71 @@
     },
     {
       "title": "Economic attack resistance",
-      "description": "No rounding round-trip profit; no user action lowers the share price.",
+      "description": "No rounding round-trip profit; no user action lowers the share price; rounding dust never drains sDAI's own Vat balance.",
       "properties": [
         "no_profit_from_deposit_redeem_roundtrip",
-        "share_price_never_decreases"
+        "share_price_never_decreases",
+        "vault_never_pays_rounding_from_own_vat_balance"
       ]
     },
     {
       "title": "Permit (EIP-2612 / ERC-1271)",
-      "description": "permit rejects expired/zero-owner, sets exactly one allowance, consumes exactly one nonce, and both signature forms agree.",
+      "description": "Expired/zero-owner rejected, exactly one allowance and nonce changed, both signature forms equivalent.",
       "properties": [
         "permit_revert_on_expired_or_zero_owner",
         "permit_effects",
         "nonces_only_increase_via_permit",
         "permit_signature_forms_equivalent"
       ]
+    },
+    {
+      "title": "Maker integration and liveness",
+      "description": "sDAI keeps its Vat/DAI approvals; in a live, correctly configured Maker system owners can always exit and depositors can enter; exits depend on Pot.drip succeeding.",
+      "properties": [
+        "setup_approvals_preserved",
+        "owner_can_always_redeem",
+        "deposit_liveness",
+        "redeem_does_not_depend_on_drip"
+      ]
     }
   ],
   "justification_rules": [
     {
       "rule": "potChiNeverDecreases",
-      "component": "ERC4626 vault",
       "status": "VERIFIED",
-      "supports": "requirePotChiAtLeastRay (Pot.chi >= RAY) in withdrawAccounting, mintWithdrawRoundtripNoProfit"
+      "supports": "requirePotChiAtLeastRay in withdrawAccounting, mintWithdrawRoundtripNoProfit"
     },
     {
       "rule": "daiSupplyIsSumPreserved",
-      "component": "ERC4626 vault",
       "status": "VERIFIED",
-      "supports": "requireDaiSupplyIsSum (DAI totalSupply == sum of balances) in withdrawAccounting, redeemAccounting"
+      "supports": "retained fact about the Dai model; no vault rule depends on it since pass 2"
     }
   ],
   "skipped": [],
-  "findings": [],
-  "coverage_gaps": [
+  "findings": [
     {
-      "rule": "permitSignatureFormsEquivalent",
-      "property": "permit_signature_forms_equivalent",
-      "reason": "prover_limitation",
-      "detail": "The packed 65-byte signature is pinned in CVL byte by byte (signature[i] == byte i of r/s, signature[64] == v). The prover's model of a CVL `bytes` value is a map from byte offset to 32-byte word that is not kept coherent across offsets: the word the contract mloads at offset 0x20 (s) is not tied to the bytes constrained at indices 32..63 (run 53186bb4: sWord = 0xd, byte 63 = 0x0d, yet the word read at 0x20 = 0xc). The bytes form therefore decodes a different s, ecrecover misses owner, the NONDET ERC-1271 fallback fails and only that call reverts. Not a contract behaviour; same result with precise_bitwise_ops. Covered soundly by permitVrsDecodesPackedSignature + permitSignatureFormsSameEffects."
+      "rule": "redeemDoesNotDependOnDrip",
+      "property": "redeem_does_not_depend_on_drip",
+      "severity": "low / informational (governance-triggered)",
+      "detail": {
+        "reason": "finding",
+        "detail": "With every live-system precondition except dsr >= RAY, an owner's redeem of their full balance reverts: when block.timestamp > Pot.rho, SavingsDai.redeem calls Pot.drip, which computes chi' = rmul(rpow(dsr, now - rho), chi) < chi for dsr < RAY and reverts on the checked `tmp - chi` underflow. CEX (run d239cba6/5aacf739): dsr = 0.5 RAY, rho = 4, now = 7, rpow(dsr,1) < RAY, owner holds 1 share; Pot.drip reverts, so redeem reverts. Impact: if governance ever files dsr < RAY (Pot.file has no lower bound), every sDAI deposit/mint/withdraw/redeem reverts from the next block on, and since Pot.file itself requires rho == now (which needs a successful drip) the rate cannot be corrected except by Pot.cage (which resets dsr = RAY). Direct Pot depositors are not affected: Pot.exit has no rho == now requirement and lets them leave at the last stored chi. sDAI holders' DAI is frozen until cage.",
+        "cex_note": "Trace values (run d239cba6): dsr=0.5 RAY, rho=4, now=7, rpowG(0.5 RAY,3,RAY)=1 (uninterpreted; real _rpow gives 0.125 RAY), chi~2.4e55. Holds for the real _rpow for every dsr < RAY."
+      }
     }
   ],
+  "coverage_gaps": [],
   "rule_outcome_counts": {
-    "GOOD": 40,
+    "GOOD": 46,
     "BAD": 1
   },
   "runs": {
-    "invariants": "https://prover.certora.com/orgs/certora/jobs/b91ff71e-7cb3-4cc9-85b5-b30457145a95/report",
-    "erc20-token": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report",
-    "erc4626-vault": "https://prover.certora.com/orgs/certora/jobs/b4c84dec-6030-4573-b299-c9a1eadae623/report",
-    "permit": "https://prover.certora.com/orgs/certora/jobs/53186bb4-9791-40ae-a464-965924ea4e01/report",
-    "sanity": "https://prover.certora.com/orgs/certora/jobs/d5cc3f4a-60d8-4f1f-bae2-f2cab5e629a9/report"
+    "invariants": "https://prover.certora.com/orgs/certora/jobs/7a094bd0-a0b9-4458-aaaa-d308a0c25dbd/report",
+    "erc20-token": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report",
+    "erc4626-vault": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report",
+    "permit": "https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report",
+    "maker-integration": "https://prover.certora.com/orgs/certora/jobs/d239cba6-7903-4e49-b2ed-66a9b0b66288/report",
+    "sanity": "https://prover.certora.com/orgs/certora/jobs/886f6b15-7488-4d8c-8ee6-4c928718d8b1/report"
   },
   "resolver_hooks": []
 }
