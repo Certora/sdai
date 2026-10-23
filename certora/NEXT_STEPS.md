@@ -23,4 +23,4 @@
 - report/report.md + report.json regenerated (pass 2).
 
 ## Remaining
-- Push the pass-2 commit to Certora/sdai (awaiting go-ahead).
+- None. Pass-2 commit 15b8c24 pushed to Certora/sdai branch shelly/certora-verify-sdai (2026-10-23).
