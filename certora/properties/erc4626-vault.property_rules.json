@@ -43,11 +43,42 @@
     "depositOpsDoNotAffectOthers",
     "withdrawOpsDoNotAffectOthers"
   ],
+  "referral_overloads_equivalent": [
+    "depositReferralEquivalent",
+    "mintReferralEquivalent"
+  ],
+  "conversions_and_previews_monotonic": [
+    "convertToSharesMonotonic",
+    "convertToAssetsMonotonic",
+    "previewDepositMonotonic",
+    "previewMintMonotonic",
+    "previewWithdrawMonotonic",
+    "previewRedeemMonotonic",
+    "depositMonotonic",
+    "mintMonotonic",
+    "withdrawMonotonic",
+    "redeemMonotonic"
+  ],
+  "no_gain_from_splitting_operations": [
+    "depositSplitNoGain",
+    "mintSplitNoGain",
+    "withdrawSplitNoGain",
+    "redeemSplitNoGain"
+  ],
+  "exit_rejects_invalid_receiver": [
+    "exitRejectsZeroReceiver"
+  ],
   "_skipped": {},
-  "_expected_fail": {},
+  "_expected_fail": {
+    "exitRejectsZeroReceiver": {
+      "reason": "finding",
+      "detail": "withdraw/redeem with receiver == address(0) succeed. SavingsDai._burn never checks the receiver; it calls DaiJoin.exit(address(0), assets), which calls Dai.mint(address(0), assets), and mainnet DAI's mint accepts address(0). The DAI is credited to address(0), so nobody can spend it (it is effectively burned) while the owner's shares are burned. Nothing on this path depends on chi, so the zero-receiver path is reachable for any chi value. The prover CEXs are the zero-amount calls withdraw(0, 0, owner) / redeem(0, 0, owner). For illustration only, the satisfy witness exitToZeroReceiverWitness (VERIFIED) shows a positive amount, from a state where the structural invariants hold and chi >= RAY (its chi is ~5.9e76, not a realistic value): caller 0x2380 with allowance spends 1 share of owner 0x8200 in withdraw(12, address(0), 0x8200), and Dai.balanceOf(0) goes 7 -> 19. Impact: a user-error footgun that loses the withdrawn DAI. It is asymmetric with deposit/mint, which reject receiver 0 and SavingsDai (invalidReceiverRejected). ERC-4626 does not mandate the check, so this is a low-severity robustness/UX finding, not a theft vector: only the owner or an approved spender can trigger it, and only to their own loss. Out of this property's scope: receiver == SavingsDai is a second unrecoverable sink (DAI minted to sDAI cannot be moved out by any sDAI function)."
+    }
+  },
   "_justification_rules": {
     "potChiNeverDecreases": "supports the requirePotChiAtLeastRay trust assumption used in withdrawAccounting and mintWithdrawRoundtripNoProfit",
-    "daiSupplyIsSumPreserved": "pass 2: proves every state-changing Dai entry point (transfer, transferFrom, mint, burn, approve, push, pull, move, rely, deny, permit) preserves Dai.totalSupply == ghost sum of Dai balances. No vault rule consumes requireDaiSupplyIsSum anymore (the real Dai's checked add makes a wrap revert, not succeed), so it is retained as a proven fact about the DAI model, not as a justification for any bare require."
+    "daiSupplyIsSumPreserved": "pass 2: proves every state-changing Dai entry point (transfer, transferFrom, mint, burn, approve, push, pull, move, rely, deny, permit) preserves Dai.totalSupply == ghost sum of Dai balances. No vault rule consumes requireDaiSupplyIsSum anymore (the real Dai's checked add makes a wrap revert, not succeed), so it is retained as a proven fact about the DAI model, not as a justification for any bare require.",
+    "exitToZeroReceiverWitness": "pass 3: a satisfy rule (VERIFIED = scenario reachable) that witnesses the exitRejectsZeroReceiver finding with a positive amount: withdraw(assets > 0, receiver = address(0)) succeeds, burns > 0 shares from owner and credits Dai.balanceOf(0) with exactly assets. It is not a property rule; VERIFIED here confirms the finding."
   },
   "_status": {
     "iter2": {
@@ -82,8 +113,8 @@
         "withdrawRedeemRequireAllowance": "VERIFIED"
       }
     },
-    "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report",
-    "note": "pass 2 iter 1 (new scene: Dai + DaiJoin) full unfiltered run, rule_sanity basic: all 23 rules VERIFIED, all 225 tree nodes incl. every rule_not_vacuous child VERIFIED (read from treeViewStatus_18.json in the job archive; the local client disconnected with HTTP 401 before the final summary, so the log's 'Violations were found' is the disconnect, not a result)",
+    "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report",
+    "note": "pass 3 iter 2 full unfiltered run, rule_sanity basic: 41 rules; 40 VERIFIED, exitRejectsZeroReceiver VIOLATED (expected-to-fail finding). All 281 tree nodes, including every rule_not_vacuous child, are VERIFIED except that rule's two method instances (from treeViewStatus_24.json in the job archive). Iter 2 changed only the referral rules' storage comparison to the unconditional top-level `assert afterRef == afterPlain` form.",
     "pass2_iter1": {
       "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report",
       "rules": {
@@ -110,6 +141,98 @@
         "withdrawAccounting": "VERIFIED",
         "withdrawOpsDoNotAffectOthers": "VERIFIED",
         "withdrawRedeemRequireAllowance": "VERIFIED"
+      }
+    },
+    "pass3_iter1": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/4552c067-8583-4523-9479-f35e73b6bf30/report",
+      "rules": {
+        "convertToAssetsMonotonic": "VERIFIED",
+        "convertToSharesMonotonic": "VERIFIED",
+        "daiSupplyIsSumPreserved": "VERIFIED",
+        "depositAccounting": "VERIFIED",
+        "depositMonotonic": "VERIFIED",
+        "depositOpsDoNotAffectOthers": "VERIFIED",
+        "depositRedeemRoundtripNoProfit": "VERIFIED",
+        "depositReferralEquivalent": "VERIFIED",
+        "depositSplitNoGain": "VERIFIED",
+        "envfreeFuncsStaticCheck": "VERIFIED",
+        "exitRejectsZeroReceiver": "VIOLATED (expected: finding)",
+        "exitToZeroReceiverWitness": "VERIFIED",
+        "invalidReceiverRejected": "VERIFIED",
+        "maxFunctionsConsistent": "VERIFIED",
+        "mintAccounting": "VERIFIED",
+        "mintMonotonic": "VERIFIED",
+        "mintReferralEquivalent": "VERIFIED",
+        "mintSplitNoGain": "VERIFIED",
+        "mintWithdrawRoundtripNoProfit": "VERIFIED",
+        "potChiNeverDecreases": "VERIFIED",
+        "previewDepositMatchesDeposit": "VERIFIED",
+        "previewDepositMonotonic": "VERIFIED",
+        "previewMintMatchesMint": "VERIFIED",
+        "previewMintMonotonic": "VERIFIED",
+        "previewMintRoundsUp": "VERIFIED",
+        "previewRedeemMatchesRedeem": "VERIFIED",
+        "previewRedeemMonotonic": "VERIFIED",
+        "previewWithdrawMatchesWithdraw": "VERIFIED",
+        "previewWithdrawMonotonic": "VERIFIED",
+        "previewWithdrawRoundsUp": "VERIFIED",
+        "redeemAboveMaxReverts": "VERIFIED",
+        "redeemAccounting": "VERIFIED",
+        "redeemMonotonic": "VERIFIED",
+        "redeemSplitNoGain": "VERIFIED",
+        "sharePriceNeverDecreases": "VERIFIED",
+        "withdrawAboveMaxReverts": "VERIFIED",
+        "withdrawAccounting": "VERIFIED",
+        "withdrawMonotonic": "VERIFIED",
+        "withdrawOpsDoNotAffectOthers": "VERIFIED",
+        "withdrawRedeemRequireAllowance": "VERIFIED",
+        "withdrawSplitNoGain": "VERIFIED"
+      }
+    },
+    "pass3_iter2": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report",
+      "rules": {
+        "convertToAssetsMonotonic": "VERIFIED",
+        "convertToSharesMonotonic": "VERIFIED",
+        "daiSupplyIsSumPreserved": "VERIFIED",
+        "depositAccounting": "VERIFIED",
+        "depositMonotonic": "VERIFIED",
+        "depositOpsDoNotAffectOthers": "VERIFIED",
+        "depositRedeemRoundtripNoProfit": "VERIFIED",
+        "depositReferralEquivalent": "VERIFIED",
+        "depositSplitNoGain": "VERIFIED",
+        "envfreeFuncsStaticCheck": "VERIFIED",
+        "exitRejectsZeroReceiver": "VIOLATED (expected: finding)",
+        "exitToZeroReceiverWitness": "VERIFIED",
+        "invalidReceiverRejected": "VERIFIED",
+        "maxFunctionsConsistent": "VERIFIED",
+        "mintAccounting": "VERIFIED",
+        "mintMonotonic": "VERIFIED",
+        "mintReferralEquivalent": "VERIFIED",
+        "mintSplitNoGain": "VERIFIED",
+        "mintWithdrawRoundtripNoProfit": "VERIFIED",
+        "potChiNeverDecreases": "VERIFIED",
+        "previewDepositMatchesDeposit": "VERIFIED",
+        "previewDepositMonotonic": "VERIFIED",
+        "previewMintMatchesMint": "VERIFIED",
+        "previewMintMonotonic": "VERIFIED",
+        "previewMintRoundsUp": "VERIFIED",
+        "previewRedeemMatchesRedeem": "VERIFIED",
+        "previewRedeemMonotonic": "VERIFIED",
+        "previewWithdrawMatchesWithdraw": "VERIFIED",
+        "previewWithdrawMonotonic": "VERIFIED",
+        "previewWithdrawRoundsUp": "VERIFIED",
+        "redeemAboveMaxReverts": "VERIFIED",
+        "redeemAccounting": "VERIFIED",
+        "redeemMonotonic": "VERIFIED",
+        "redeemSplitNoGain": "VERIFIED",
+        "sharePriceNeverDecreases": "VERIFIED",
+        "withdrawAboveMaxReverts": "VERIFIED",
+        "withdrawAccounting": "VERIFIED",
+        "withdrawMonotonic": "VERIFIED",
+        "withdrawOpsDoNotAffectOthers": "VERIFIED",
+        "withdrawRedeemRequireAllowance": "VERIFIED",
+        "withdrawSplitNoGain": "VERIFIED"
       }
     }
   }

@@ -1,0 +1,139 @@
+WARNING: You are using certora-cli version 8.20.0; however, version 8.20.2 is available. It is recommended to upgrade by running: pip install certora-cli --upgrade
+or
+pip3 install certora-cli --upgrade
+Compiling certora/harnesses/Dai.sol...
+Compiling certora/harnesses/Dai.sol to expose internal function information and local variables...
+Compiling certora/harnesses/DaiJoin.sol...
+Compiling certora/harnesses/DaiJoin.sol to expose internal function information and local variables...
+Compiling certora/harnesses/Pot.sol...
+Compiling certora/harnesses/Pot.sol to expose internal function information and local variables...
+Compiling certora/harnesses/SigPacker.sol...
+Compiling certora/harnesses/SigPacker.sol to expose internal function information and local variables...
+Compiling certora/harnesses/Vat.sol...
+Compiling certora/harnesses/Vat.sol to expose internal function information and local variables...
+Compiling src/SavingsDai.sol...
+Compiling src/SavingsDai.sol to expose internal function information and local variables...
+
+Connecting to server...
+[32mStarting job as user shelly@certora.com in org Certora (certora). Reserved 120 minutes: 0 free, 120 billed to Certora.[0m
+
+[32mJob submitted to server[0m
+
+Manage your jobs at https://prover.certora.com/orgs/certora/jobs
+Follow your job and see verification results at https://prover.certora.com/orgs/certora/jobs/0e288f36-9e75-43a0-82ce-c6276d96aad8/report
+Output:
+processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /Start Fri Oct 23 16:24:49 GMT 2026
+Start Fri Oct 23 16:24:49 GMT 2026
+The scene contains 25 contracts:
+Vat : 0xce4604a000000000000000000000000f,
+Dai : 0xce4604a0000000000000000000000001,
+DaiJoin : 0xce4604a0000000000000000000000006,
+Pot : 0xce4604a000000000000000000000000a,
+SavingsDai : 0xce4604a000000000000000000000001a,
+SigPacker : 0xce4604a000000000000000000000000d,
+ecrecover : 0x1,
+sha256 : 0x2,
+ripemd160 : 0x3,
+identity : 0x4,
+bigmod : 0x5,
+bn256Add : 0x6,
+bn256ScalarMul : 0x7,
+bn256Pairing : 0x8,
+Precompiled244 : 0xf4,
+Precompiled245 : 0xf5,
+Precompiled246 : 0xf6,
+Precompiled247 : 0xf7,
+Precompiled248 : 0xf8,
+Precompiled249 : 0xf9,
+Precompiled250 : 0xfa,
+Precompiled251 : 0xfb,
+Precompiled252 : 0xfc,
+Precompiled253 : 0xfd,
+Precompiled254 : 0xfe
+Running initial transformations
+Has CVL checks.
+Checking CVL certora/specs/maker-models/dai-invariants.spec for contract Dai
+Unrolling loops 1 time, unwinding condition is assumed
+Verified: daiSupplyIsSum-Induction base: After the constructor
+Verified: daiBalanceAtMostSupply-Induction base: After the constructor
+Verified: daiSupplyIsSum-Using general requirements-rely(address)
+Verified: daiSupplyIsSum-Using general requirements-deny(address)
+Verified: daiSupplyIsSum-Using general requirements-approve(address,uint256)
+Verified: daiSupplyIsSum-Using general requirements-permit(address,address,uint256,uint256,bool,uint8,bytes32,bytes32)
+Verified: daiSupplyIsSum-Using general requirements-mint(address,uint256)
+Verified: daiSupplyIsSum-Using general requirements-burn(address,uint256)
+Verified: daiSupplyIsSum-Using general requirements-move(address,address,uint256)
+Verified: daiSupplyIsSum-Using general requirements-push(address,uint256)
+Verified: daiSupplyIsSum-Using general requirements-transfer(address,uint256)
+Verified: daiSupplyIsSum-Using general requirements-pull(address,uint256)
+Verified: daiSupplyIsSum-Using general requirements-transferFrom(address,address,uint256)
+Violated: daiSupplyIsSum-Induction base: After the constructor-invariant_not_trivial_postcondition
+Violated: daiBalanceAtMostSupply-Induction base: After the constructor-invariant_not_trivial_postcondition
+Violated: daiSupplyIsSum-Induction base: After the constructor-rule_not_vacuous
+Violated: daiBalanceAtMostSupply-Induction base: After the constructor-rule_not_vacuous
+Verified: daiBalanceAtMostSupply-Using general requirements-approve(address,uint256)
+Violated: daiSupplyIsSum-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Violated: daiSupplyIsSum-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Violated: daiSupplyIsSum-Using general requirements-deny(address)-rule_not_vacuous
+Violated: daiSupplyIsSum-Using general requirements-rely(address)-rule_not_vacuous
+Violated: daiSupplyIsSum-Using general requirements-mint(address,uint256)-rule_not_vacuous
+Violated: daiSupplyIsSum-Using general requirements-burn(address,uint256)-rule_not_vacuous
+Violated: daiSupplyIsSum-Using general requirements-permit(address,address,uint256,uint256,bool,uint8,bytes32,bytes32)-rule_not_vacuous
+Violated: daiSupplyIsSum-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Violated: daiSupplyIsSum-Using general requirements-push(address,uint256)-rule_not_vacuous
+Verified: daiBalanceAtMostSupply-Using general requirements-pull(address,uint256)
+Violated: daiSupplyIsSum-Using general requirements-move(address,address,uint256)-rule_not_vacuous
+Verified: daiBalanceAtMostSupply-Using general requirements-push(address,uint256)
+Verified: daiBalanceAtMostSupply-Using general requirements-transfer(address,uint256)
+Verified: daiBalanceAtMostSupply-Using general requirements-burn(address,uint256)
+Violated: daiSupplyIsSum-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Violated: daiSupplyIsSum-Using general requirements-push(address,uint256)-invariant_not_trivial_postcondition
+Violated: daiSupplyIsSum-Using general requirements-pull(address,uint256)-invariant_not_trivial_postcondition
+Violated: daiSupplyIsSum-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Violated: daiSupplyIsSum-Using general requirements-burn(address,uint256)-invariant_not_trivial_postcondition
+Violated: daiSupplyIsSum-Using general requirements-mint(address,uint256)-invariant_not_trivial_postcondition
+Verified: daiBalanceAtMostSupply-Using general requirements-rely(address)
+Verified: daiBalanceAtMostSupply-Using general requirements-deny(address)
+Violated: daiSupplyIsSum-Using general requirements-deny(address)-invariant_not_trivial_postcondition
+Violated: daiSupplyIsSum-Using general requirements-permit(address,address,uint256,uint256,bool,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: daiSupplyIsSum-Using general requirements-rely(address)-invariant_not_trivial_postcondition
+Violated: daiSupplyIsSum-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: daiSupplyIsSum-Using general requirements-pull(address,uint256)-rule_not_vacuous
+Violated: daiSupplyIsSum-Using general requirements-move(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: daiBalanceAtMostSupply-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Verified: daiBalanceAtMostSupply-Using general requirements-permit(address,address,uint256,uint256,bool,uint8,bytes32,bytes32)
+Verified: daiBalanceAtMostSupply-Using general requirements-mint(address,uint256)
+Verified: daiBalanceAtMostSupply-Using general requirements-transferFrom(address,address,uint256)
+Verified: daiBalanceAtMostSupply-Using general requirements-move(address,address,uint256)
+Violated: daiBalanceAtMostSupply-Using general requirements-mint(address,uint256)-invariant_not_trivial_postcondition
+Violated: daiBalanceAtMostSupply-Using general requirements-burn(address,uint256)-invariant_not_trivial_postcondition
+Violated: daiBalanceAtMostSupply-Using general requirements-permit(address,address,uint256,uint256,bool,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: daiBalanceAtMostSupply-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Violated: daiBalanceAtMostSupply-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Violated: daiBalanceAtMostSupply-Using general requirements-push(address,uint256)-invariant_not_trivial_postcondition
+Violated: daiBalanceAtMostSupply-Using general requirements-pull(address,uint256)-invariant_not_trivial_postcondition
+Violated: daiBalanceAtMostSupply-Using general requirements-pull(address,uint256)-rule_not_vacuous
+Violated: daiBalanceAtMostSupply-Using general requirements-push(address,uint256)-rule_not_vacuous
+Violated: daiBalanceAtMostSupply-Using general requirements-deny(address)-rule_not_vacuous
+Violated: daiBalanceAtMostSupply-Using general requirements-rely(address)-rule_not_vacuous
+Violated: daiBalanceAtMostSupply-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Violated: daiBalanceAtMostSupply-Using general requirements-burn(address,uint256)-rule_not_vacuous
+Violated: daiBalanceAtMostSupply-Using general requirements-mint(address,uint256)-rule_not_vacuous
+Violated: daiBalanceAtMostSupply-Using general requirements-permit(address,address,uint256,uint256,bool,uint8,bytes32,bytes32)-rule_not_vacuous
+Violated: daiBalanceAtMostSupply-Using general requirements-rely(address)-invariant_not_trivial_postcondition
+Violated: daiBalanceAtMostSupply-Using general requirements-deny(address)-invariant_not_trivial_postcondition
+Violated: daiBalanceAtMostSupply-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: daiBalanceAtMostSupply-Using general requirements-move(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: daiBalanceAtMostSupply-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Violated: daiBalanceAtMostSupply-Using general requirements-move(address,address,uint256)-rule_not_vacuous
+Done 0m
+Done 0m
+[INFO]: Live-mirror upload summary: 414 uploads, 373 unique keys, 41 redundant re-uploads, 1.11 uploads/key.
+[INFO]: s5cmd: cp /home/appuser/code/0e288f369e7543a082cec6276d96aad8.tar.gz s3://certora-prod/outputs/60724/output_0e288f369e7543a082cec6276d96aad8/0e288f369e7543a082cec6276d96aad8.tar.gz
+[INFO]: s5cmd transferred 772 file(s)
+[INFO]: Cache upload took 2.5456 seconds
+[INFO]: Timings :: prover=52.6044 seconds, exit_code=0, timed_out=False
+
+Finished verification request
+[32mNo errors found by Prover![0m
+EXIT 0

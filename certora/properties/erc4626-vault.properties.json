@@ -1,14 +1,82 @@
 [
-  {"title": "deposit_accounting", "sort": "safety_property", "description": "A successful deposit(assets, receiver) returns shares = assets*RAY/chi with chi the Pot accumulator after drip, increases receiver's balance and totalSupply by exactly shares, moves exactly assets DAI from the caller, and increases SavingsDai's pie by exactly shares."},
-  {"title": "mint_accounting", "sort": "safety_property", "description": "A successful mint(shares, receiver) returns assets = ceil(shares*chi/RAY), increases receiver's balance and totalSupply by exactly shares, and moves exactly assets DAI from the caller."},
-  {"title": "withdraw_accounting", "sort": "safety_property", "description": "A successful withdraw(assets, receiver, owner) burns shares = ceil(assets*RAY/chi) from owner, decreases totalSupply and SavingsDai's pie by shares, and credits receiver with exactly assets DAI."},
-  {"title": "redeem_accounting", "sort": "safety_property", "description": "A successful redeem(shares, receiver, owner) burns exactly shares from owner, decreases totalSupply and SavingsDai's pie by shares, returns assets = floor(shares*chi/RAY) and credits receiver with exactly assets DAI."},
-  {"title": "withdraw_redeem_require_authorization", "sort": "safety_property", "description": "withdraw/redeem by a caller other than owner succeed only if allowance[owner][caller] covers the burned shares, and spend exactly that many shares of a finite allowance."},
-  {"title": "invalid_receiver_rejected", "sort": "safety_property", "description": "deposit and mint revert when the receiver is the zero address or SavingsDai itself."},
-  {"title": "previews_match_operations", "sort": "safety_property", "description": "In the same state and block, previewDeposit/previewMint/previewWithdraw/previewRedeem return exactly what deposit/mint/withdraw/redeem then return, even when the Pot has not been dripped."},
-  {"title": "conversions_round_in_vault_favor", "sort": "safety_property", "description": "previewMint(s) >= convertToAssets(s) and previewWithdraw(a) >= convertToShares(a): operations where the user specifies the output never charge less than the exact conversion."},
-  {"title": "max_functions_consistent", "sort": "safety_property", "description": "maxRedeem(owner) equals owner's share balance and maxWithdraw(owner) equals convertToAssets of that balance; maxDeposit and maxMint are unbounded."},
-  {"title": "no_profit_from_deposit_redeem_roundtrip", "sort": "attack_vector", "description": "Rounding cannot be exploited: within one block, depositing assets and immediately redeeming the received shares never returns more DAI than deposited, and minting shares then withdrawing the paid assets never needs fewer shares than minted."},
-  {"title": "share_price_never_decreases", "sort": "attack_vector", "description": "No SavingsDai operation decreases the Pot rate accumulator chi, so the DAI value of a share (convertToAssets) cannot be lowered by any user action."},
-  {"title": "vault_ops_do_not_affect_other_holders", "sort": "attack_vector", "description": "deposit/mint/withdraw/redeem do not change the share balance of any account other than the receiver (deposit/mint) or owner (withdraw/redeem), so one user cannot dilute or drain another."}
+  {
+    "title": "deposit_accounting",
+    "sort": "safety_property",
+    "description": "A successful deposit(assets, receiver) returns shares = assets*RAY/chi with chi the Pot accumulator after drip, increases receiver's balance and totalSupply by exactly shares, moves exactly assets DAI from the caller, and increases SavingsDai's pie by exactly shares."
+  },
+  {
+    "title": "mint_accounting",
+    "sort": "safety_property",
+    "description": "A successful mint(shares, receiver) returns assets = ceil(shares*chi/RAY), increases receiver's balance and totalSupply by exactly shares, and moves exactly assets DAI from the caller."
+  },
+  {
+    "title": "withdraw_accounting",
+    "sort": "safety_property",
+    "description": "A successful withdraw(assets, receiver, owner) burns shares = ceil(assets*RAY/chi) from owner, decreases totalSupply and SavingsDai's pie by shares, and credits receiver with exactly assets DAI."
+  },
+  {
+    "title": "redeem_accounting",
+    "sort": "safety_property",
+    "description": "A successful redeem(shares, receiver, owner) burns exactly shares from owner, decreases totalSupply and SavingsDai's pie by shares, returns assets = floor(shares*chi/RAY) and credits receiver with exactly assets DAI."
+  },
+  {
+    "title": "withdraw_redeem_require_authorization",
+    "sort": "safety_property",
+    "description": "withdraw/redeem by a caller other than owner succeed only if allowance[owner][caller] covers the burned shares, and spend exactly that many shares of a finite allowance."
+  },
+  {
+    "title": "invalid_receiver_rejected",
+    "sort": "safety_property",
+    "description": "deposit and mint revert when the receiver is the zero address or SavingsDai itself."
+  },
+  {
+    "title": "previews_match_operations",
+    "sort": "safety_property",
+    "description": "In the same state and block, previewDeposit/previewMint/previewWithdraw/previewRedeem return exactly what deposit/mint/withdraw/redeem then return, even when the Pot has not been dripped."
+  },
+  {
+    "title": "conversions_round_in_vault_favor",
+    "sort": "safety_property",
+    "description": "previewMint(s) >= convertToAssets(s) and previewWithdraw(a) >= convertToShares(a): operations where the user specifies the output never charge less than the exact conversion."
+  },
+  {
+    "title": "max_functions_consistent",
+    "sort": "safety_property",
+    "description": "maxRedeem(owner) equals owner's share balance and maxWithdraw(owner) equals convertToAssets of that balance; maxDeposit and maxMint are unbounded."
+  },
+  {
+    "title": "no_profit_from_deposit_redeem_roundtrip",
+    "sort": "attack_vector",
+    "description": "Rounding cannot be exploited: within one block, depositing assets and immediately redeeming the received shares never returns more DAI than deposited, and minting shares then withdrawing the paid assets never needs fewer shares than minted."
+  },
+  {
+    "title": "share_price_never_decreases",
+    "sort": "attack_vector",
+    "description": "No SavingsDai operation decreases the Pot rate accumulator chi, so the DAI value of a share (convertToAssets) cannot be lowered by any user action."
+  },
+  {
+    "title": "vault_ops_do_not_affect_other_holders",
+    "sort": "attack_vector",
+    "description": "deposit/mint/withdraw/redeem do not change the share balance of any account other than the receiver (deposit/mint) or owner (withdraw/redeem), so one user cannot dilute or drain another."
+  },
+  {
+    "title": "referral_overloads_equivalent",
+    "sort": "safety_property",
+    "description": "deposit(assets, receiver, referral) and mint(shares, receiver, referral) behave exactly like deposit(assets, receiver) and mint(shares, receiver): same revert behaviour, same return value and same resulting state, for every referral code. (Pass 3: the accounting/preview rules only covered the two-argument overloads.)"
+  },
+  {
+    "title": "conversions_and_previews_monotonic",
+    "sort": "safety_property",
+    "description": "In a fixed state and block, convertToShares, convertToAssets and the four previews are non-decreasing in their input amount, and the actual deposit/mint/withdraw/redeem outputs are too (more assets never buy fewer shares, more shares never redeem for fewer assets, withdrawing more never burns fewer shares, minting more never costs fewer assets)."
+  },
+  {
+    "title": "no_gain_from_splitting_operations",
+    "sort": "attack_vector",
+    "description": "Splitting one operation into two in the same block never benefits the user: two deposits of a and b mint at most the shares of one deposit of a+b; two redeems of s and t pay at most the assets of one redeem of s+t; two mints of s and t cost at least one mint of s+t; two withdraws of a and b burn at least the shares of one withdraw of a+b."
+  },
+  {
+    "title": "exit_rejects_invalid_receiver",
+    "sort": "safety_property",
+    "description": "withdraw and redeem revert when the receiver is address(0), mirroring deposit/mint's receiver check, so a user cannot burn the withdrawn DAI by mistake (mainnet DAI's mint accepts address(0))."
+  }
 ]

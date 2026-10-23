@@ -48,3 +48,72 @@ Remaining bare requires:
 1. `requirePotChiAtLeastRay()` in withdrawAccounting and mintWithdrawRoundtripNoProfit. It is unchanged from pass 1 and justified by `potChiNeverDecreases` plus Pot's constructor.
 2. `spender != owner` and `other != receiver/owner`. These are part of the property statements, unchanged.
 3. `requireDaiSupplyIsSum()` as the induction hypothesis of `daiSupplyIsSumPreserved` only.
+
+## Pass 3 (4 new properties)
+Final full unfiltered run (pass3 iter 1, rule_sanity basic, msg "erc4626-vault pass3 iter 1"): https://prover.certora.com/orgs/certora/jobs/4552c067-8583-4523-9479-f35e73b6bf30/report. There are 41 rules: the 23 from pass 2 and 18 new ones. 40 are VERIFIED. `exitRejectsZeroReceiver` is VIOLATED, which is the expected finding (below). Statuses were read from `treeViewStatus_26.json` in the job archive: every one of the 281 tree nodes, including every `rule_not_vacuous` child, is VERIFIED except that rule's withdraw and redeem instances. (The streamed log prints "Violated: ...-rule_not_vacuous" lines; that is the sanity sub-check's internal assert-false being violated, i.e. the rule is non-vacuous.) The pass-1/2 rules and helpers are unchanged, and the conf changed only in `msg`. No prover_args were added, and no rule needed splitting beyond the per-function design below. The slowest new rules (monotonic ops, split rules) finished within the ~4-minute job.
+
+### referral_overloads_equivalent
+Rules: `depositReferralEquivalent`, `mintReferralEquivalent`.
+- Each rule takes `storage init = lastStorage`, calls the referral overload with `@withrevert`, and records `lastReverted`, the return value, `lastStorage`, the receiver's shares, totalSupply, `pot.pie(sDAI)` and the caller's DAI. It then calls the plain overload `at init` with the same env and arguments.
+- Asserts:
+  - `revertedRef <=> revertedPlain`;
+  - on success, equal return values and equal explicit balances;
+  - `afterRef == afterPlain`: whole-`storage` equality (docs cvl/expr.html "Comparing storage"), covering every contract's storage, native balances and all ghosts.
+- Storage equality is meaningful here because every call in deposit/mint is resolved to linked code. The scene's wildcard NONDETs apply only to UNRESOLVED calls, which occur only in the constructor, so nothing is havoced. The explicit balance asserts are redundant with it and are kept for CEX readability.
+- No requires. Return values are compared only under `!reverted` (guideline 16).
+
+### conversions_and_previews_monotonic
+Rules: `convertToSharesMonotonic`, `convertToAssetsMonotonic`, `previewDepositMonotonic`, `previewMintMonotonic`, `previewWithdrawMonotonic`, `previewRedeemMonotonic`, `depositMonotonic`, `mintMonotonic`, `withdrawMonotonic`, `redeemMonotonic`.
+- The six view rules call f(x) and f(y) in the same state and env and assert `x <= y => f(x) <= f(y)`. The four operation rules call op(x) and op(y) `at init` from one snapshot with the same env and receiver/owner.
+- The order is the conclusion's hypothesis (an implication), not a `require`, so no input is dropped.
+- They were split per function up front so that each nonlinear query is separate. None timed out.
+
+### no_gain_from_splitting_operations (attack_vector)
+Rules: `depositSplitNoGain`, `mintSplitNoGain`, `withdrawSplitNoGain`, `redeemSplitNoGain`.
+- Path 1 runs op(a) then op(b) with the same env, receiver and owner. Path 2 runs op(ab) `at init`.
+- Each rule asserts on the return values:
+  - deposit: shares sum <=;
+  - mint: assets sum >=;
+  - withdraw: shares sum >=;
+  - redeem: assets sum <=.
+- Each rule also asserts the corresponding end state:
+  - deposit: the receiver's shares after the split are <= after the single op;
+  - mint: the caller's DAI after the split is <= after the single op;
+  - withdraw: the owner's shares after the split are <= after the single op;
+  - redeem: the receiver's DAI after the split is <= after the single op.
+- The second op of path 1 runs after the first one dripped (rho == now). It therefore uses the same chi as path 2's single drip, since rpowG is deterministic.
+- `requireStructuralInvariants()` is used because shares are minted and burnt.
+- **New bare require:** `require to_mathint(ab) == a + b`, one per split rule. It only names the combined amount as a uint256 argument and drops no execution in which both split ops succeed:
+  - deposit and withdraw evaluate the checked `amount * RAY`, so each amount is < 2^256/10^27 and the sum fits;
+  - mint's two `Pot.join` calls add a and then b to `Pot.Pie` with checked addition;
+  - redeem burns a and then b from the owner's balance, so a + b <= the prior balance.
+- Like every success-only rule, these say nothing when the combined op reverts while the split ops succeed.
+
+### exit_rejects_invalid_receiver — FINDING (expected to fail)
+Rule: `exitRejectsZeroReceiver`. It is parametric over withdraw/redeem, uses `requireStructuralInvariants()` (no other require), calls `@withrevert` with receiver = address(0), and has `assert reverted`. VERIFIED would mean the good property holds. It is **VIOLATED** for both withdraw and redeem.
+- **Scenario:** `SavingsDai._burn` never checks `receiver`. It burns the owner's shares, calls `pot.exit(shares)`, then `daiJoin.exit(receiver, assets)`, and `DaiJoin.exit` calls `Dai.mint(address(0), assets)`. Mainnet DAI's mint has no receiver check, so the call succeeds. The DAI is credited to `balanceOf[address(0)]`, which nobody controls, so it is effectively burned.
+- **Prover CEXs:** the solver picked the degenerate calls withdraw(0, address(0), owner) and redeem(0, address(0), owner).
+- **Witness for the positive case (illustration only):** a companion `satisfy` rule, `exitToZeroReceiverWitness`, is VERIFIED, meaning the scenario is reachable. Nothing on the zero-receiver path depends on chi, so the path is reachable for any chi. The witness state satisfies the structural invariants and chi >= RAY, but its chi is ~5.9e76, so it is not a realistic state. In its witness, caller 0x2380, holding an allowance from owner 0x8200, calls withdraw(12, address(0), 0x8200). The call burns 1 share (owner 9 -> 8, totalSupply 10 -> 9), and `Dai.balanceOf(0)` goes 7 -> 19.
+- **Impact:** a user-error footgun. A front-end or integrator passing a zero receiver irrecoverably loses the withdrawn DAI.
+  - It is asymmetric with deposit/mint, which reject receiver 0 and SavingsDai itself (`invalidReceiverRejected`).
+  - ERC-4626 does not require the check, so the severity is low (robustness/UX).
+  - Only the owner or an approved spender can trigger it, and the loss falls on that owner, so it is not a theft vector.
+- **Second sink, out of scope:** withdrawing to the SavingsDai contract itself (receiver == sDAI) is also unchecked. DAI minted to sDAI is unrecoverable, because no sDAI function moves out DAI it holds beyond the amount pulled in by `_mint`. This property is scoped to address(0), so the case is only noted here.
+- Recorded in `_expected_fail` with reason "finding". The rule is kept unweakened.
+
+### New bare requires (pass 3)
+- `require to_mathint(ab) == a + b` in the four split rules, justified above.
+- No others. The new rules reuse only `requireStructuralInvariants()` (requireInvariant only) and, in the witness rule only, `requirePotChiAtLeastRay()`, the accepted pass-1 trust assumption backed by `potChiNeverDecreases`. In a satisfy rule, that assumption only restricts the witness to realistic states.
+
+## Pass 3: assumptions now backed by proofs (maker-models)
+- requirePotChiAtLeastRay: proven invariant potChiAtLeastRay over all Pot methods from Pot's constructor (run 9e14d9f8); potChiNeverDecreases is its induction step.
+- daiSupplyIsSumPreserved base case: proven invariant daiSupplyIsSum from Dai's constructor (run 0e288f36).
+Spec comments still describe the pass-2 reasoning; the proofs above supersede it.
+
+### Pass 3 round 2 (judge pass3 round 1: storage-comparison form)
+Final full unfiltered run (pass3 iter 2, msg "erc4626-vault pass3 iter 2"): https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report. This run supersedes the iter 1 link above. 40 of the 41 rules are VERIFIED. `exitRejectsZeroReceiver` is VIOLATED, the expected finding. All 281 tree nodes, including every `rule_not_vacuous` child, are VERIFIED except that rule's two method instances (read from `treeViewStatus_24.json`).
+- **Referral rules:** in `depositReferralEquivalent` and `mintReferralEquivalent`, the whole-state comparison is now the unconditional, top-level `assert afterRef == afterPlain;`. This is the `assert s1 == s2` form that docs cvl/expr.html "Comparing storage" names as the supported one; nesting a comparison inside an implication is called experimental there. The unconditional form is at least as strong as the old one:
+  - if both calls revert, both snapshots are the rolled-back `init` (no persistent ghosts);
+  - if exactly one reverts, the preceding `revertedRef <=> revertedPlain` assert fails.
+- **Rest of the spec:** unchanged.
+- **Documentation:** the `_expected_fail` detail no longer calls the witness state realistic. The zero-receiver path is reachable for any chi, and the witness is an illustration only. The second sink (receiver == SavingsDai) is now noted as out of scope.

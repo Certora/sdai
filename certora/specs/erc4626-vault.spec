@@ -484,3 +484,261 @@ rule daiSupplyIsSumPreserved(env e, uint8 which, address a, address b, uint256 x
 
     assert to_mathint(daiToken.totalSupply()) == sumDaiBalances, "DAI totalSupply != sum of balances";
 }
+
+// ===========================================================================
+// PASS 3
+// ===========================================================================
+
+/// Calls withdraw/redeem with revert recording; returns lastReverted.
+function callWithdrawOpWithRevert(method f, env e, uint256 amount, address receiver, address owner) returns bool {
+    if (f.selector == sig:withdraw(uint256, address, address).selector) {
+        withdraw@withrevert(e, amount, receiver, owner);
+    } else {
+        redeem@withrevert(e, amount, receiver, owner);
+    }
+    return lastReverted;
+}
+
+// ---------------------------------------------------------------------------
+// referral_overloads_equivalent
+// From one storage snapshot, the referral overload and the plain overload (same env, same
+// arguments) revert in exactly the same cases, return the same value and leave the ENTIRE
+// scene in the same state (`storage` equality covers every contract's storage, balances and
+// all ghosts; see docs cvl/expr.html "Comparing storage"). The explicit balance/supply/pie/DAI
+// reads are redundant with the storage equality and only make a counterexample readable.
+// ---------------------------------------------------------------------------
+
+rule depositReferralEquivalent(env e, uint256 assets, address receiver, uint16 referral) {
+    storage init = lastStorage;
+
+    uint256 sharesRef = deposit@withrevert(e, assets, receiver, referral);
+    bool revertedRef = lastReverted;
+    storage afterRef = lastStorage;
+    mathint balRef    = balanceOf(receiver);
+    mathint supplyRef = totalSupply();
+    mathint pieRef    = pot.pie(currentContract);
+    mathint daiRef    = daiToken.balanceOf(e.msg.sender);
+
+    uint256 sharesPlain = deposit@withrevert(e, assets, receiver) at init;
+    bool revertedPlain = lastReverted;
+    storage afterPlain = lastStorage;
+
+    assert revertedRef <=> revertedPlain, "referral deposit reverts differently from plain deposit";
+    assert !revertedRef => sharesRef == sharesPlain, "referral deposit returns different shares";
+    assert !revertedRef => (balRef == to_mathint(balanceOf(receiver))
+                            && supplyRef == to_mathint(totalSupply())
+                            && pieRef == to_mathint(pot.pie(currentContract))
+                            && daiRef == to_mathint(daiToken.balanceOf(e.msg.sender))),
+        "referral deposit leaves different balances";
+    // Top-level `assert s1 == s2` form (the supported one). Unconditional: if both calls revert,
+    // both snapshots are the rolled-back `init`; if exactly one reverts, the <=> assert fails.
+    assert afterRef == afterPlain, "referral deposit leaves a different scene state";
+}
+
+rule mintReferralEquivalent(env e, uint256 shares, address receiver, uint16 referral) {
+    storage init = lastStorage;
+
+    uint256 assetsRef = mint@withrevert(e, shares, receiver, referral);
+    bool revertedRef = lastReverted;
+    storage afterRef = lastStorage;
+    mathint balRef    = balanceOf(receiver);
+    mathint supplyRef = totalSupply();
+    mathint pieRef    = pot.pie(currentContract);
+    mathint daiRef    = daiToken.balanceOf(e.msg.sender);
+
+    uint256 assetsPlain = mint@withrevert(e, shares, receiver) at init;
+    bool revertedPlain = lastReverted;
+    storage afterPlain = lastStorage;
+
+    assert revertedRef <=> revertedPlain, "referral mint reverts differently from plain mint";
+    assert !revertedRef => assetsRef == assetsPlain, "referral mint returns different assets";
+    assert !revertedRef => (balRef == to_mathint(balanceOf(receiver))
+                            && supplyRef == to_mathint(totalSupply())
+                            && pieRef == to_mathint(pot.pie(currentContract))
+                            && daiRef == to_mathint(daiToken.balanceOf(e.msg.sender))),
+        "referral mint leaves different balances";
+    // Top-level `assert s1 == s2` form (the supported one). Unconditional: if both calls revert,
+    // both snapshots are the rolled-back `init`; if exactly one reverts, the <=> assert fails.
+    assert afterRef == afterPlain, "referral mint leaves a different scene state";
+}
+
+// ---------------------------------------------------------------------------
+// conversions_and_previews_monotonic
+// View functions: same state, same env (block), inputs x <= y. One rule per function so each
+// nonlinear query is solved separately.
+// ---------------------------------------------------------------------------
+
+rule convertToSharesMonotonic(env e, uint256 x, uint256 y) {
+    uint256 fx = convertToShares(e, x);
+    uint256 fy = convertToShares(e, y);
+    assert x <= y => fx <= fy, "convertToShares decreasing";
+}
+
+rule convertToAssetsMonotonic(env e, uint256 x, uint256 y) {
+    uint256 fx = convertToAssets(e, x);
+    uint256 fy = convertToAssets(e, y);
+    assert x <= y => fx <= fy, "convertToAssets decreasing";
+}
+
+rule previewDepositMonotonic(env e, uint256 x, uint256 y) {
+    uint256 fx = previewDeposit(e, x);
+    uint256 fy = previewDeposit(e, y);
+    assert x <= y => fx <= fy, "previewDeposit decreasing";
+}
+
+rule previewMintMonotonic(env e, uint256 x, uint256 y) {
+    uint256 fx = previewMint(e, x);
+    uint256 fy = previewMint(e, y);
+    assert x <= y => fx <= fy, "previewMint decreasing";
+}
+
+rule previewWithdrawMonotonic(env e, uint256 x, uint256 y) {
+    uint256 fx = previewWithdraw(e, x);
+    uint256 fy = previewWithdraw(e, y);
+    assert x <= y => fx <= fy, "previewWithdraw decreasing";
+}
+
+rule previewRedeemMonotonic(env e, uint256 x, uint256 y) {
+    uint256 fx = previewRedeem(e, x);
+    uint256 fy = previewRedeem(e, y);
+    assert x <= y => fx <= fy, "previewRedeem decreasing";
+}
+
+// Actual operations: from one snapshot, op(x) and op(y) (same env, same receiver/owner).
+
+rule depositMonotonic(env e, uint256 x, uint256 y, address receiver) {
+    storage init = lastStorage;
+    uint256 sx = deposit(e, x, receiver);
+    uint256 sy = deposit(e, y, receiver) at init;
+    assert x <= y => sx <= sy, "depositing more assets minted fewer shares";
+}
+
+rule mintMonotonic(env e, uint256 x, uint256 y, address receiver) {
+    storage init = lastStorage;
+    uint256 ax = mint(e, x, receiver);
+    uint256 ay = mint(e, y, receiver) at init;
+    assert x <= y => ax <= ay, "minting more shares cost fewer assets";
+}
+
+rule withdrawMonotonic(env e, uint256 x, uint256 y, address receiver, address owner) {
+    storage init = lastStorage;
+    uint256 sx = withdraw(e, x, receiver, owner);
+    uint256 sy = withdraw(e, y, receiver, owner) at init;
+    assert x <= y => sx <= sy, "withdrawing more assets burned fewer shares";
+}
+
+rule redeemMonotonic(env e, uint256 x, uint256 y, address receiver, address owner) {
+    storage init = lastStorage;
+    uint256 ax = redeem(e, x, receiver, owner);
+    uint256 ay = redeem(e, y, receiver, owner) at init;
+    assert x <= y => ax <= ay, "redeeming more shares paid fewer assets";
+}
+
+// ---------------------------------------------------------------------------
+// no_gain_from_splitting_operations
+// Same env (same block, caller, receiver, owner). Path 1: op(a) then op(b). Path 2, from the same
+// snapshot: op(a + b). The second op of path 1 runs after the first dripped (rho == now), so it
+// uses the same chi as path 2's single drip.
+//
+// `require ab == a + b` only names the combined amount as a uint256 call argument. It drops no
+// case in which both split operations succeed: deposit/withdraw evaluate the checked product
+// `amount * RAY`, so each of a, b is < 2^256 / 10^27 and a + b fits; mint's two Pot.join calls
+// add a then b to Pot.Pie with checked addition, so a + b fits; redeem burns a then b from the
+// owner's balance, so a + b <= the owner's prior balance.
+// ---------------------------------------------------------------------------
+
+rule depositSplitNoGain(env e, uint256 a, uint256 b, uint256 ab, address receiver) {
+    requireStructuralInvariants();
+    require to_mathint(ab) == a + b; // names the combined amount; see block comment above
+    storage init = lastStorage;
+
+    uint256 sa = deposit(e, a, receiver);
+    uint256 sb = deposit(e, b, receiver);
+    mathint balSplit = balanceOf(receiver);
+
+    uint256 sab = deposit(e, ab, receiver) at init;
+    mathint balJoint = balanceOf(receiver);
+
+    assert sa + sb <= to_mathint(sab), "two deposits minted more shares than one combined deposit";
+    assert balSplit <= balJoint, "receiver holds more shares after split deposits";
+}
+
+rule mintSplitNoGain(env e, uint256 a, uint256 b, uint256 ab, address receiver) {
+    requireStructuralInvariants();
+    require to_mathint(ab) == a + b; // names the combined amount; see block comment above
+    storage init = lastStorage;
+
+    uint256 assetsA = mint(e, a, receiver);
+    uint256 assetsB = mint(e, b, receiver);
+    mathint daiSplit = daiToken.balanceOf(e.msg.sender);
+
+    uint256 assetsAB = mint(e, ab, receiver) at init;
+    mathint daiJoint = daiToken.balanceOf(e.msg.sender);
+
+    assert assetsA + assetsB >= to_mathint(assetsAB), "two mints cost fewer assets than one combined mint";
+    assert daiSplit <= daiJoint, "caller kept more DAI after split mints";
+}
+
+rule withdrawSplitNoGain(env e, uint256 a, uint256 b, uint256 ab, address receiver, address owner) {
+    requireStructuralInvariants();
+    require to_mathint(ab) == a + b; // names the combined amount; see block comment above
+    storage init = lastStorage;
+
+    uint256 sharesA = withdraw(e, a, receiver, owner);
+    uint256 sharesB = withdraw(e, b, receiver, owner);
+    mathint ownerSplit = balanceOf(owner);
+
+    uint256 sharesAB = withdraw(e, ab, receiver, owner) at init;
+    mathint ownerJoint = balanceOf(owner);
+
+    assert sharesA + sharesB >= to_mathint(sharesAB), "two withdraws burned fewer shares than one combined withdraw";
+    assert ownerSplit <= ownerJoint, "owner kept more shares after split withdraws";
+}
+
+rule redeemSplitNoGain(env e, uint256 a, uint256 b, uint256 ab, address receiver, address owner) {
+    requireStructuralInvariants();
+    require to_mathint(ab) == a + b; // names the combined amount; see block comment above
+    storage init = lastStorage;
+
+    uint256 assetsA = redeem(e, a, receiver, owner);
+    uint256 assetsB = redeem(e, b, receiver, owner);
+    mathint daiSplit = daiToken.balanceOf(receiver);
+
+    uint256 assetsAB = redeem(e, ab, receiver, owner) at init;
+    mathint daiJoint = daiToken.balanceOf(receiver);
+
+    assert assetsA + assetsB <= to_mathint(assetsAB), "two redeems paid more assets than one combined redeem";
+    assert daiSplit <= daiJoint, "receiver got more DAI from split redeems";
+}
+
+// ---------------------------------------------------------------------------
+// exit_rejects_invalid_receiver
+// VERIFIED = withdraw/redeem to address(0) always revert. Expected to FAIL (finding): _burn does
+// not check the receiver and Dai.mint (via DaiJoin.exit) accepts address(0).
+// ---------------------------------------------------------------------------
+
+rule exitRejectsZeroReceiver(method f, env e, uint256 amount, address owner)
+    filtered { f -> isWithdrawOp(f) }
+{
+    requireStructuralInvariants();
+    bool reverted = callWithdrawOpWithRevert(f, e, amount, 0, owner);
+    assert reverted, "withdraw/redeem to address(0) succeeded";
+}
+
+/// Witness for the exitRejectsZeroReceiver finding (satisfy: VERIFIED = scenario reachable):
+/// a withdraw of a positive amount of DAI to address(0) succeeds from a state satisfying the
+/// structural invariants and chi >= RAY, burning the owner's shares while the DAI is minted to
+/// address(0), where nobody can spend it.
+rule exitToZeroReceiverWitness(env e, uint256 assets, address owner) {
+    requireStructuralInvariants();
+    requirePotChiAtLeastRay();
+    mathint ownerBefore = balanceOf(owner);
+    mathint zeroDaiBefore = daiToken.balanceOf(0);
+
+    uint256 shares = withdraw(e, assets, 0, owner);
+
+    satisfy assets > 0
+        && to_mathint(daiToken.balanceOf(0)) == zeroDaiBefore + assets
+        && to_mathint(balanceOf(owner)) == ownerBefore - shares
+        && shares > 0;
+}

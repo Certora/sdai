@@ -1,0 +1,539 @@
+WARNING: You are using certora-cli version 8.20.0; however, version 8.20.2 is available. It is recommended to upgrade by running: pip install certora-cli --upgrade
+or
+pip3 install certora-cli --upgrade
+Compiling certora/harnesses/Dai.sol...
+Compiling certora/harnesses/Dai.sol to expose internal function information and local variables...
+Compiling certora/harnesses/DaiJoin.sol...
+Compiling certora/harnesses/DaiJoin.sol to expose internal function information and local variables...
+Compiling certora/harnesses/Pot.sol...
+Compiling certora/harnesses/Pot.sol to expose internal function information and local variables...
+Compiling certora/harnesses/SigPacker.sol...
+Compiling certora/harnesses/SigPacker.sol to expose internal function information and local variables...
+Compiling certora/harnesses/Vat.sol...
+Compiling certora/harnesses/Vat.sol to expose internal function information and local variables...
+Compiling src/SavingsDai.sol...
+Compiling src/SavingsDai.sol to expose internal function information and local variables...
+
+Connecting to server...
+[32mStarting job as user shelly@certora.com in org Certora (certora). Reserved 120 minutes: 0 free, 120 billed to Certora.[0m
+
+[32mJob submitted to server[0m
+
+Manage your jobs at https://prover.certora.com/orgs/certora/jobs
+Follow your job and see verification results at https://prover.certora.com/orgs/certora/jobs/5ab7d489-f109-488f-8826-c3f3c6ca4f34/report
+Output:
+processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |[INFO]: prover-container-version: 1.1.5
+[INFO]: Overcommit memory value: 1
+[INFO]: s5cmd: cp s3://certora-prod/uploadFiles/60724/5ab7d489f109488f8826c3f3c6ca4f34.zip /home/appuser/code/job.zip
+[INFO]: s5cmd: cp s3://tac-optimizer-artifacts/8.20.0/tac_optimizer-8.20.0 /home/appuser/bin/tac_optimizer
+[INFO]: s5cmd: cp s3://prover-artifacts/8.20.0/emv-8.20.0.jar /home/appuser/bin/emv.jar
+[INFO]: inputs download time :: 0.9737 seconds
+[INFO]: tac optimizer ready on PATH at /home/appuser/bin/tac_optimizer
+[INFO]: s5cmd transferred 3450 file(s)
+[INFO]: cache download time :: 1.7775 seconds
+[INFO]: Command: java -Xmx31999m -XX:+UseParallelGC -XX:MaxHeapFreeRatio=10 -XX:MinHeapFreeRatio=5 -XX:G1PeriodicGCInterval=15 -XX:NewRatio=5 -XX:+CrashOnOutOfMemoryError -XX:ErrorFile=/home/appuser/code/java_error/java_error%p.log -DoutputUrl=s3://certora-prod/outputs/60724/output_5ab7d489f109488f8826c3f3c6ca4f34/ -DjobId=5ab7d489f109488f8826c3f3c6ca4f34 -DuserId=60724 -jar /home/appuser/bin/emv.jar -cache 6107b3944737244cfd807a4cf6c9231379ad051b7a6d1b7b47c9495a14b87e53-optimisticTrue-iterNone-None--certora-cli-8.20.0 -assumeUnwindCond -contract SavingsDai -ruleSanityChecks basic -quiet -destructiveOptimizations twostage -userGlobalTimeout 7200 -globalTimeout 7500
+Start Fri Oct 23 16:24:49 GMT 2026
+Start Fri Oct 23 16:24:49 GMT 2026
+The scene contains 25 contracts:
+Vat : 0xce4604a000000000000000000000000f,
+Dai : 0xce4604a0000000000000000000000001,
+DaiJoin : 0xce4604a0000000000000000000000006,
+Pot : 0xce4604a000000000000000000000000a,
+SavingsDai : 0xce4604a000000000000000000000001a,
+SigPacker : 0xce4604a000000000000000000000000d,
+ecrecover : 0x1,
+sha256 : 0x2,
+ripemd160 : 0x3,
+identity : 0x4,
+bigmod : 0x5,
+bn256Add : 0x6,
+bn256ScalarMul : 0x7,
+bn256Pairing : 0x8,
+Precompiled244 : 0xf4,
+Precompiled245 : 0xf5,
+Precompiled246 : 0xf6,
+Precompiled247 : 0xf7,
+Precompiled248 : 0xf8,
+Precompiled249 : 0xf9,
+Precompiled250 : 0xfa,
+Precompiled251 : 0xfb,
+Precompiled252 : 0xfc,
+Precompiled253 : 0xfd,
+Precompiled254 : 0xfe
+Running initial transformations
+Has CVL checks.
+Checking CVL certora/specs/maker-models/constructor.spec for contract SavingsDai
+Unrolling loops 1 time, unwinding condition is assumed
+Verified: eVat-Induction base: After the constructor
+Verified: eDai-Induction base: After the constructor
+Verified: ePot-Induction base: After the constructor
+Verified: eJoin-Induction base: After the constructor
+Verified: eHopeJoinGetter-Induction base: After the constructor
+Verified: eAllow-Induction base: After the constructor
+Verified: eHopeJoin-Induction base: After the constructor
+Verified: ePot-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Verified: eDai-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Verified: eHopePot-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Verified: eAllow-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Verified: eHopeJoin-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Verified: eHopePotGetter-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Verified: eHopeJoinGetter-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Violated: eHopePot-Induction base: After the constructor
+Violated: eHopePotGetter-Induction base: After the constructor
+received `signalSkip` for rule eHopePotGetter-Induction base: After the constructor-invariant_not_trivial_postcondition
+received `signalSkip` for rule eHopePot-Induction base: After the constructor-invariant_not_trivial_postcondition
+received `signalSkip` for rule eHopePot-Induction base: After the constructor-rule_not_vacuous
+received `signalSkip` for rule eHopePotGetter-Induction base: After the constructor-rule_not_vacuous
+Violated: ePot-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Violated: eVat-Induction base: After the constructor-rule_not_vacuous
+Violated: eDai-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Violated: eJoin-Induction base: After the constructor-rule_not_vacuous
+Violated: ePot-Induction base: After the constructor-rule_not_vacuous
+Violated: eDai-Induction base: After the constructor-rule_not_vacuous
+Violated: eHopeJoin-Induction base: After the constructor-invariant_not_trivial_postcondition
+Violated: eHopeJoinGetter-Induction base: After the constructor-invariant_not_trivial_postcondition
+Verified: eVat-Using general requirements-increaseAllowance(address,uint256)
+Verified: eVat-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Verified: eVat-Using general requirements-approve(address,uint256)
+Verified: eVat-Using general requirements-transfer(address,uint256)
+Verified: eVat-Using general requirements-decreaseAllowance(address,uint256)
+Violated: eHopePot-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Violated: eAllow-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Violated: eHopeJoin-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Violated: eHopeJoin-Induction base: After the constructor-rule_not_vacuous
+Verified: eVat-Using general requirements-permit(address,address,uint256,uint256,bytes)
+Verified: eVat-Induction base: After the constructor-invariant_not_trivial_postcondition
+Verified: eVat-Using general requirements-transferFrom(address,address,uint256)
+Violated: eAllow-Induction base: After the constructor-rule_not_vacuous
+Violated: eHopePotGetter-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Violated: eHopeJoinGetter-Induction base: After the constructor-rule_not_vacuous
+Verified: eHopePotGetter-Using general requirements-approve(address,uint256)
+Verified: eHopePotGetter-Using general requirements-decreaseAllowance(address,uint256)
+Verified: eHopePotGetter-Using general requirements-increaseAllowance(address,uint256)
+Verified: eHopePotGetter-Using general requirements-transfer(address,uint256)
+Verified: eHopePotGetter-Using general requirements-permit(address,address,uint256,uint256,bytes)
+Verified: eAllow-Using general requirements-approve(address,uint256)
+Verified: eHopePotGetter-Using general requirements-transferFrom(address,address,uint256)
+Verified: eAllow-Using general requirements-transfer(address,uint256)
+Verified: eAllow-Using general requirements-permit(address,address,uint256,uint256,bytes)
+Verified: eVat-Using general requirements-mint(uint256,address,uint16)
+Verified: eVat-Using general requirements-redeem(uint256,address,address)
+Verified: eAllow-Using general requirements-decreaseAllowance(address,uint256)
+Exception in thread "Thread-1" java.io.IOException: Cannot run program "killall": Exec failed, error: 2 (No such file or directory) 
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+	at java.base/java.lang.Runtime.exec(Runtime.java:681)
+	at java.base/java.lang.Runtime.exec(Runtime.java:530)
+	at utils.LongProcessKiller.run(LongProcessKiller.kt:44)
+Caused by: java.io.IOException: Exec failed, error: 2 (No such file or directory) 
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:295)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:225)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126)
+	... 4 more
+Verified: eAllow-Using general requirements-increaseAllowance(address,uint256)
+Ping 1m - Processed 1/10 (10%) rules. 54 tasks complete, 43 pending.
+Verified: eVat-Using general requirements-mint(uint256,address)
+Verified: eAllow-Using general requirements-transferFrom(address,address,uint256)
+Verified: eVat-Using general requirements-withdraw(uint256,address,address)
+Verified: eVat-Using general requirements-deposit(uint256,address,uint16)
+Verified: eVat-Using general requirements-deposit(uint256,address)
+Verified: eHopePotGetter-Using general requirements-mint(uint256,address,uint16)
+Verified: eHopePotGetter-Using general requirements-redeem(uint256,address,address)
+Violated: eVat-Using general requirements-increaseAllowance(address,uint256)-rule_not_vacuous
+Verified: eHopePotGetter-Using general requirements-mint(uint256,address)
+Violated: eVat-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Verified: eAllow-Using general requirements-mint(uint256,address,uint16)
+Violated: eVat-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Verified: eHopePotGetter-Using general requirements-deposit(uint256,address,uint16)
+Violated: eVat-Using general requirements-decreaseAllowance(address,uint256)-rule_not_vacuous
+Violated: eVat-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Verified: eHopePotGetter-Using general requirements-withdraw(uint256,address,address)
+Verified: eAllow-Using general requirements-redeem(uint256,address,address)
+Violated: eVat-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Violated: eVat-Using general requirements-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Verified: eAllow-Using general requirements-mint(uint256,address)
+Violated: eHopePotGetter-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Verified: eJoin-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+Violated: eAllow-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Verified: eJoin-Using general requirements-approve(address,uint256)
+Verified: eJoin-Using general requirements-transfer(address,uint256)
+Violated: eHopePotGetter-Using general requirements-decreaseAllowance(address,uint256)-rule_not_vacuous
+Violated: eHopePotGetter-Using general requirements-increaseAllowance(address,uint256)-rule_not_vacuous
+Violated: eHopePotGetter-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Verified: eAllow-Using general requirements-deposit(uint256,address)
+Verified: eAllow-Using general requirements-deposit(uint256,address,uint16)
+Verified: eHopePotGetter-Using general requirements-deposit(uint256,address)
+Verified: eJoin-Using general requirements-decreaseAllowance(address,uint256)
+Verified: eJoin-Using general requirements-increaseAllowance(address,uint256)
+Verified: eJoin-Using general requirements-permit(address,address,uint256,uint256,bytes)
+Verified: eAllow-Using general requirements-withdraw(uint256,address,address)
+Violated: eAllow-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Violated: eHopePotGetter-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Verified: eJoin-Induction base: After the constructor-invariant_not_trivial_postcondition
+Verified: eJoin-Using general requirements-transferFrom(address,address,uint256)
+Violated: eHopePotGetter-Using general requirements-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Violated: eAllow-Induction base: After the constructor-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Verified: eVat-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-decreaseAllowance(address,uint256)-rule_not_vacuous
+Violated: eAllow-Using general requirements-increaseAllowance(address,uint256)-rule_not_vacuous
+Verified: eVat-Using general requirements-permit(address,address,uint256,uint256,bytes)-invariant_not_trivial_postcondition
+Verified: eVat-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Verified: eVat-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Verified: eVat-Using general requirements-decreaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Verified: eVat-Using general requirements-increaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Verified: eVat-Using general requirements-mint(uint256,address,uint16)-invariant_not_trivial_postcondition
+Verified: eVat-Using general requirements-deposit(uint256,address,uint16)-invariant_not_trivial_postcondition
+Verified: eVat-Using general requirements-withdraw(uint256,address,address)-invariant_not_trivial_postcondition
+Verified: eVat-Using general requirements-redeem(uint256,address,address)-invariant_not_trivial_postcondition
+Verified: eVat-Using general requirements-deposit(uint256,address)-invariant_not_trivial_postcondition
+Verified: eVat-Using general requirements-mint(uint256,address)-invariant_not_trivial_postcondition
+Verified: eVat-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Verified: eJoin-Using general requirements-redeem(uint256,address,address)
+Verified: eJoin-Using general requirements-mint(uint256,address,uint16)
+Verified: eJoin-Using general requirements-mint(uint256,address)
+Verified: eHopePot-Using general requirements-permit(address,address,uint256,uint256,bytes)
+Verified: eHopePot-Using general requirements-approve(address,uint256)
+Verified: eHopePot-Using general requirements-transfer(address,uint256)
+Verified: eHopePot-Using general requirements-decreaseAllowance(address,uint256)
+Verified: eHopePot-Using general requirements-increaseAllowance(address,uint256)
+Verified: eJoin-Using general requirements-withdraw(uint256,address,address)
+Verified: eJoin-Using general requirements-deposit(uint256,address,uint16)
+Verified: eJoin-Using general requirements-deposit(uint256,address)
+Verified: eHopePot-Using general requirements-transferFrom(address,address,uint256)
+Violated: eVat-Using general requirements-redeem(uint256,address,address)-rule_not_vacuous
+Violated: eVat-Using general requirements-mint(uint256,address,uint16)-rule_not_vacuous
+Verified: eDai-Using general requirements-permit(address,address,uint256,uint256,bytes)
+Violated: eVat-Using general requirements-mint(uint256,address)-rule_not_vacuous
+Verified: eDai-Using general requirements-approve(address,uint256)
+Verified: eDai-Using general requirements-transfer(address,uint256)
+Verified: eDai-Using general requirements-decreaseAllowance(address,uint256)
+Verified: eDai-Using general requirements-increaseAllowance(address,uint256)
+Verified: eHopePot-Using general requirements-mint(uint256,address,uint16)
+Violated: eVat-Using general requirements-withdraw(uint256,address,address)-rule_not_vacuous
+Verified: eHopePot-Using general requirements-redeem(uint256,address,address)
+Violated: eHopePotGetter-Using general requirements-redeem(uint256,address,address)-rule_not_vacuous
+Violated: eHopePotGetter-Using general requirements-mint(uint256,address,uint16)-rule_not_vacuous
+Verified: eDai-Using general requirements-transferFrom(address,address,uint256)
+Violated: eVat-Using general requirements-deposit(uint256,address,uint16)-rule_not_vacuous
+Violated: eHopePotGetter-Using general requirements-mint(uint256,address)-rule_not_vacuous
+Verified: ePot-Induction base: After the constructor-invariant_not_trivial_postcondition
+Verified: eHopePot-Using general requirements-mint(uint256,address)
+Verified: eHopePot-Using general requirements-withdraw(uint256,address,address)
+Verified: eHopePot-Using general requirements-deposit(uint256,address,uint16)
+Verified: eHopeJoinGetter-Using general requirements-approve(address,uint256)
+Verified: eHopeJoinGetter-Using general requirements-transfer(address,uint256)
+Verified: eHopeJoinGetter-Using general requirements-decreaseAllowance(address,uint256)
+Verified: eHopeJoinGetter-Using general requirements-increaseAllowance(address,uint256)
+Violated: eVat-Using general requirements-deposit(uint256,address)-rule_not_vacuous
+Verified: eHopeJoinGetter-Using general requirements-permit(address,address,uint256,uint256,bytes)
+Verified: eDai-Using general requirements-mint(uint256,address,uint16)
+Verified: eHopePot-Using general requirements-deposit(uint256,address)
+Verified: eDai-Using general requirements-redeem(uint256,address,address)
+Verified: eHopeJoinGetter-Using general requirements-transferFrom(address,address,uint256)
+Verified: eHopeJoin-Using general requirements-approve(address,uint256)
+Verified: eHopeJoin-Using general requirements-transfer(address,uint256)
+Verified: eDai-Using general requirements-mint(uint256,address)
+Verified: eHopeJoin-Using general requirements-decreaseAllowance(address,uint256)
+Verified: eHopeJoin-Using general requirements-permit(address,address,uint256,uint256,bytes)
+Verified: eHopeJoin-Using general requirements-increaseAllowance(address,uint256)
+Violated: eAllow-Using general requirements-mint(uint256,address,uint16)-rule_not_vacuous
+Verified: eDai-Using general requirements-withdraw(uint256,address,address)
+Verified: eDai-Using general requirements-deposit(uint256,address,uint16)
+Verified: ePot-Using general requirements-approve(address,uint256)
+Verified: eDai-Using general requirements-deposit(uint256,address)
+Verified: eHopeJoin-Using general requirements-transferFrom(address,address,uint256)
+Verified: ePot-Using general requirements-permit(address,address,uint256,uint256,bytes)
+Verified: ePot-Using general requirements-transfer(address,uint256)
+Verified: ePot-Using general requirements-decreaseAllowance(address,uint256)
+Verified: ePot-Using general requirements-increaseAllowance(address,uint256)
+Verified: eHopeJoinGetter-Using general requirements-mint(uint256,address,uint16)
+Verified: eHopeJoinGetter-Using general requirements-redeem(uint256,address,address)
+Verified: eHopeJoinGetter-Using general requirements-mint(uint256,address)
+Verified: ePot-Using general requirements-transferFrom(address,address,uint256)
+Verified: eDai-Induction base: After the constructor-invariant_not_trivial_postcondition
+Verified: eHopeJoin-Using general requirements-redeem(uint256,address,address)
+Verified: eHopeJoin-Using general requirements-mint(uint256,address,uint16)
+Verified: eHopeJoinGetter-Using general requirements-deposit(uint256,address,uint16)
+Verified: eHopeJoinGetter-Using general requirements-withdraw(uint256,address,address)
+Verified: eHopeJoin-Using general requirements-mint(uint256,address)
+Verified: ePot-Using general requirements-mint(uint256,address,uint16)
+Verified: eHopeJoinGetter-Using general requirements-deposit(uint256,address)
+Verified: ePot-Using general requirements-redeem(uint256,address,address)
+Verified: ePot-Using general requirements-mint(uint256,address)
+Violated: eJoin-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Verified: eHopeJoin-Using general requirements-withdraw(uint256,address,address)
+Verified: eHopeJoin-Using general requirements-deposit(uint256,address)
+Verified: eHopeJoin-Using general requirements-deposit(uint256,address,uint16)
+Violated: eJoin-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Violated: eJoin-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-rule_not_vacuous
+Verified: ePot-Using general requirements-withdraw(uint256,address,address)
+Violated: eHopePotGetter-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: eHopePotGetter-Using general requirements-permit(address,address,uint256,uint256,bytes)-invariant_not_trivial_postcondition
+Violated: eHopePotGetter-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-deposit(uint256,address,uint16)
+Violated: eHopePotGetter-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopePotGetter-Using general requirements-decreaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopePotGetter-Using general requirements-increaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopePotGetter-Using general requirements-mint(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: eHopePotGetter-Using general requirements-deposit(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: eHopePotGetter-Using general requirements-withdraw(uint256,address,address)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-deposit(uint256,address)
+Violated: eHopePotGetter-Using general requirements-redeem(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: eHopePotGetter-Using general requirements-deposit(uint256,address)-invariant_not_trivial_postcondition
+Violated: eHopePotGetter-Using general requirements-mint(uint256,address)-invariant_not_trivial_postcondition
+Violated: eHopePotGetter-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-permit(address,address,uint256,uint256,bytes)-invariant_not_trivial_postcondition
+Violated: eJoin-Using general requirements-decreaseAllowance(address,uint256)-rule_not_vacuous
+Violated: eJoin-Using general requirements-increaseAllowance(address,uint256)-rule_not_vacuous
+Violated: eAllow-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Ping 2m - Processed 2/10 (20%) rules. 215 tasks complete, 40 pending.
+Violated: eAllow-Using general requirements-decreaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-increaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-deposit(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-mint(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: eJoin-Using general requirements-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Violated: eAllow-Using general requirements-withdraw(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-redeem(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-deposit(uint256,address)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-mint(uint256,address)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-redeem(uint256,address,address)-rule_not_vacuous
+Violated: eJoin-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Violated: eAllow-Using general requirements-mint(uint256,address)-rule_not_vacuous
+Violated: eHopePot-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Violated: eHopePotGetter-Using general requirements-deposit(uint256,address,uint16)-rule_not_vacuous
+Violated: eHopePot-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Violated: eHopePot-Using general requirements-decreaseAllowance(address,uint256)-rule_not_vacuous
+Verified: eJoin-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: eHopePot-Using general requirements-increaseAllowance(address,uint256)-rule_not_vacuous
+Verified: eJoin-Using general requirements-permit(address,address,uint256,uint256,bytes)-invariant_not_trivial_postcondition
+Verified: eJoin-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopePotGetter-Using general requirements-withdraw(uint256,address,address)-rule_not_vacuous
+Verified: eJoin-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Verified: eJoin-Using general requirements-decreaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Verified: eJoin-Using general requirements-increaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Verified: eJoin-Using general requirements-mint(uint256,address,uint16)-invariant_not_trivial_postcondition
+Verified: eJoin-Using general requirements-deposit(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: eHopePot-Using general requirements-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Verified: eJoin-Using general requirements-withdraw(uint256,address,address)-invariant_not_trivial_postcondition
+Verified: eJoin-Using general requirements-redeem(uint256,address,address)-invariant_not_trivial_postcondition
+Verified: eJoin-Using general requirements-deposit(uint256,address)-invariant_not_trivial_postcondition
+Verified: eJoin-Using general requirements-mint(uint256,address)-invariant_not_trivial_postcondition
+Verified: eJoin-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: eAllow-Using general requirements-deposit(uint256,address,uint16)-rule_not_vacuous
+Violated: eAllow-Using general requirements-deposit(uint256,address)-rule_not_vacuous
+Violated: eDai-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Violated: eDai-Using general requirements-increaseAllowance(address,uint256)-rule_not_vacuous
+Violated: eDai-Using general requirements-decreaseAllowance(address,uint256)-rule_not_vacuous
+Violated: eDai-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Violated: eHopePot-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Violated: eDai-Using general requirements-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Violated: eDai-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Violated: eHopePotGetter-Using general requirements-deposit(uint256,address)-rule_not_vacuous
+Violated: eJoin-Using general requirements-redeem(uint256,address,address)-rule_not_vacuous
+Violated: eAllow-Using general requirements-withdraw(uint256,address,address)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Violated: eJoin-Using general requirements-mint(uint256,address,uint16)-rule_not_vacuous
+Violated: eJoin-Using general requirements-mint(uint256,address)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Violated: eHopePot-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: eHopePot-Using general requirements-permit(address,address,uint256,uint256,bytes)-invariant_not_trivial_postcondition
+Violated: eHopePot-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopeJoinGetter-Using general requirements-decreaseAllowance(address,uint256)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-increaseAllowance(address,uint256)-rule_not_vacuous
+Violated: eHopePot-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Violated: eJoin-Using general requirements-withdraw(uint256,address,address)-rule_not_vacuous
+Violated: eHopePot-Using general requirements-decreaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopePot-Using general requirements-increaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopePot-Using general requirements-mint(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: eHopePot-Using general requirements-deposit(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: eHopeJoinGetter-Using general requirements-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Violated: eHopePot-Using general requirements-withdraw(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: eHopePot-Using general requirements-redeem(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: eHopePot-Using general requirements-deposit(uint256,address)-invariant_not_trivial_postcondition
+Violated: eHopePot-Using general requirements-mint(uint256,address)-invariant_not_trivial_postcondition
+Violated: eHopePot-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: eJoin-Using general requirements-deposit(uint256,address,uint16)-rule_not_vacuous
+Violated: eHopeJoin-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Violated: eHopeJoin-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Violated: eHopePot-Using general requirements-redeem(uint256,address,address)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Violated: eHopeJoin-Using general requirements-decreaseAllowance(address,uint256)-rule_not_vacuous
+Violated: eHopePot-Using general requirements-mint(uint256,address)-rule_not_vacuous
+Violated: eHopePot-Using general requirements-mint(uint256,address,uint16)-rule_not_vacuous
+Verified: eDai-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: eJoin-Using general requirements-deposit(uint256,address)-rule_not_vacuous
+Verified: eDai-Using general requirements-permit(address,address,uint256,uint256,bytes)-invariant_not_trivial_postcondition
+Verified: eDai-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Verified: eDai-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Verified: eDai-Using general requirements-decreaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Verified: eDai-Using general requirements-increaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-increaseAllowance(address,uint256)-rule_not_vacuous
+Verified: eDai-Using general requirements-mint(uint256,address,uint16)-invariant_not_trivial_postcondition
+Verified: eDai-Using general requirements-deposit(uint256,address,uint16)-invariant_not_trivial_postcondition
+Verified: eDai-Using general requirements-withdraw(uint256,address,address)-invariant_not_trivial_postcondition
+Verified: eDai-Using general requirements-redeem(uint256,address,address)-invariant_not_trivial_postcondition
+Verified: eDai-Using general requirements-deposit(uint256,address)-invariant_not_trivial_postcondition
+Verified: eDai-Using general requirements-mint(uint256,address)-invariant_not_trivial_postcondition
+Verified: eDai-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Violated: ePot-Using general requirements-approve(address,uint256)-rule_not_vacuous
+Violated: eHopePot-Using general requirements-withdraw(uint256,address,address)-rule_not_vacuous
+Violated: eHopePot-Using general requirements-deposit(uint256,address,uint16)-rule_not_vacuous
+Violated: eDai-Using general requirements-mint(uint256,address,uint16)-rule_not_vacuous
+Violated: ePot-Using general requirements-transfer(address,uint256)-rule_not_vacuous
+Violated: ePot-Using general requirements-decreaseAllowance(address,uint256)-rule_not_vacuous
+Violated: ePot-Using general requirements-increaseAllowance(address,uint256)-rule_not_vacuous
+Violated: eHopeJoin-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Violated: ePot-Using general requirements-permit(address,address,uint256,uint256,bytes)-rule_not_vacuous
+Violated: ePot-Using general requirements-transferFrom(address,address,uint256)-rule_not_vacuous
+Violated: eDai-Using general requirements-redeem(uint256,address,address)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: eDai-Using general requirements-mint(uint256,address)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-permit(address,address,uint256,uint256,bytes)-invariant_not_trivial_postcondition
+Violated: eHopeJoinGetter-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopePot-Using general requirements-deposit(uint256,address)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopeJoinGetter-Using general requirements-increaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopeJoinGetter-Using general requirements-decreaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopeJoinGetter-Using general requirements-mint(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: eDai-Using general requirements-deposit(uint256,address,uint16)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-deposit(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: eHopeJoinGetter-Using general requirements-withdraw(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: eHopeJoinGetter-Using general requirements-redeem(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: eHopeJoinGetter-Using general requirements-redeem(uint256,address,address)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-mint(uint256,address,uint16)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-deposit(uint256,address)-invariant_not_trivial_postcondition
+Violated: eHopeJoinGetter-Using general requirements-mint(uint256,address)-invariant_not_trivial_postcondition
+Violated: eDai-Using general requirements-withdraw(uint256,address,address)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-redeem(uint256,address,address)-rule_not_vacuous
+Violated: eHopeJoin-Using general requirements-mint(uint256,address,uint16)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-mint(uint256,address)-rule_not_vacuous
+Violated: eDai-Using general requirements-deposit(uint256,address)-rule_not_vacuous
+Violated: eHopeJoin-Using general requirements-mint(uint256,address)-rule_not_vacuous
+Violated: eHopeJoin-Using general requirements-permit(address,address,uint256,uint256,bytes)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: ePot-Using general requirements-mint(uint256,address,uint16)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-withdraw(uint256,address,address)-rule_not_vacuous
+Violated: eHopeJoin-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-decreaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-increaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-mint(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: eHopeJoinGetter-Using general requirements-deposit(uint256,address,uint16)-rule_not_vacuous
+Verified: ePot-Using general requirements-permit(address,address,uint256,uint256,uint8,bytes32,bytes32)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-deposit(uint256,address,uint16)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-withdraw(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-redeem(uint256,address,address)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-deposit(uint256,address)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-mint(uint256,address)-invariant_not_trivial_postcondition
+Violated: eHopeJoin-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-permit(address,address,uint256,uint256,bytes)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-approve(address,uint256)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-decreaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-transfer(address,uint256)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-increaseAllowance(address,uint256)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-mint(uint256,address,uint16)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-deposit(uint256,address,uint16)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-redeem(uint256,address,address)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-withdraw(uint256,address,address)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-deposit(uint256,address)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-mint(uint256,address)-invariant_not_trivial_postcondition
+Verified: ePot-Using general requirements-transferFrom(address,address,uint256)-invariant_not_trivial_postcondition
+Violated: ePot-Using general requirements-redeem(uint256,address,address)-rule_not_vacuous
+Violated: ePot-Using general requirements-mint(uint256,address)-rule_not_vacuous
+Violated: eHopeJoin-Using general requirements-withdraw(uint256,address,address)-rule_not_vacuous
+Violated: ePot-Using general requirements-withdraw(uint256,address,address)-rule_not_vacuous
+Violated: eHopeJoin-Using general requirements-deposit(uint256,address)-rule_not_vacuous
+Violated: eHopeJoinGetter-Using general requirements-deposit(uint256,address)-rule_not_vacuous
+Violated: ePot-Using general requirements-deposit(uint256,address,uint16)-rule_not_vacuous
+Violated: eHopeJoin-Using general requirements-deposit(uint256,address,uint16)-rule_not_vacuous
+Violated: ePot-Using general requirements-deposit(uint256,address)-rule_not_vacuous
+Warning: Summarization for internal calls of SavingsDai._rpow(uint256 x, uint256 n) is unused
+Done 2m
+Done 2m
+[INFO]: Live-mirror upload summary: 1947 uploads, 1721 unique keys, 226 redundant re-uploads, 1.13 uploads/key.
+[INFO]: s5cmd: cp /home/appuser/code/5ab7d489f109488f8826c3f3c6ca4f34.tar.gz s3://certora-prod/outputs/60724/output_5ab7d489f109488f8826c3f3c6ca4f34/5ab7d489f109488f8826c3f3c6ca4f34.tar.gz
+[INFO]: s5cmd transferred 1928 file(s)
+[INFO]: Cache upload took 2.0457 seconds
+[INFO]: Timings :: prover=180.9940 seconds, exit_code=100, timed_out=False
+
+Finished verification request
+ERROR: Prover found violations:
+
+[rule] eDai: 
+    [func] Induction base: After the constructor: SANITY_FAIL
+    [func] approve(address,uint256)
+    [func] decreaseAllowance(address,uint256)
+    [func] deposit(uint256,address)
+    [func] deposit(uint256,address,uint16)
+    [func] increaseAllowance(address,uint256)
+    [func] mint(uint256,address)
+    [func] mint(uint256,address,uint16)
+    [func] permit(address,address,uint256,uint256,bytes)
+    [func] permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+    [func] redeem(uint256,address,address)
+    [func] transfer(address,uint256)
+    [func] transferFrom(address,address,uint256)
+    [func] withdraw(uint256,address,address)
+[rule] eHopePot: 
+    [func] Induction base: After the constructor: FAIL
+[rule] eHopePotGetter: 
+    [func] Induction base: After the constructor: FAIL
+[rule] eJoin: 
+    [func] Induction base: After the constructor: SANITY_FAIL
+    [func] approve(address,uint256)
+    [func] decreaseAllowance(address,uint256)
+    [func] deposit(uint256,address)
+    [func] deposit(uint256,address,uint16)
+    [func] increaseAllowance(address,uint256)
+    [func] mint(uint256,address)
+    [func] mint(uint256,address,uint16)
+    [func] permit(address,address,uint256,uint256,bytes)
+    [func] permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+    [func] redeem(uint256,address,address)
+    [func] transfer(address,uint256)
+    [func] transferFrom(address,address,uint256)
+    [func] withdraw(uint256,address,address)
+[rule] ePot: 
+    [func] Induction base: After the constructor: SANITY_FAIL
+    [func] approve(address,uint256)
+    [func] decreaseAllowance(address,uint256)
+    [func] deposit(uint256,address)
+    [func] deposit(uint256,address,uint16)
+    [func] increaseAllowance(address,uint256)
+    [func] mint(uint256,address)
+    [func] mint(uint256,address,uint16)
+    [func] permit(address,address,uint256,uint256,bytes)
+    [func] permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+    [func] redeem(uint256,address,address)
+    [func] transfer(address,uint256)
+    [func] transferFrom(address,address,uint256)
+    [func] withdraw(uint256,address,address)
+[rule] eVat: 
+    [func] Induction base: After the constructor: SANITY_FAIL
+    [func] approve(address,uint256)
+    [func] decreaseAllowance(address,uint256)
+    [func] deposit(uint256,address)
+    [func] deposit(uint256,address,uint16)
+    [func] increaseAllowance(address,uint256)
+    [func] mint(uint256,address)
+    [func] mint(uint256,address,uint16)
+    [func] permit(address,address,uint256,uint256,bytes)
+    [func] permit(address,address,uint256,uint256,uint8,bytes32,bytes32)
+    [func] redeem(uint256,address,address)
+    [func] transfer(address,uint256)
+    [func] transferFrom(address,address,uint256)
+    [func] withdraw(uint256,address,address)
+report url: https://prover.certora.com/orgs/certora/jobs/5ab7d489-f109-488f-8826-c3f3c6ca4f34/report
+
+Violations were found
+
+EXIT 1

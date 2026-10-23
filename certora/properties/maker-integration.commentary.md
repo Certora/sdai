@@ -116,3 +116,11 @@ None.
 
 ## Judge round 1: ACCEPT (maker-integration.judge-round1.md)
 Known limit: scene.spec's rpowG never reverts while the real _rpow reverts on overflow, so the liveness rules do not cover rpow-overflow reverts. On mainnet parameters (dsr ≈ 1.000000001·RAY) this needs an astronomically long time between drips.
+
+## Pass 3: assumptions now backed by proofs (maker-models)
+- pre_chiAtLeastRay: proven invariant potChiAtLeastRay (run 9e14d9f8).
+- pre_PieCoversSdaiPie: proven invariant potPieCoversEachPie(sDAI) (run 9e14d9f8).
+- pre_daiSupplyCoversHolders: caller == sDAI case is daiBalanceAtMostSupply (run 0e288f36); otherwise follows arithmetically from daiSupplyIsSum (not separately machine-checked).
+- pre_hopeDaiJoin / pre_hopePot / pre_daiJoinAllowance: established by SavingsDai's constructor, constructorWiresMakerSystem (run e81898a8, under A1/A2); never undone by SavingsDai methods (setupApprovalsPreserved). Third-party Vat/Dai calls (e.g. Dai.permit with holder = sDAI) remain argued.
+- The scene.spec NONDET of the constructor's hope/approve is still why these appear as preconditions in this spec; the separate constructor proof covers them.
+Spec comments still describe the pass-2 reasoning; the proofs above supersede it.

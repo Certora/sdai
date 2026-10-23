@@ -1,0 +1,22 @@
+[
+  {
+    "title": "pot_chi_at_least_ray",
+    "sort": "invariant",
+    "description": "Pot.chi >= RAY in every state reachable from Pot's constructor through any Pot entry point (drip, join, exit, file, cage, rely, deny). Discharges the requirePotChiAtLeastRay / pre_chiAtLeastRay assumptions whose base case was only argued."
+  },
+  {
+    "title": "pot_total_pie_is_sum",
+    "sort": "invariant",
+    "description": "Pot.Pie equals the sum of Pot.pie over all accounts, from Pot's constructor through every Pot entry point; in particular Pie >= pie[sDAI] (discharges pre_PieCoversSdaiPie)."
+  },
+  {
+    "title": "dai_supply_is_sum",
+    "sort": "invariant",
+    "description": "Dai.totalSupply equals the sum of Dai.balanceOf over all accounts, from Dai's constructor through every Dai entry point; discharges the argued base case of daiSupplyIsSumPreserved and implies balance(a) + balance(b) <= totalSupply for distinct a, b."
+  },
+  {
+    "title": "constructor_wires_maker_system",
+    "sort": "safety_property",
+    "description": "Assuming the constructor's _daiJoin is the scene DaiJoin (A1) and DaiJoin's vat/dai are the scene Vat/Dai (A2), SavingsDai's constructor sets daiJoin/vat/dai to those contracts and pot to the given _pot, and establishes vat.can(sDAI, daiJoin) == 1, vat.can(sDAI, pot) == 1 and dai.allowance(sDAI, daiJoin) == type(uint256).max \u2014 the setup the liveness rules assume and setupApprovalsPreserved shows is never undone by SavingsDai methods."
+  }
+]

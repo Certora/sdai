@@ -1,7 +1,7 @@
 {
   "main_contract": "src/SavingsDai.sol:SavingsDai",
   "repo": "https://github.com/makerdao/sdai",
-  "pass": 2,
+  "pass": 3,
   "properties": [
     {
       "title": "total_supply_equals_sum_of_balances",
@@ -193,7 +193,7 @@
           "rule": "depositAccounting",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         }
       ]
     },
@@ -207,7 +207,7 @@
           "rule": "mintAccounting",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         }
       ]
     },
@@ -221,7 +221,7 @@
           "rule": "withdrawAccounting",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         }
       ]
     },
@@ -235,7 +235,7 @@
           "rule": "redeemAccounting",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         }
       ]
     },
@@ -249,7 +249,7 @@
           "rule": "withdrawRedeemRequireAllowance",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         }
       ]
     },
@@ -263,7 +263,7 @@
           "rule": "invalidReceiverRejected",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         }
       ]
     },
@@ -277,25 +277,25 @@
           "rule": "previewDepositMatchesDeposit",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         },
         {
           "rule": "previewMintMatchesMint",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         },
         {
           "rule": "previewWithdrawMatchesWithdraw",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         },
         {
           "rule": "previewRedeemMatchesRedeem",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         }
       ]
     },
@@ -309,13 +309,13 @@
           "rule": "previewMintRoundsUp",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         },
         {
           "rule": "previewWithdrawRoundsUp",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         }
       ]
     },
@@ -329,19 +329,19 @@
           "rule": "maxFunctionsConsistent",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         },
         {
           "rule": "redeemAboveMaxReverts",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         },
         {
           "rule": "withdrawAboveMaxReverts",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         }
       ]
     },
@@ -355,13 +355,13 @@
           "rule": "depositRedeemRoundtripNoProfit",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         },
         {
           "rule": "mintWithdrawRoundtripNoProfit",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         }
       ]
     },
@@ -375,7 +375,7 @@
           "rule": "sharePriceNeverDecreases",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         }
       ]
     },
@@ -389,13 +389,151 @@
           "rule": "depositOpsDoNotAffectOthers",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
         },
         {
           "rule": "withdrawOpsDoNotAffectOthers",
           "status": "VERIFIED",
           "outcome": "GOOD",
-          "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report"
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        }
+      ]
+    },
+    {
+      "title": "referral_overloads_equivalent",
+      "sort": "safety_property",
+      "description": "deposit(assets, receiver, referral) and mint(shares, receiver, referral) behave exactly like deposit(assets, receiver) and mint(shares, receiver): same revert behaviour, same return value and same resulting state, for every referral code. (Pass 3: the accounting/preview rules only covered the two-argument overloads.)",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "depositReferralEquivalent",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        },
+        {
+          "rule": "mintReferralEquivalent",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        }
+      ]
+    },
+    {
+      "title": "conversions_and_previews_monotonic",
+      "sort": "safety_property",
+      "description": "In a fixed state and block, convertToShares, convertToAssets and the four previews are non-decreasing in their input amount, and the actual deposit/mint/withdraw/redeem outputs are too (more assets never buy fewer shares, more shares never redeem for fewer assets, withdrawing more never burns fewer shares, minting more never costs fewer assets).",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "convertToSharesMonotonic",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        },
+        {
+          "rule": "convertToAssetsMonotonic",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        },
+        {
+          "rule": "previewDepositMonotonic",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        },
+        {
+          "rule": "previewMintMonotonic",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        },
+        {
+          "rule": "previewWithdrawMonotonic",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        },
+        {
+          "rule": "previewRedeemMonotonic",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        },
+        {
+          "rule": "depositMonotonic",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        },
+        {
+          "rule": "mintMonotonic",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        },
+        {
+          "rule": "withdrawMonotonic",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        },
+        {
+          "rule": "redeemMonotonic",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        }
+      ]
+    },
+    {
+      "title": "no_gain_from_splitting_operations",
+      "sort": "attack_vector",
+      "description": "Splitting one operation into two in the same block never benefits the user: two deposits of a and b mint at most the shares of one deposit of a+b; two redeems of s and t pay at most the assets of one redeem of s+t; two mints of s and t cost at least one mint of s+t; two withdraws of a and b burn at least the shares of one withdraw of a+b.",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "depositSplitNoGain",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        },
+        {
+          "rule": "mintSplitNoGain",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        },
+        {
+          "rule": "withdrawSplitNoGain",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        },
+        {
+          "rule": "redeemSplitNoGain",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report"
+        }
+      ]
+    },
+    {
+      "title": "exit_rejects_invalid_receiver",
+      "sort": "safety_property",
+      "description": "withdraw and redeem revert when the receiver is address(0), mirroring deposit/mint's receiver check, so a user cannot burn the withdrawn DAI by mistake (mainnet DAI's mint accepts address(0)).",
+      "component": "ERC4626 vault",
+      "rules": [
+        {
+          "rule": "exitRejectsZeroReceiver",
+          "status": "VIOLATED (expected: finding)",
+          "outcome": "BAD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report",
+          "expected_fail": {
+            "reason": "finding",
+            "detail": "withdraw/redeem with receiver == address(0) succeed. SavingsDai._burn never checks the receiver; it calls DaiJoin.exit(address(0), assets), which calls Dai.mint(address(0), assets), and mainnet DAI's mint accepts address(0). The DAI is credited to address(0), so nobody can spend it (it is effectively burned) while the owner's shares are burned. Nothing on this path depends on chi, so the zero-receiver path is reachable for any chi value. The prover CEXs are the zero-amount calls withdraw(0, 0, owner) / redeem(0, 0, owner). For illustration only, the satisfy witness exitToZeroReceiverWitness (VERIFIED) shows a positive amount, from a state where the structural invariants hold and chi >= RAY (its chi is ~5.9e76, not a realistic value): caller 0x2380 with allowance spends 1 share of owner 0x8200 in withdraw(12, address(0), 0x8200), and Dai.balanceOf(0) goes 7 -> 19. Impact: a user-error footgun that loses the withdrawn DAI. It is asymmetric with deposit/mint, which reject receiver 0 and SavingsDai (invalidReceiverRejected). ERC-4626 does not mandate the check, so this is a low-severity robustness/UX finding, not a theft vector: only the owner or an approved spender can trigger it, and only to their own loss. Out of this property's scope: receiver == SavingsDai is a second unrecoverable sink (DAI minted to sDAI cannot be moved out by any sDAI function)."
+          }
         }
       ]
     },
@@ -559,12 +697,80 @@
           "run": "https://prover.certora.com/orgs/certora/jobs/d239cba6-7903-4e49-b2ed-66a9b0b66288/report"
         }
       ]
+    },
+    {
+      "title": "pot_chi_at_least_ray",
+      "sort": "invariant",
+      "description": "Pot.chi >= RAY in every state reachable from Pot's constructor through any Pot entry point (drip, join, exit, file, cage, rely, deny). Discharges the requirePotChiAtLeastRay / pre_chiAtLeastRay assumptions whose base case was only argued.",
+      "component": "Maker model invariants & constructor",
+      "rules": [
+        {
+          "rule": "potChiAtLeastRay",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/9e14d9f8-da5c-472f-9cbf-223ef1ab6e3f/report"
+        }
+      ]
+    },
+    {
+      "title": "pot_total_pie_is_sum",
+      "sort": "invariant",
+      "description": "Pot.Pie equals the sum of Pot.pie over all accounts, from Pot's constructor through every Pot entry point; in particular Pie >= pie[sDAI] (discharges pre_PieCoversSdaiPie).",
+      "component": "Maker model invariants & constructor",
+      "rules": [
+        {
+          "rule": "potTotalPieIsSum",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/9e14d9f8-da5c-472f-9cbf-223ef1ab6e3f/report"
+        },
+        {
+          "rule": "potPieCoversEachPie",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/9e14d9f8-da5c-472f-9cbf-223ef1ab6e3f/report"
+        }
+      ]
+    },
+    {
+      "title": "dai_supply_is_sum",
+      "sort": "invariant",
+      "description": "Dai.totalSupply equals the sum of Dai.balanceOf over all accounts, from Dai's constructor through every Dai entry point; discharges the argued base case of daiSupplyIsSumPreserved and implies balance(a) + balance(b) <= totalSupply for distinct a, b.",
+      "component": "Maker model invariants & constructor",
+      "rules": [
+        {
+          "rule": "daiSupplyIsSum",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/0e288f36-9e75-43a0-82ce-c6276d96aad8/report"
+        },
+        {
+          "rule": "daiBalanceAtMostSupply",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/0e288f36-9e75-43a0-82ce-c6276d96aad8/report"
+        }
+      ]
+    },
+    {
+      "title": "constructor_wires_maker_system",
+      "sort": "safety_property",
+      "description": "Assuming the constructor's _daiJoin is the scene DaiJoin (A1) and DaiJoin's vat/dai are the scene Vat/Dai (A2), SavingsDai's constructor sets daiJoin/vat/dai to those contracts and pot to the given _pot, and establishes vat.can(sDAI, daiJoin) == 1, vat.can(sDAI, pot) == 1 and dai.allowance(sDAI, daiJoin) == type(uint256).max \u2014 the setup the liveness rules assume and setupApprovalsPreserved shows is never undone by SavingsDai methods.",
+      "component": "Maker model invariants & constructor",
+      "rules": [
+        {
+          "rule": "constructorWiresMakerSystem",
+          "status": "VERIFIED",
+          "outcome": "GOOD",
+          "run": "https://prover.certora.com/orgs/certora/jobs/e81898a8-1c9f-4100-9232-96be4a73c267/report"
+        }
+      ]
     }
   ],
   "groups": [
     {
       "title": "Share accounting integrity",
-      "description": "totalSupply equals the sum of balances, zero/self hold nothing, every share is backed by Pot pie held by sDAI.",
+      "description": "totalSupply = \u03a3 balances, zero/self hold nothing, every share backed by Pot pie.",
       "properties": [
         "total_supply_equals_sum_of_balances",
         "shares_backed_by_pot_pie",
@@ -573,7 +779,7 @@
     },
     {
       "title": "ERC20 transfer correctness",
-      "description": "transfer/transferFrom move exact amounts, conserve supply, revert exactly when they should.",
+      "description": "Exact transfers, conserved supply, exact revert conditions.",
       "properties": [
         "transfer_moves_exact_amount",
         "transfer_revert_conditions",
@@ -583,7 +789,7 @@
     },
     {
       "title": "Allowance and authorization",
-      "description": "Allowances change only by authorized actions and exactly; nobody reduces another's balance without allowance.",
+      "description": "Exact, authorised allowance changes; balances fall only by owner or allowance.",
       "properties": [
         "approve_and_allowance_adjustments_are_exact",
         "balance_decrease_requires_owner_or_allowance",
@@ -593,7 +799,7 @@
     },
     {
       "title": "Isolation between holders",
-      "description": "No operation touches an uninvolved account; supply changes only through vault operations.",
+      "description": "No method touches uninvolved accounts; supply changes only via vault operations.",
       "properties": [
         "third_party_balances_unaffected",
         "vault_ops_do_not_affect_other_holders",
@@ -602,36 +808,40 @@
     },
     {
       "title": "Vault deposit/withdraw accounting",
-      "description": "Exact chi-based pricing with vault-favouring rounding; exact share, pie and DAI movements.",
+      "description": "Exact chi-based pricing and rounding; exact share/pie/DAI movements; receiver validation (deposit/mint enforce it, withdraw/redeem do not \u2014 finding F-2); referral overloads identical.",
       "properties": [
         "deposit_accounting",
         "mint_accounting",
         "withdraw_accounting",
         "redeem_accounting",
-        "invalid_receiver_rejected"
+        "invalid_receiver_rejected",
+        "exit_rejects_invalid_receiver",
+        "referral_overloads_equivalent"
       ]
     },
     {
       "title": "ERC4626 view consistency",
-      "description": "Previews equal operations (also before drip), conversions round for the vault, max* consistent.",
+      "description": "Previews equal operations, rounding favours the vault, max* consistent, all conversions/previews/operations monotonic.",
       "properties": [
         "previews_match_operations",
         "conversions_round_in_vault_favor",
-        "max_functions_consistent"
+        "max_functions_consistent",
+        "conversions_and_previews_monotonic"
       ]
     },
     {
       "title": "Economic attack resistance",
-      "description": "No rounding round-trip profit; no user action lowers the share price; rounding dust never drains sDAI's own Vat balance.",
+      "description": "No round-trip or split-operation gain; share price never lowered; rounding never drains sDAI's Vat balance.",
       "properties": [
         "no_profit_from_deposit_redeem_roundtrip",
+        "no_gain_from_splitting_operations",
         "share_price_never_decreases",
         "vault_never_pays_rounding_from_own_vat_balance"
       ]
     },
     {
       "title": "Permit (EIP-2612 / ERC-1271)",
-      "description": "Expired/zero-owner rejected, exactly one allowance and nonce changed, both signature forms equivalent.",
+      "description": "Expired/zero owner rejected, one allowance and one nonce changed, both signature forms equivalent.",
       "properties": [
         "permit_revert_on_expired_or_zero_owner",
         "permit_effects",
@@ -641,52 +851,76 @@
     },
     {
       "title": "Maker integration and liveness",
-      "description": "sDAI keeps its Vat/DAI approvals; in a live, correctly configured Maker system owners can always exit and depositors can enter; exits depend on Pot.drip succeeding.",
+      "description": "Constructor wires sDAI to the Maker system and nothing undoes it; owners can always exit and depositors enter in a live system; exits depend on Pot.drip (finding F-1).",
       "properties": [
+        "constructor_wires_maker_system",
         "setup_approvals_preserved",
         "owner_can_always_redeem",
         "deposit_liveness",
         "redeem_does_not_depend_on_drip"
+      ]
+    },
+    {
+      "title": "Maker model invariants",
+      "description": "Facts about the Maker contracts the vault relies on, proven from their constructors: chi \u2265 RAY, Pie = \u03a3 pie, DAI supply = \u03a3 balances.",
+      "properties": [
+        "pot_chi_at_least_ray",
+        "pot_total_pie_is_sum",
+        "dai_supply_is_sum"
       ]
     }
   ],
   "justification_rules": [
     {
       "rule": "potChiNeverDecreases",
-      "status": "VERIFIED",
-      "supports": "requirePotChiAtLeastRay in withdrawAccounting, mintWithdrawRoundtripNoProfit"
+      "detail": "supports the requirePotChiAtLeastRay trust assumption used in withdrawAccounting and mintWithdrawRoundtripNoProfit"
     },
     {
       "rule": "daiSupplyIsSumPreserved",
-      "status": "VERIFIED",
-      "supports": "retained fact about the Dai model; no vault rule depends on it since pass 2"
+      "detail": "pass 2: proves every state-changing Dai entry point (transfer, transferFrom, mint, burn, approve, push, pull, move, rely, deny, permit) preserves Dai.totalSupply == ghost sum of Dai balances. No vault rule consumes requireDaiSupplyIsSum anymore (the real Dai's checked add makes a wrap revert, not succeed), so it is retained as a proven fact about the DAI model, not as a justification for any bare require."
+    },
+    {
+      "rule": "exitToZeroReceiverWitness",
+      "detail": "pass 3: a satisfy rule (VERIFIED = scenario reachable) that witnesses the exitRejectsZeroReceiver finding with a positive amount: withdraw(assets > 0, receiver = address(0)) succeeds, burns > 0 shares from owner and credits Dai.balanceOf(0) with exactly assets. It is not a property rule; VERIFIED here confirms the finding."
     }
   ],
   "skipped": [],
   "findings": [
     {
+      "id": "F-1",
       "rule": "redeemDoesNotDependOnDrip",
-      "property": "redeem_does_not_depend_on_drip",
       "severity": "low / informational (governance-triggered)",
       "detail": {
         "reason": "finding",
         "detail": "With every live-system precondition except dsr >= RAY, an owner's redeem of their full balance reverts: when block.timestamp > Pot.rho, SavingsDai.redeem calls Pot.drip, which computes chi' = rmul(rpow(dsr, now - rho), chi) < chi for dsr < RAY and reverts on the checked `tmp - chi` underflow. CEX (run d239cba6/5aacf739): dsr = 0.5 RAY, rho = 4, now = 7, rpow(dsr,1) < RAY, owner holds 1 share; Pot.drip reverts, so redeem reverts. Impact: if governance ever files dsr < RAY (Pot.file has no lower bound), every sDAI deposit/mint/withdraw/redeem reverts from the next block on, and since Pot.file itself requires rho == now (which needs a successful drip) the rate cannot be corrected except by Pot.cage (which resets dsr = RAY). Direct Pot depositors are not affected: Pot.exit has no rho == now requirement and lets them leave at the last stored chi. sDAI holders' DAI is frozen until cage.",
         "cex_note": "Trace values (run d239cba6): dsr=0.5 RAY, rho=4, now=7, rpowG(0.5 RAY,3,RAY)=1 (uninterpreted; real _rpow gives 0.125 RAY), chi~2.4e55. Holds for the real _rpow for every dsr < RAY."
       }
+    },
+    {
+      "id": "F-2",
+      "rule": "exitRejectsZeroReceiver",
+      "severity": "low (user-error footgun)",
+      "detail": {
+        "reason": "finding",
+        "detail": "withdraw/redeem with receiver == address(0) succeed. SavingsDai._burn never checks the receiver; it calls DaiJoin.exit(address(0), assets), which calls Dai.mint(address(0), assets), and mainnet DAI's mint accepts address(0). The DAI is credited to address(0), so nobody can spend it (it is effectively burned) while the owner's shares are burned. Nothing on this path depends on chi, so the zero-receiver path is reachable for any chi value. The prover CEXs are the zero-amount calls withdraw(0, 0, owner) / redeem(0, 0, owner). For illustration only, the satisfy witness exitToZeroReceiverWitness (VERIFIED) shows a positive amount, from a state where the structural invariants hold and chi >= RAY (its chi is ~5.9e76, not a realistic value): caller 0x2380 with allowance spends 1 share of owner 0x8200 in withdraw(12, address(0), 0x8200), and Dai.balanceOf(0) goes 7 -> 19. Impact: a user-error footgun that loses the withdrawn DAI. It is asymmetric with deposit/mint, which reject receiver 0 and SavingsDai (invalidReceiverRejected). ERC-4626 does not mandate the check, so this is a low-severity robustness/UX finding, not a theft vector: only the owner or an approved spender can trigger it, and only to their own loss. Out of this property's scope: receiver == SavingsDai is a second unrecoverable sink (DAI minted to sDAI cannot be moved out by any sDAI function)."
+      }
     }
   ],
   "coverage_gaps": [],
   "rule_outcome_counts": {
-    "GOOD": 46,
-    "BAD": 1
+    "GOOD": 68,
+    "BAD": 2
   },
   "runs": {
     "invariants": "https://prover.certora.com/orgs/certora/jobs/7a094bd0-a0b9-4458-aaaa-d308a0c25dbd/report",
     "erc20-token": "https://prover.certora.com/orgs/certora/jobs/d6a18bed-61d6-4e83-9b3b-5812e8dbb8fa/report",
-    "erc4626-vault": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report",
+    "erc4626-vault": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report",
     "permit": "https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report",
     "maker-integration": "https://prover.certora.com/orgs/certora/jobs/d239cba6-7903-4e49-b2ed-66a9b0b66288/report",
-    "sanity": "https://prover.certora.com/orgs/certora/jobs/886f6b15-7488-4d8c-8ee6-4c928718d8b1/report"
+    "sanity": "https://prover.certora.com/orgs/certora/jobs/886f6b15-7488-4d8c-8ee6-4c928718d8b1/report",
+    "maker-models-pot": "https://prover.certora.com/orgs/certora/jobs/9e14d9f8-da5c-472f-9cbf-223ef1ab6e3f/report",
+    "maker-models-dai": "https://prover.certora.com/orgs/certora/jobs/0e288f36-9e75-43a0-82ce-c6276d96aad8/report",
+    "maker-models-constructor": "https://prover.certora.com/orgs/certora/jobs/e81898a8-1c9f-4100-9232-96be4a73c267/report"
   },
   "resolver_hooks": []
 }

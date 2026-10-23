@@ -1,0 +1,49 @@
+{
+  "pot_chi_at_least_ray": [
+    "potChiAtLeastRay"
+  ],
+  "pot_total_pie_is_sum": [
+    "potTotalPieIsSum",
+    "potPieCoversEachPie"
+  ],
+  "dai_supply_is_sum": [
+    "daiSupplyIsSum",
+    "daiBalanceAtMostSupply"
+  ],
+  "constructor_wires_maker_system": [
+    "constructorWiresMakerSystem"
+  ],
+  "_skipped": {},
+  "_expected_fail": {},
+  "_status": {
+    "maker-models-pot.conf": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/9e14d9f8-da5c-472f-9cbf-223ef1ab6e3f/report",
+      "rules": {
+        "potChiAtLeastRay": "VERIFIED (base: Pot constructor; step: all Pot methods)",
+        "potTotalPieIsSum": "VERIFIED (base: Pot constructor; step: all Pot methods)",
+        "potPieCoversEachPie": "VERIFIED (base: Pot constructor; step: all Pot methods)",
+        "envfreeFuncsStaticCheck": "VERIFIED"
+      }
+    },
+    "maker-models-dai.conf": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/0e288f36-9e75-43a0-82ce-c6276d96aad8/report",
+      "rules": {
+        "daiSupplyIsSum": "VERIFIED (base: Dai constructor; step: all Dai methods)",
+        "daiBalanceAtMostSupply": "VERIFIED (base: Dai constructor; step: all Dai methods)",
+        "envfreeFuncsStaticCheck": "VERIFIED"
+      }
+    },
+    "maker-models-constructor.conf": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/e81898a8-1c9f-4100-9232-96be4a73c267/report",
+      "rules": {
+        "constructorWiresMakerSystem": "VERIFIED (induction base only: SavingsDai constructor; methods filtered out by design)",
+        "envfreeFuncsStaticCheck": "VERIFIED"
+      },
+      "non_triviality_probe_run": "https://prover.certora.com/orgs/certora/jobs/0cbfecac-3505-4662-9eba-3b2894c8865d/report",
+      "non_triviality_probes": "Temporary invariants, since removed: vat.can(sDAI, Vat) == 1, pot() == DaiJoin, and Dai.allowance(sDAI, pot()) == max were all VIOLATED in the base case, so the constructor post-state is not over-constrained by the dispatch assumptions."
+    },
+    "superseded_runs": {
+      "maker-models-constructor iter 1 (experiment, base.conf links kept)": "https://prover.certora.com/orgs/certora/jobs/5ab7d489-f109-488f-8826-c3f3c6ca4f34/report"
+    }
+  }
+}

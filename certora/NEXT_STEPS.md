@@ -24,3 +24,15 @@
 
 ## Remaining
 - None. Pass-2 commit 15b8c24 pushed to Certora/sdai branch shelly/certora-verify-sdai (2026-10-23).
+
+# Pass 3 (2026-10-23)
+- Autosetup not re-run: tooling unchanged (certora-cli 8.20.0; same URL regex and exit-code bug).
+- erc4626-vault: +4 properties (referral equivalence, monotonicity, split-operation resistance,
+  exit receiver check -> finding F-2). Judge rejected round 1 (nested storage comparison), accepted round 2.
+- maker-models (new): Pot chi >= RAY, Pot Pie == sum pie, Dai supply == sum balances, SavingsDai constructor
+  wiring (under A1/A2). Judge ACCEPT. Backs previously argued assumptions in erc4626-vault / maker-integration.
+- Report regenerated (pass 3): 41 properties, 39 proven, 2 findings.
+
+## Possible follow-ups
+- Rule over all Vat and Dai methods (msg.sender != sDAI, permit holder != sDAI) to close the third-party gap for
+  sDAI's hope/allowance setup.
