@@ -12,19 +12,55 @@
   ],
   "permit_signature_forms_equivalent": [
     "permitSignatureFormsEquivalent",
+    "permitSignatureFormsEquivalentAnyPath",
+    "permitSignatureFormsEquivalent1271Path",
+    "permit1271PathDecidedBySignerGhost",
     "permitVrsDecodesPackedSignature",
     "permitSignatureFormsSameEffects"
   ],
   "_skipped": {},
   "_expected_fail": {},
   "_status": {
-    "run": "https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report",
     "permitRevertsOnExpiredOrZeroOwner": "VERIFIED",
     "permitEffects": "VERIFIED",
     "noncesNeverDecrease": "VERIFIED",
     "nonceChangesOnlyViaPermit": "VERIFIED",
     "permitSignatureFormsEquivalent": "VERIFIED",
     "permitVrsDecodesPackedSignature": "VERIFIED",
-    "permitSignatureFormsSameEffects": "VERIFIED"
+    "permitSignatureFormsSameEffects": "VERIFIED",
+    "pass2_run": "https://prover.certora.com/orgs/certora/jobs/ef8a20e2-fa1f-45a5-be68-69418ccd96fb/report",
+    "run": "https://prover.certora.com/orgs/certora/jobs/ea39b316-5410-46c1-97ad-52c869560d91/report",
+    "permitSignatureFormsEquivalentAnyPath": "VERIFIED",
+    "permitSignatureFormsEquivalent1271Path": "VERIFIED",
+    "permit1271PathDecidedBySignerGhost": "VERIFIED",
+    "note": "Pass-4 barrier re-run on scene.spec with the deterministic isValidSigG ERC-1271 model; full unfiltered, rule_sanity basic; statuses read from the job archive's treeViewStatus. All 273 nodes VERIFIED.",
+    "pass4_probe_history": {
+      "scene": "certora/specs/scene-1271.spec (scene.spec with _.isValidSignature(bytes32 digest, bytes) => isValidSigG(calledContract, digest) expect bytes4; ghost isValidSigG(address, bytes32) returns bytes4)",
+      "permit-1271": {
+        "spec": "certora/specs/permit-1271.spec",
+        "conf": "certora/confs/permit-1271.conf",
+        "run": "https://prover.certora.com/orgs/certora/jobs/cde4dfd2-73b6-4c6f-b028-6f6b7cbc3b3c/report",
+        "earlier_run_iter1": "https://prover.certora.com/orgs/certora/jobs/d748b0ef-a80c-4677-bbc7-4feb24d44f21/report",
+        "permitRevertsOnExpiredOrZeroOwner": "VERIFIED",
+        "permitEffects": "VERIFIED",
+        "noncesNeverDecrease": "VERIFIED",
+        "nonceChangesOnlyViaPermit": "VERIFIED",
+        "permitSignatureFormsEquivalent": "VERIFIED",
+        "permitVrsDecodesPackedSignature": "VERIFIED",
+        "permitSignatureFormsSameEffects": "VERIFIED",
+        "permitSignatureFormsEquivalentAnyPath": "VERIFIED",
+        "permitSignatureFormsEquivalent1271Path": "VERIFIED",
+        "permit1271PathDecidedBySignerGhost": "VERIFIED"
+      },
+      "invariants-1271-probe": {
+        "spec": "certora/specs/invariants-1271-probe.spec",
+        "conf": "certora/confs/invariants-1271-probe.conf",
+        "run": "https://prover.certora.com/orgs/certora/jobs/175a9bd1-6698-4b2b-866b-d6087df68054/report",
+        "totalSupplyIsSumOfBalances": "VERIFIED",
+        "sharesBackedByPie": "VERIFIED",
+        "zeroAndSelfHoldNoShares": "VERIFIED",
+        "note": "No impossible-storage-change violations on permit(bytes) (contrast pass-2 run 401dc586)."
+      }
+    }
   }
 }

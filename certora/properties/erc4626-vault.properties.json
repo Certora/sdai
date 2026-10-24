@@ -78,5 +78,15 @@
     "title": "exit_rejects_invalid_receiver",
     "sort": "safety_property",
     "description": "withdraw and redeem revert when the receiver is address(0), mirroring deposit/mint's receiver check, so a user cannot burn the withdrawn DAI by mistake (mainnet DAI's mint accepts address(0))."
+  },
+  {
+    "title": "rounding_loss_bounded",
+    "sort": "safety_property",
+    "description": "Rounding costs the user at most one unit of the smallest denomination per operation, measured at the operation's chi: for deposit, assets*RAY - shares*chi < chi (exact arithmetic; less than one share's worth); for mint, assets*RAY - shares*chi < RAY (less than 1 wei of DAI); for withdraw, shares*chi - assets*RAY < chi (less than one share); for redeem, shares*chi - assets*RAY < RAY (less than 1 wei of DAI)."
+  },
+  {
+    "title": "share_price_monotonic_over_time",
+    "sort": "attack_vector",
+    "description": "Probe of the real `_rpow` (not the uninterpreted summary): with dsr >= RAY and no state change, convertToAssets(s) at a later timestamp is never below its value at an earlier timestamp, i.e. rounding inside fixed-point exponentiation cannot make the share price tick down between blocks. Checked with the real _rpow for bounded exponents (state the bound)."
   }
 ]

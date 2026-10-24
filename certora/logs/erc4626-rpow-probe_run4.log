@@ -1,0 +1,129 @@
+WARNING: You are using certora-cli version 8.20.0; however, version 8.20.2 is available. It is recommended to upgrade by running: pip install certora-cli --upgrade
+or
+pip3 install certora-cli --upgrade
+Compiling certora/harnesses/Dai.sol...
+Compiling certora/harnesses/Dai.sol to expose internal function information and local variables...
+Compiling certora/harnesses/DaiJoin.sol...
+Compiling certora/harnesses/DaiJoin.sol to expose internal function information and local variables...
+Compiling certora/harnesses/Pot.sol...
+Compiling certora/harnesses/Pot.sol to expose internal function information and local variables...
+Compiling certora/harnesses/RpowHarness.sol...
+Compiling certora/harnesses/RpowHarness.sol to expose internal function information and local variables...
+Compiling certora/harnesses/SigPacker.sol...
+Compiling certora/harnesses/SigPacker.sol to expose internal function information and local variables...
+Compiling certora/harnesses/Vat.sol...
+Compiling certora/harnesses/Vat.sol to expose internal function information and local variables...
+Compiling src/SavingsDai.sol...
+Compiling src/SavingsDai.sol to expose internal function information and local variables...
+
+Connecting to server...
+[32mStarting job as user shelly@certora.com in org Certora (certora). Reserved 120 minutes: 0 free, 120 billed to Certora.[0m
+
+[32mJob submitted to server[0m
+
+Manage your jobs at https://prover.certora.com/orgs/certora/jobs
+Follow your job and see verification results at https://prover.certora.com/orgs/certora/jobs/32cac59c-65fc-44c2-9ed8-46fdd9e9d8fc/report
+Output:
+processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |processing /processing -processing \processing |[INFO]: prover-container-version: 1.1.5
+[INFO]: Overcommit memory value: 1
+[INFO]: s5cmd: cp s3://certora-prod/uploadFiles/60724/32cac59c65fc44c29ed846fdd9e9d8fc.zip /home/appuser/code/job.zip
+[INFO]: s5cmd: cp s3://tac-optimizer-artifacts/8.20.0/tac_optimizer-8.20.0 /home/appuser/bin/tac_optimizer
+[INFO]: s5cmd: cp s3://prover-artifacts/8.20.0/emv-8.20.0.jar /home/appuser/bin/emv.jar
+[INFO]: inputs download time :: 0.8829 seconds
+[INFO]: tac optimizer ready on PATH at /home/appuser/bin/tac_optimizer
+[INFO]: s5cmd stderr: ERROR "sync s3://certora-prod/outputs/60724/cache/2e008ac692a65131f7eda4f84b5ca7d52e11aba9d89e3f908cd00b039a046a47-optimisticTrue-iter4-None--certora-cli-8.20.0/* /home/appuser/code/cache": no object found
+[INFO]: cache download time :: 0.0560 seconds
+[INFO]: Command: java -Xmx31999m -XX:+UseParallelGC -XX:MaxHeapFreeRatio=10 -XX:MinHeapFreeRatio=5 -XX:G1PeriodicGCInterval=15 -XX:NewRatio=5 -XX:+CrashOnOutOfMemoryError -XX:ErrorFile=/home/appuser/code/java_error/java_error%p.log -DoutputUrl=s3://certora-prod/outputs/60724/output_32cac59c65fc44c29ed846fdd9e9d8fc/ -DjobId=32cac59c65fc44c29ed846fdd9e9d8fc -DuserId=60724 -jar /home/appuser/bin/emv.jar -cache 2e008ac692a65131f7eda4f84b5ca7d52e11aba9d89e3f908cd00b039a046a47-optimisticTrue-iter4-None--certora-cli-8.20.0 -b 4 -assumeUnwindCond -contract SavingsDai -ruleSanityChecks basic -quiet -destructiveOptimizations twostage -userGlobalTimeout 7200 -globalTimeout 7500
+Start Sat Oct 24 17:35:02 GMT 2026
+Start Sat Oct 24 17:35:02 GMT 2026
+The scene contains 26 contracts:
+Vat : 0xce4604a0000000000000000000000011,
+Dai : 0xce4604a0000000000000000000000001,
+DaiJoin : 0xce4604a0000000000000000000000006,
+Pot : 0xce4604a000000000000000000000000a,
+RpowHarness : 0xce4604a000000000000000000000000d,
+SavingsDai : 0xce4604a000000000000000000000001c,
+SigPacker : 0xce4604a000000000000000000000000f,
+ecrecover : 0x1,
+sha256 : 0x2,
+ripemd160 : 0x3,
+identity : 0x4,
+bigmod : 0x5,
+bn256Add : 0x6,
+bn256ScalarMul : 0x7,
+bn256Pairing : 0x8,
+Precompiled244 : 0xf4,
+Precompiled245 : 0xf5,
+Precompiled246 : 0xf6,
+Precompiled247 : 0xf7,
+Precompiled248 : 0xf8,
+Precompiled249 : 0xf9,
+Precompiled250 : 0xfa,
+Precompiled251 : 0xfb,
+Precompiled252 : 0xfc,
+Precompiled253 : 0xfd,
+Precompiled254 : 0xfe
+Running initial transformations
+Has CVL checks.
+Checking CVL certora/specs/erc4626-rpow-probe.spec for contract SavingsDai
+Unrolling loops 4 times, unwinding condition is assumed
+Verified: rpowBoundReachable-Assertions
+Verified: rmulStepRayIdentity
+Verified: rmulStepAtLeastArgs
+Verified: rmulStepMonotone
+Verified: rpowBoundReachable-Satisfy_z__x_(erc4626rpowprobe_spec_166_5)
+Violated: rmulStepAtLeastArgs-rule_not_vacuous
+Violated: rmulStepMonotone-rule_not_vacuous
+Violated: rmulStepRayIdentity-rule_not_vacuous
+Violated: rpowBoundReachable-rule_not_vacuous
+Verified: rpowMonotoneStep
+Violated: rpowMonotoneStep-rule_not_vacuous
+Verified: convertToAssetsBoundReachable-Satisfy_v__0_(erc4626rpowprobe_spec_160_5)
+received `signalSkip` for rule convertToAssetsBoundReachable-rule_not_vacuous
+Exception in thread "Thread-1" java.io.IOException: Cannot run program "killall": Exec failed, error: 2 (No such file or directory) 
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+	at java.base/java.lang.Runtime.exec(Runtime.java:681)
+	at java.base/java.lang.Runtime.exec(Runtime.java:530)
+	at utils.LongProcessKiller.run(LongProcessKiller.kt:44)
+Caused by: java.io.IOException: Exec failed, error: 2 (No such file or directory) 
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:295)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:225)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126)
+	... 4 more
+Ping 1m - Processed 7/11 (63%) rules. 20 tasks complete, 4 pending.
+Ping 2m - Processed 7/11 (63%) rules. 20 tasks complete, 4 pending.
+Ping 3m - Processed 7/11 (63%) rules. 20 tasks complete, 4 pending.
+Verified: rpowMonotoneInN
+Verified: rpowMonotoneInNMainnetDsr
+Violated: rpowMonotoneInN-rule_not_vacuous
+Violated: rpowMonotoneInNMainnetDsr-rule_not_vacuous
+Ping 4m - Processed 9/11 (81%) rules. 24 tasks complete, 2 pending.
+Ping 5m - Processed 9/11 (81%) rules. 24 tasks complete, 2 pending.
+Verified: convertToAssetsMonotonicOverTime
+Violated: convertToAssetsMonotonicOverTime-rule_not_vacuous
+Ping 6m - Processed 10/11 (90%) rules. 26 tasks complete, 1 pending.
+Ping 7m - Processed 10/11 (90%) rules. 26 tasks complete, 1 pending.
+Ping 8m - Processed 10/11 (90%) rules. 26 tasks complete, 1 pending.
+Ping 9m - Processed 10/11 (90%) rules. 26 tasks complete, 1 pending.
+Ping 10m - Processed 10/11 (90%) rules. 26 tasks complete, 1 pending.
+Ping 11m - Processed 10/11 (90%) rules. 26 tasks complete, 1 pending.
+Verified: convertToAssetsMonotonicOverTimeMainnetDsr
+Violated: convertToAssetsMonotonicOverTimeMainnetDsr-rule_not_vacuous
+Warning: Summarization for external calls of _.vat() is unused
+Warning: Summarization for external calls of _.isValidSignature(bytes32, bytes) is unused
+Warning: Summarization for external calls of _.dai() is unused
+Warning: Summarization for external calls of _.hope(address) is unused
+Warning: Summarization for external calls of _.approve(address, uint256) is unused
+Done 11m
+Done 11m
+[INFO]: Live-mirror upload summary: 268 uploads, 109 unique keys, 159 redundant re-uploads, 2.46 uploads/key.
+[INFO]: s5cmd: cp /home/appuser/code/32cac59c65fc44c29ed846fdd9e9d8fc.tar.gz s3://certora-prod/outputs/60724/output_32cac59c65fc44c29ed846fdd9e9d8fc/32cac59c65fc44c29ed846fdd9e9d8fc.tar.gz
+[INFO]: s5cmd transferred 335 file(s)
+[INFO]: Cache upload took 0.3483 seconds
+[INFO]: Timings :: prover=679.1044 seconds, exit_code=0, timed_out=False
+
+Finished verification request
+[32mNo errors found by Prover![0m
+EXIT 0

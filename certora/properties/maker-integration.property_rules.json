@@ -33,6 +33,11 @@
       "depositLiveness": "VERIFIED",
       "redeemDoesNotDependOnDrip": "VIOLATED (expected: finding)"
     },
-    "minimality_run": "https://prover.certora.com/orgs/certora/jobs/355dfa44-7771-4e21-a854-810363897918/report"
+    "minimality_run": "https://prover.certora.com/orgs/certora/jobs/355dfa44-7771-4e21-a854-810363897918/report",
+    "pass4_barrier": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/f453c3ce-64dc-4550-af5a-30149a0728fe/report",
+      "result": "271/273 nodes VERIFIED; the 2 others are redeemDoesNotDependOnDrip (finding F-1)",
+      "note": "Pass-4 barrier re-run on scene.spec with the deterministic isValidSigG ERC-1271 model; full unfiltered, rule_sanity basic; statuses read from the job archive's treeViewStatus."
+    }
   }
 }

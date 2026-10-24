@@ -68,6 +68,20 @@
   "exit_rejects_invalid_receiver": [
     "exitRejectsZeroReceiver"
   ],
+  "rounding_loss_bounded": [
+    "roundingLossBoundedDeposit",
+    "roundingLossBoundedMint",
+    "roundingLossBoundedWithdraw",
+    "roundingLossBoundedRedeem"
+  ],
+  "share_price_monotonic_over_time": [
+    "convertToAssetsMonotonicOverTime",
+    "rpowMonotoneInN",
+    "rpowMonotoneStep",
+    "rmulStepAtLeastArgs",
+    "rmulStepMonotone",
+    "rmulStepRayIdentity"
+  ],
   "_skipped": {},
   "_expected_fail": {
     "exitRejectsZeroReceiver": {
@@ -78,7 +92,11 @@
   "_justification_rules": {
     "potChiNeverDecreases": "supports the requirePotChiAtLeastRay trust assumption used in withdrawAccounting and mintWithdrawRoundtripNoProfit",
     "daiSupplyIsSumPreserved": "pass 2: proves every state-changing Dai entry point (transfer, transferFrom, mint, burn, approve, push, pull, move, rely, deny, permit) preserves Dai.totalSupply == ghost sum of Dai balances. No vault rule consumes requireDaiSupplyIsSum anymore (the real Dai's checked add makes a wrap revert, not succeed), so it is retained as a proven fact about the DAI model, not as a justification for any bare require.",
-    "exitToZeroReceiverWitness": "pass 3: a satisfy rule (VERIFIED = scenario reachable) that witnesses the exitRejectsZeroReceiver finding with a positive amount: withdraw(assets > 0, receiver = address(0)) succeeds, burns > 0 shares from owner and credits Dai.balanceOf(0) with exactly assets. It is not a property rule; VERIFIED here confirms the finding."
+    "exitToZeroReceiverWitness": "pass 3: a satisfy rule (VERIFIED = scenario reachable) that witnesses the exitRejectsZeroReceiver finding with a positive amount: withdraw(assets > 0, receiver = address(0)) succeeds, burns > 0 shares from owner and credits Dai.balanceOf(0) with exactly assets. It is not a property rule; VERIFIED here confirms the finding.",
+    "convertToAssetsBoundReachable": "pass 4 (probe conf erc4626-rpow-probe.conf): satisfy rule (VERIFIED = reachable) showing convertToAssets runs to completion at the largest covered exponent t - rho = 2^loop_iter - 1 = 15 with dsr > RAY, i.e. the optimistic loop unrolling does not prune the covered range.",
+    "rpowBoundReachable": "pass 4 (probe conf): same coverage witness for the verbatim RpowHarness.rpow at n = 15.",
+    "convertToAssetsMonotonicOverTimeMainnetDsr": "pass 4 (probe conf): sub-range record (dsr <= RAY + 2e19) of convertToAssetsMonotonicOverTime, added when the unrestricted rule timed out at loop_iter 6; implied by it at loop_iter 4.",
+    "rpowMonotoneInNMainnetDsr": "pass 4 (probe conf): sub-range record (x <= RAY + 2e19) of rpowMonotoneInN; implied by it at loop_iter 4."
   },
   "_status": {
     "iter2": {
@@ -113,8 +131,8 @@
         "withdrawRedeemRequireAllowance": "VERIFIED"
       }
     },
-    "run": "https://prover.certora.com/orgs/certora/jobs/7da047cb-8def-4946-a501-01b673be33ec/report",
-    "note": "pass 3 iter 2 full unfiltered run, rule_sanity basic: 41 rules; 40 VERIFIED, exitRejectsZeroReceiver VIOLATED (expected-to-fail finding). All 281 tree nodes, including every rule_not_vacuous child, are VERIFIED except that rule's two method instances (from treeViewStatus_24.json in the job archive). Iter 2 changed only the referral rules' storage comparison to the unconditional top-level `assert afterRef == afterPlain` form.",
+    "run": "https://prover.certora.com/orgs/certora/jobs/66877b93-b486-4b26-b282-dde6f3a02ac3/report",
+    "note": "pass 4 iter 1 full unfiltered run of erc4626-vault.conf, rule_sanity basic: 45 rules; 44 VERIFIED, exitRejectsZeroReceiver VIOLATED (expected-to-fail finding). treeViewStatus_25.json: 293 nodes, all VERIFIED except that rule and its withdraw/redeem instances and their assert nodes (5 nodes). Pass 4 added only the four roundingLossBounded* rules; nothing else in the spec changed. The share_price_monotonic_over_time rules run in the separate probe conf, see _status.probe.",
     "pass2_iter1": {
       "run": "https://prover.certora.com/orgs/certora/jobs/653c426b-33ce-490f-a6db-fff70055c773/report",
       "rules": {
@@ -234,6 +252,123 @@
         "withdrawRedeemRequireAllowance": "VERIFIED",
         "withdrawSplitNoGain": "VERIFIED"
       }
+    },
+    "pass4_iter1": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/66877b93-b486-4b26-b282-dde6f3a02ac3/report",
+      "rules": {
+        "convertToAssetsMonotonic": "VERIFIED",
+        "convertToSharesMonotonic": "VERIFIED",
+        "daiSupplyIsSumPreserved": "VERIFIED",
+        "depositAccounting": "VERIFIED",
+        "depositMonotonic": "VERIFIED",
+        "depositOpsDoNotAffectOthers": "VERIFIED",
+        "depositRedeemRoundtripNoProfit": "VERIFIED",
+        "depositReferralEquivalent": "VERIFIED",
+        "depositSplitNoGain": "VERIFIED",
+        "envfreeFuncsStaticCheck": "VERIFIED",
+        "exitRejectsZeroReceiver": "VIOLATED (expected: finding)",
+        "exitToZeroReceiverWitness": "VERIFIED",
+        "invalidReceiverRejected": "VERIFIED",
+        "maxFunctionsConsistent": "VERIFIED",
+        "mintAccounting": "VERIFIED",
+        "mintMonotonic": "VERIFIED",
+        "mintReferralEquivalent": "VERIFIED",
+        "mintSplitNoGain": "VERIFIED",
+        "mintWithdrawRoundtripNoProfit": "VERIFIED",
+        "potChiNeverDecreases": "VERIFIED",
+        "previewDepositMatchesDeposit": "VERIFIED",
+        "previewDepositMonotonic": "VERIFIED",
+        "previewMintMatchesMint": "VERIFIED",
+        "previewMintMonotonic": "VERIFIED",
+        "previewMintRoundsUp": "VERIFIED",
+        "previewRedeemMatchesRedeem": "VERIFIED",
+        "previewRedeemMonotonic": "VERIFIED",
+        "previewWithdrawMatchesWithdraw": "VERIFIED",
+        "previewWithdrawMonotonic": "VERIFIED",
+        "previewWithdrawRoundsUp": "VERIFIED",
+        "redeemAboveMaxReverts": "VERIFIED",
+        "redeemAccounting": "VERIFIED",
+        "redeemMonotonic": "VERIFIED",
+        "redeemSplitNoGain": "VERIFIED",
+        "roundingLossBoundedDeposit": "VERIFIED",
+        "roundingLossBoundedMint": "VERIFIED",
+        "roundingLossBoundedRedeem": "VERIFIED",
+        "roundingLossBoundedWithdraw": "VERIFIED",
+        "sharePriceNeverDecreases": "VERIFIED",
+        "withdrawAboveMaxReverts": "VERIFIED",
+        "withdrawAccounting": "VERIFIED",
+        "withdrawMonotonic": "VERIFIED",
+        "withdrawOpsDoNotAffectOthers": "VERIFIED",
+        "withdrawRedeemRequireAllowance": "VERIFIED",
+        "withdrawSplitNoGain": "VERIFIED"
+      }
+    },
+    "probe": {
+      "conf": "certora/confs/erc4626-rpow-probe.conf (spec certora/specs/erc4626-rpow-probe.spec, scene certora/specs/scene-real-rpow.spec, harness certora/harnesses/RpowHarness.sol)",
+      "run": "https://prover.certora.com/orgs/certora/jobs/900b3830-8881-4fca-8499-cab51af8aadf/report",
+      "coverage": "real _rpow, loop_iter 4, every rule restricts the exponent to n < 16 (seconds since rho); unbounded n only via the step lemmas rmulStep* plus the written induction in the commentary",
+      "pass4_iter6": {
+        "run": "https://prover.certora.com/orgs/certora/jobs/900b3830-8881-4fca-8499-cab51af8aadf/report",
+        "loop_iter": 4,
+        "rules": {
+          "convertToAssetsMonotonicOverTime": "VERIFIED",
+          "convertToAssetsMonotonicOverTimeMainnetDsr": "VERIFIED",
+          "rpowMonotoneInN": "VERIFIED",
+          "rpowMonotoneInNMainnetDsr": "VERIFIED",
+          "rpowMonotoneStep": "VERIFIED",
+          "rmulStepAtLeastArgs": "VERIFIED",
+          "rmulStepMonotone": "VERIFIED",
+          "rmulStepRayIdentity": "VERIFIED",
+          "convertToAssetsBoundReachable": "VERIFIED (satisfy)",
+          "rpowBoundReachable": "VERIFIED (satisfy)",
+          "envfreeFuncsStaticCheck": "VERIFIED"
+        },
+        "note": "FINAL full unfiltered run; treeViewStatus: all 39 nodes VERIFIED, including every rule_not_vacuous child. Same rules as iter 4; only a spec comment changed."
+      },
+      "pass4_iter5": {
+        "run": "https://prover.certora.com/orgs/certora/jobs/720b5c6a-c3d6-442a-8ba1-8b54b2db85b6/report",
+        "result": "infrastructure failure: 'Could not find job results' (no output archive); rerun as iter 6"
+      },
+      "pass4_iter4": {
+        "run": "https://prover.certora.com/orgs/certora/jobs/32cac59c-65fc-44c2-9ed8-46fdd9e9d8fc/report",
+        "loop_iter": 4,
+        "rules": {
+          "convertToAssetsMonotonicOverTime": "VERIFIED",
+          "convertToAssetsMonotonicOverTimeMainnetDsr": "VERIFIED",
+          "rpowMonotoneInN": "VERIFIED",
+          "rpowMonotoneInNMainnetDsr": "VERIFIED",
+          "rpowMonotoneStep": "VERIFIED",
+          "rmulStepAtLeastArgs": "VERIFIED",
+          "rmulStepMonotone": "VERIFIED",
+          "rmulStepRayIdentity": "VERIFIED",
+          "convertToAssetsBoundReachable": "VERIFIED (satisfy)",
+          "rpowBoundReachable": "VERIFIED (satisfy)",
+          "envfreeFuncsStaticCheck": "VERIFIED"
+        },
+        "note": "full unfiltered; treeViewStatus: all 39 nodes VERIFIED, including every rule_not_vacuous child"
+      },
+      "pass4_iter3": {
+        "run": "https://prover.certora.com/orgs/certora/jobs/0ab088f5-ba78-4904-bd98-b94f668e41c1/report",
+        "loop_iter": 3,
+        "result": "all VERIFIED (n < 8); step lemmas not yet present"
+      },
+      "pass4_iter2": {
+        "run": "https://prover.certora.com/orgs/certora/jobs/1c9e14e8-292e-44f0-8bf6-a0f4181912d3/report",
+        "loop_iter": 6,
+        "result": "rule-filtered (rpowMonotoneStep and the two MainnetDsr rules): rpowMonotoneInNMainnetDsr 'Solver timed out'; client cut off by the 900 s broker limit before the others finished"
+      },
+      "pass4_iter1": {
+        "run": "https://prover.certora.com/orgs/certora/jobs/61d51365-5226-4862-9bee-a1e5a4236f8e/report",
+        "loop_iter": 6,
+        "result": "convertToAssetsMonotonicOverTime TIMEOUT, rpowMonotoneInN TIMEOUT (n < 64); both satisfy witnesses VERIFIED (read from treeViewStatus_496.json in the job archive; the streamed log was cut off by the 900 s client limit)"
+      }
+    },
+    "pass4_barrier": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/ec591a60-33da-4080-a457-b98759d0e908/report",
+      "result": "288/293 nodes VERIFIED; the 5 others are exitRejectsZeroReceiver (finding F-2)",
+      "note": "Pass-4 barrier re-run on scene.spec with the deterministic isValidSigG ERC-1271 model; full unfiltered, rule_sanity basic; statuses read from the job archive's treeViewStatus."
     }
-  }
+  },
+  "run": "https://prover.certora.com/orgs/certora/jobs/ec591a60-33da-4080-a457-b98759d0e908/report",
+  "note": "Authoritative: pass-4 barrier run of erc4626-vault.conf on the current scene.spec (isValidSigG), full unfiltered, rule_sanity basic: 45 rules, 288/293 nodes VERIFIED, the 5 others exitRejectsZeroReceiver (finding F-2). Earlier pass-4 iter 1 run 66877b93 used the pass-3 scene. share_price_monotonic_over_time rules run in the separate probe conf, see _status.probe."
 }

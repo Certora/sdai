@@ -36,3 +36,29 @@
 ## Possible follow-ups
 - Rule over all Vat and Dai methods (msg.sender != sDAI, permit holder != sDAI) to close the third-party gap for
   sDAI's hope/allowance setup.
+  (Done in pass 4.)
+
+# Pass 4 (2026-10-24)
+- Autosetup not re-run: tooling unchanged (certora-cli 8.20.0; same URL regex and exit-code bug).
+- erc4626-vault: +2 properties.
+  - rounding_loss_bounded: 4 rules, all VERIFIED.
+  - share_price_monotonic_over_time: probe of the real _rpow (erc4626-rpow-probe.conf, RpowHarness,
+    scene-real-rpow.spec). Machine-checked for t - rho < 16 s; beyond that, step lemmas plus a written induction.
+  - Judge rejected round 1 (induction gap: intermediate success; deposit wording; stale header), accepted round 2.
+- maker-models: +2 properties.
+  - third_parties_cannot_revoke_sdai_setup: maker-models-setup.conf, under K (no ECDSA key for sDAI's address).
+  - dai_pairwise_balance_bound.
+  - Judge ACCEPT. Liveness preconditions pre_daiSupplyCoversHolders, pre_hope*, pre_daiJoinAllowance now discharged.
+- permit / scene:
+  - isValidSignature changed from NONDET to the deterministic ghost isValidSigG(signer, digest), and
+    permit_signature_forms_equivalent is now proven with no assumption on both the ECDSA and the ERC-1271 path.
+  - Judge ACCEPT.
+  - Barrier: every scene-dependent conf was re-run; all clean except the two known findings.
+- Report regenerated (pass 4): 45 properties, 43 proven, 87 rules GOOD, 2 BAD (findings F-1, F-2), no new finding.
+
+## Possible follow-ups
+- Machine-check the unbounded rpow monotonicity, e.g. with a loop-invariant harness or Lean via the Timeout Resolver.
+  loop_iter 5 (n < 32) was never tried; loop_iter 6 timed out.
+- scene-real-rpow.spec still has the pass-3 NONDET isValidSignature (irrelevant to the probe); re-cut it if the
+  probe is ever extended to permit.
+- Full dss Vat model (frob etc.) to replace the inspection argument that omitted functions don't write Vat.can.

@@ -47,7 +47,7 @@ All seven rules VERIFIED with rule_sanity basic ("No errors found by Prover!"). 
 - `noncesNeverDecrease` now has no precondition. The bare `require nonceBefore < max_uint256` was removed, and the assertion is `nonces(holder) >= nonceBefore || (nonceBefore == max_uint256 && nonces(holder) == 0)`. It permits exactly the wrap of the unchecked `nonces[owner]++`, nothing else (judge suggestion 1).
 - `permitVrsDecodesPackedSignature` and `permitSignatureFormsSameEffects` are unchanged. The second still uses `requirePacked`. As the judge noted, under the CVL-`bytes` model that constraint does not tie the bytes the contract reads to (r, s, v), so the rule is effectively signature-agnostic: both forms revert on an expired deadline or a zero owner, and they have the same effects when both succeed.
 
-### Remaining gap (ERC-1271 path)
+### Remaining gap (ERC-1271 path) - CLOSED in pass 4, see below
 - Equivalence is proven when ECDSA decides, that is when ecrecover(digest, v, r, s) == owner.
 - When it does not, both forms reach `owner.staticcall(isValidSignature(digest, packed))`. In the real EVM, the two calls are identical: same state (the nonce is incremented before the call in both forms), same digest, same bytes, and a view callee. So they return the same answer.
 - In the scene, `_.isValidSignature` is NONDET, so the two executions get independent answers, and equivalence of the revert status cannot be stated there. A deterministic ghost was tried at scene level and reverted (scene.spec note, invariants run 401dc586).
@@ -63,3 +63,63 @@ All seven rules VERIFIED with rule_sanity basic ("No errors found by Prover!"). 
 
 ### Pass 2 judge note
 ERC-1271 gap caveat: even in the real EVM the two entry points reach the isValidSignature staticcall with different gas remaining, so a gas-dependent signer could answer differently; equivalence on the 1271 path is therefore only expected modulo gas-dependent signers. Judge pass 2 round 1: ACCEPT (permit.judge-pass2-round1.md).
+
+## Pass 4 (deterministic ERC-1271 model; probed, then applied to scene.spec at the pass-4 barrier)
+
+Goal: close the ERC-1271 gap in `permit_signature_forms_equivalent` without editing the shared scene.spec.
+
+### Probe files
+- `certora/specs/scene-1271.spec`: a copy of scene.spec. Only the isValidSignature entry, its header comment and one ghost differ:
+  ```
+  ghost isValidSigG(address, bytes32) returns bytes4;
+  function _.isValidSignature(bytes32 digest, bytes) external => isValidSigG(calledContract, digest) expect bytes4;
+  ```
+  No `bytes` value goes into CVL. The pass-2 attempt passed `bytes` into CVL (`keccak256(signature)` in a CVL function), and that is what broke the invariants.
+- `certora/specs/invariants-1271-probe.spec`: identical to invariants.spec except that it imports scene-1271.spec. Conf: `certora/confs/invariants-1271-probe.conf`.
+- `certora/specs/permit-1271.spec`: identical to permit.spec except for three things: it imports scene-1271.spec and invariants-1271-probe.spec, its header comment differs, and it adds three PASS 4 rules. Conf: `certora/confs/permit-1271.conf`, which is permit.conf with verify and msg changed.
+
+### New rules (permit-1271.spec)
+- `permitSignatureFormsEquivalentAnyPath` makes no assumption at all. It runs permit(v,r,s) and permit(packer.pack(v,r,s)) from one snapshot. It asserts the same revert status, the same `allowance[owner][spender]` and the same `nonces[owner]`. This covers both the ECDSA path and the 1271 path.
+- `permitSignatureFormsEquivalent1271Path` makes the same assertion under `forall d. ecrecover(d,v,r,s) != owner`, so the 1271 staticcall decides in both runs. That require constrains only the uninterpreted ecrecover function.
+- `permit1271PathDecidedBySignerGhost` is a model check. ECDSA is ruled out, the ghost answer for `owner` is fixed (`accept`) on every digest, and the non-signature checks pass. Then permit reverts exactly when `!accept`. This shows three things:
+  - the summary is really applied to SavingsDai's low-level `owner.staticcall(...)`;
+  - the `expect bytes4` encoding matches the magic-value comparison;
+  - the 1271-path equivalence is therefore not passing for an unrelated reason.
+- The pass-2 ECDSA-path rule `permitSignatureFormsEquivalent` is kept unchanged.
+
+### Runs (full, unfiltered, rule_sanity basic)
+- permit-1271, iter 2: https://prover.certora.com/orgs/certora/jobs/cde4dfd2-73b6-4c6f-b028-6f6b7cbc3b3c/report
+  - All 10 rules VERIFIED, and every vacuity check passed. Log: "No errors found by Prover!".
+  - Iter 1 had the same result before the model-check rule was added: d748b0ef-a80c-4677-bbc7-4feb24d44f21.
+- invariants-1271-probe, iter 1: https://prover.certora.com/orgs/certora/jobs/175a9bd1-6698-4b2b-866b-d6087df68054/report
+  - All 3 invariants VERIFIED on every method, including both permits. Log: "No errors found by Prover!".
+  - None of the impossible-storage-change violations seen in pass-2 run 401dc586 appeared. The scene change is viable.
+
+### Soundness of keying on (signer, digest)
+- **Read-only callee.** The real callee is reached through `staticcall`, so it cannot change any state. Its return value depends only on the call's inputs, the global state, and gas.
+- **Every outcome stays reachable.** The ghost is an arbitrary function of (signer, digest), so for any single call every bytes4 answer is possible. The summary never reverts and always returns 32 bytes. A non-magic bytes4 makes `_isValidSignature` return false, exactly as a revert or short return would. So every outcome of `_isValidSignature` is still reachable in any one execution.
+- **What it over-constrains.** It forces two calls in the same rule with equal (signer, digest) to agree, even if they passed different signature bytes or the signer's state changed between them.
+- **When that matters.** The digest contains `nonces[owner]`, and a successful permit increments that nonce. So two permit calls can reach the same (owner, digest) only in these cases:
+  - (a) both start from the same snapshot (`at init`);
+  - (b) the first call reverted;
+  - (c) the nonce wrapped after 2^256 permits.
+- **Grep of certora/specs** for permit callers in every spec:
+  - `permit.spec` / `permit-1271.spec` use two `at init` permit calls in `permitSignatureFormsEquivalent` and the new rules (same bytes: the v-form builds `abi.encodePacked(r,s,v)` = `packer.pack(v,r,s)`), and in `permitSignatureFormsSameEffects`. That last rule uses arbitrary, possibly different `signature` bytes, but it only asserts things that hold for any ghost answers: both runs revert on an expired deadline or zero owner, and if both succeed the effects are equal. Making the answers equal only removes behaviours, and its assertions do not depend on which signature is valid. It is therefore not weakened in a way that hides a bug in the contract's handling of different bytes; the bytes-sensitivity of the decode is covered by the ECDSA-path rules.
+  - `erc20-token.spec` calls permit once per parametric step (`callWithArgs`).
+  - `erc4626-vault.spec` calls only `Dai.permit`, which has no ERC-1271 path.
+  - `invariants.spec` and `maker-integration.spec` make single parametric calls.
+  - No rule calls permit twice for the same (owner, digest) with different signatures, or with the signer's state changed in between, and then asserts something that depends on the two answers differing.
+- **Trust assumptions added.**
+  - The ERC-1271 answer is independent of the signature bytes and of the signer's state within one rule.
+  - Gas-dependent signers (`gasleft()`) are not modelled; this is the pass-2 judge caveat.
+  - A wildcard summary also gives an answer for scene contracts that have no isValidSignature. This is an over-approximation: it allows acceptance where the real call would fail, so it adds behaviours and is safe for these assertions.
+
+### Barrier (done)
+Applied: scene-1271.spec copied to scene.spec, the three rules moved into permit.spec, and the probe files (scene-1271.spec, permit-1271.spec, invariants-1271-probe.spec and their confs) deleted. Barrier runs on the new scene: permit https://prover.certora.com/orgs/certora/jobs/ea39b316-5410-46c1-97ad-52c869560d91/report (all 273 nodes VERIFIED), invariants https://prover.certora.com/orgs/certora/jobs/32094aa6-2ac4-4400-a415-4d31cf9aa9b3/report (all VERIFIED). Judge: permit.judge-pass4-round1.md, ACCEPT.
+
+### Barrier request (as filed)
+Apply the scene-1271 diff to scene.spec. Then:
+- move the three PASS 4 rules into permit.spec, and update permit.spec's header comment (it still says NONDET);
+- re-run every spec that imports scene.spec: invariants, permit, erc20-token, erc4626-vault, maker-integration, sanity-linked, maker-models/pot-invariants.
+
+maker-models constructor.spec and dai-invariants.spec do not import scene.spec and need no re-run.

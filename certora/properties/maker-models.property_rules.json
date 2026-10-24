@@ -13,6 +13,16 @@
   "constructor_wires_maker_system": [
     "constructorWiresMakerSystem"
   ],
+  "third_parties_cannot_revoke_sdai_setup": [
+    "thirdPartiesCannotRevokeSdaiSetup",
+    "permitBySdaiRevertsUnderKeyAssumption",
+    "permitBySdaiReachableWithoutKeyAssumption"
+  ],
+  "dai_pairwise_balance_bound": [
+    "daiPairwiseBalanceBound",
+    "daiSumGhostIsMirrorUsum",
+    "daiMirrorMatchesBalance"
+  ],
   "_skipped": {},
   "_expected_fail": {},
   "_status": {
@@ -26,10 +36,13 @@
       }
     },
     "maker-models-dai.conf": {
-      "run": "https://prover.certora.com/orgs/certora/jobs/0e288f36-9e75-43a0-82ce-c6276d96aad8/report",
+      "run": "https://prover.certora.com/orgs/certora/jobs/b722fc7e-703d-4dda-98f5-50c1500e23ef/report",
       "rules": {
         "daiSupplyIsSum": "VERIFIED (base: Dai constructor; step: all Dai methods)",
         "daiBalanceAtMostSupply": "VERIFIED (base: Dai constructor; step: all Dai methods)",
+        "daiMirrorMatchesBalance": "VERIFIED (base: Dai constructor; step: all Dai methods)",
+        "daiSumGhostIsMirrorUsum": "VERIFIED (base: Dai constructor; step: all Dai methods; preserved: requireInvariant daiMirrorMatchesBalance for written accounts)",
+        "daiPairwiseBalanceBound": "VERIFIED",
         "envfreeFuncsStaticCheck": "VERIFIED"
       }
     },
@@ -43,7 +56,25 @@
       "non_triviality_probes": "Temporary invariants, since removed: vat.can(sDAI, Vat) == 1, pot() == DaiJoin, and Dai.allowance(sDAI, pot()) == max were all VIOLATED in the base case, so the constructor post-state is not over-constrained by the dispatch assumptions."
     },
     "superseded_runs": {
-      "maker-models-constructor iter 1 (experiment, base.conf links kept)": "https://prover.certora.com/orgs/certora/jobs/5ab7d489-f109-488f-8826-c3f3c6ca4f34/report"
+      "maker-models-constructor iter 1 (experiment, base.conf links kept)": "https://prover.certora.com/orgs/certora/jobs/5ab7d489-f109-488f-8826-c3f3c6ca4f34/report",
+      "maker-models dai pass3 iter 1 (pass-3 final; same daiSupplyIsSum / daiBalanceAtMostSupply, re-verified in pass 4)": "https://prover.certora.com/orgs/certora/jobs/0e288f36-9e75-43a0-82ce-c6276d96aad8/report",
+      "maker-models dai pass4 iter 1 (usum invariant failed: no init axiom on usum, missing mirror preserved blocks)": "https://prover.certora.com/orgs/certora/jobs/61dbf89d-e065-4be5-84f0-6bc0253985a9/report"
+    },
+    "maker-models-setup.conf": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/2047f9f4-334e-46fc-80d1-c76809d44b2c/report",
+      "rules": {
+        "thirdPartiesCannotRevokeSdaiSetup": "VERIFIED for every entry point (incl. public getters) of Vat (14), Dai (22, incl. permit), Pot (17), DaiJoin (9); assumptions: e.msg.sender != sdai, K (no ecrecover result equals sdai)",
+        "permitBySdaiRevertsUnderKeyAssumption": "VERIFIED",
+        "permitBySdaiReachableWithoutKeyAssumption": "SATISFIED (witness: without K the model lets a third party zero sdai's allowance via permit)"
+      }
+    },
+    "pass4_barrier": {
+      "maker-models-pot.conf": "https://prover.certora.com/orgs/certora/jobs/468e84d5-0925-4f4f-a638-c0001ca6e5e8/report",
+      "maker-models-setup.conf": "https://prover.certora.com/orgs/certora/jobs/aee23f05-e783-4935-a7da-8b1fbbc1dac5/report",
+      "maker-models-constructor.conf": "https://prover.certora.com/orgs/certora/jobs/b472def2-b105-4d09-b8f3-56f4e044bb89/report",
+      "maker-integration setupApprovalsPreserved": "https://prover.certora.com/orgs/certora/jobs/f453c3ce-64dc-4550-af5a-30149a0728fe/report",
+      "result": "all VERIFIED (pot 148, setup 200, constructor 13 nodes); setupApprovalsPreserved 40/40",
+      "note": "Pass-4 barrier re-run on scene.spec with the deterministic isValidSigG ERC-1271 model; full unfiltered, rule_sanity basic; statuses read from the job archive's treeViewStatus. maker-models-dai.conf does not import scene.spec and was not re-run (b722fc7e stands)."
     }
   }
 }

@@ -742,3 +742,59 @@ rule exitToZeroReceiverWitness(env e, uint256 assets, address owner) {
         && to_mathint(balanceOf(owner)) == ownerBefore - shares
         && shares > 0;
 }
+
+// ===========================================================================
+// PASS 4
+// ===========================================================================
+
+// ---------------------------------------------------------------------------
+// rounding_loss_bounded
+// One rule per operation. `chi` is the accumulator the operation used: pot.chi() read AFTER the
+// call (deposit/mint/withdraw/redeem drip first when the Pot is stale, and join/exit never write
+// chi; depositAccounting & co. prove pot.chi() after the call equals the dripped value). Every
+// bound is stated on the exact rational loss scaled by RAY (all mathint, no CVL division), and
+// compared against the contract's RETURN value:
+//   deposit : 0 <= assets*RAY - shares*chi < chi          (less than one share's worth of DAI)
+//   mint    : 0 <= assets*RAY - shares*chi < RAY          (less than 1 wei of DAI)
+//   withdraw: 0 <= shares*chi - assets*RAY < chi          (less than one share)
+//   redeem  : 0 <= shares*chi - assets*RAY < RAY          (less than 1 wei of DAI)
+// The deposit bound in the property text, assets - shares*chi/RAY < chi/RAY + 1, is the rational
+// form of `assets*RAY - shares*chi < chi + RAY`, asserted literally as well; the `< chi` assert
+// is the tighter one. The lower bounds (`0 <=`) say the rounding never favours the user.
+// ---------------------------------------------------------------------------
+
+rule roundingLossBoundedDeposit(env e, uint256 assets, address receiver) {
+    uint256 shares = deposit(e, assets, receiver);
+    mathint chi = pot.chi();
+    mathint loss = assets * RAY() - shares * chi; // DAI given up, scaled by RAY
+    assert loss >= 0, "deposit minted more than the exact share amount";
+    assert loss < chi, "deposit rounding loss is at least one share's worth";
+    assert loss < chi + RAY(), "deposit: assets - shares*chi/RAY >= chi/RAY + 1";
+}
+
+rule roundingLossBoundedMint(env e, uint256 shares, address receiver) {
+    uint256 assets = mint(e, shares, receiver);
+    mathint chi = pot.chi();
+    mathint loss = assets * RAY() - shares * chi; // DAI overpaid, scaled by RAY
+    assert loss >= 0, "mint charged less than the exact asset amount";
+    assert loss < RAY(), "mint rounding loss is at least 1 wei of DAI";
+}
+
+rule roundingLossBoundedWithdraw(env e, uint256 assets, address receiver, address owner) {
+    // chi == 0 would let withdraw(0, ...) return 0 shares (_divup(0, 0) == 0 never divides) and
+    // make `< chi` unsatisfiable; chi >= RAY is the proven maker-models invariant potChiAtLeastRay.
+    requirePotChiAtLeastRay();
+    uint256 shares = withdraw(e, assets, receiver, owner);
+    mathint chi = pot.chi();
+    mathint loss = shares * chi - assets * RAY(); // share value overburned, scaled by RAY
+    assert loss >= 0, "withdraw burned less than the exact share amount";
+    assert loss < chi, "withdraw rounding loss is at least one share";
+}
+
+rule roundingLossBoundedRedeem(env e, uint256 shares, address receiver, address owner) {
+    uint256 assets = redeem(e, shares, receiver, owner);
+    mathint chi = pot.chi();
+    mathint loss = shares * chi - assets * RAY(); // DAI withheld, scaled by RAY
+    assert loss >= 0, "redeem paid more than the exact asset amount";
+    assert loss < RAY(), "redeem rounding loss is at least 1 wei of DAI";
+}

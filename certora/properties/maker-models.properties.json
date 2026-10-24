@@ -18,5 +18,15 @@
     "title": "constructor_wires_maker_system",
     "sort": "safety_property",
     "description": "Assuming the constructor's _daiJoin is the scene DaiJoin (A1) and DaiJoin's vat/dai are the scene Vat/Dai (A2), SavingsDai's constructor sets daiJoin/vat/dai to those contracts and pot to the given _pot, and establishes vat.can(sDAI, daiJoin) == 1, vat.can(sDAI, pot) == 1 and dai.allowance(sDAI, daiJoin) == type(uint256).max \u2014 the setup the liveness rules assume and setupApprovalsPreserved shows is never undone by SavingsDai methods."
+  },
+  {
+    "title": "third_parties_cannot_revoke_sdai_setup",
+    "sort": "safety_property",
+    "description": "No call to any Vat or Dai entry point by an account other than sDAI can set vat.can(sDAI, daiJoin), vat.can(sDAI, pot) to 0 or lower dai.allowance(sDAI, daiJoin) below type(uint256).max (Dai.permit with holder = sDAI is the only conceivable route; state any assumption about it explicitly)."
+  },
+  {
+    "title": "dai_pairwise_balance_bound",
+    "sort": "safety_property",
+    "description": "For distinct accounts a and b, Dai.balanceOf(a) + Dai.balanceOf(b) <= Dai.totalSupply in every reachable Dai state (machine-checked consequence of dai_supply_is_sum)."
   }
 ]

@@ -14,9 +14,10 @@ using SigPacker as packer;
  * Signature model:
  *  - ecrecover is modelled by the prover as a deterministic uninterpreted (ghost) function
  *    (docs: cvl/expr.html "ECRecover"); the CVL builtin `ecrecover` refers to the same function.
- *  - ERC-1271 `isValidSignature` is NONDET (scene.spec): every staticcall returns a fresh,
- *    arbitrary value. Rules therefore never assume a particular signature is (in)valid; where a
- *    valid permit is needed, they constrain on the permit call not reverting.
+ *  - ERC-1271 `isValidSignature` is the deterministic uninterpreted ghost
+ *    isValidSigG(signer, digest) (scene.spec, pass 4; NONDET in passes 1-3). Rules never assume a
+ *    particular signature is (in)valid; where a valid permit is needed, they constrain on the
+ *    permit call not reverting. The PASS 4 rules at the end cover the ERC-1271 path.
  */
 
 methods {
@@ -222,10 +223,10 @@ function requirePacked(bytes signature, uint256 rWord, uint256 sWord, uint8 v) {
 /// 2-byte "\x19\x01" prefix), so (v, r, s) is assumed to recover `owner` for every digest. This
 /// constrains only the uninterpreted ecrecover function, not the contract. If either form decoded
 /// anything other than (v, r, s) from its bytes, ecrecover would be unconstrained there, the call
-/// would fall through to the NONDET ERC-1271 staticcall and the two runs could disagree, so the
-/// rule would fail. Not covered: signatures for which ecrecover does not return owner, where the
-/// ERC-1271 fallback decides; under the NONDET scene summary the two executions' isValidSignature
-/// answers are independent (see permit.commentary.md, Pass 2).
+/// would fall through to the ERC-1271 staticcall. (Under the pass 1-3 NONDET model the two runs
+/// then got independent answers and this rule caught such decoding errors; under the pass-4
+/// deterministic model they may agree, so decoding is now pinned by permitVrsDecodesPackedSignature.)
+/// The ERC-1271 path itself is covered by permitSignatureFormsEquivalentAnyPath / ...1271Path.
 rule permitSignatureFormsEquivalent(env e, address owner, address spender, uint256 value,
                                     uint256 deadline, uint8 v, bytes32 r, bytes32 s) {
     // ECDSA path accepts (see rule comment): an assumption on the ecrecover function only.
@@ -254,7 +255,7 @@ rule permitSignatureFormsEquivalent(env e, address owner, address spender, uint2
 /// permit(v, r, s) packs abi.encodePacked(r, s, v) and hands it to permit(bytes), whose
 /// _isValidSignature decodes it with mload/byte and calls ecrecover. If that round trip did not
 /// return exactly (v, r, s), ecrecover would be evaluated at a different, unconstrained point and
-/// the call could fall through to the (NONDET) ERC-1271 path and revert. So: whenever (v, r, s)
+/// the call could fall through to the ERC-1271 path, where the isValidSigG ghost is free, and revert. So: whenever (v, r, s)
 /// recovers to owner (for every digest; the digest is not recomputable in CVL) and the
 /// non-signature checks pass, permit(v, r, s) must succeed - and then has permitEffects' effects,
 /// exactly those of permit(bytes).
@@ -295,4 +296,73 @@ rule permitSignatureFormsSameEffects(env e, address owner, address spender, uint
 
     assert preconditionFails => (revertedVrs && revertedBytes);
     assert (!revertedVrs && !revertedBytes) => (allowanceVrs == allowanceBytes && nonceVrs == nonceBytes);
+}
+
+// ---------------------------------------------------------------------------
+// PASS 4: permit_signature_forms_equivalent on every signature path (incl. ERC-1271)
+// ---------------------------------------------------------------------------
+
+/// Runs permit(v, r, s) and permit(packer.pack(v, r, s)) from the same snapshot and returns
+/// whether revert status, allowance[owner][spender] and nonces[owner] all agree.
+function formsAgree(env e, address owner, address spender, uint256 value, uint256 deadline,
+                    uint8 v, bytes32 r, bytes32 s) returns bool {
+    bytes packed = packer.pack(v, r, s);
+
+    storage init = lastStorage;
+
+    permit@withrevert(e, owner, spender, value, deadline, v, r, s) at init;
+    bool revertedVrs = lastReverted;
+    uint256 allowanceVrs = allowance(owner, spender);
+    uint256 nonceVrs = nonces(owner);
+
+    permit@withrevert(e, owner, spender, value, deadline, packed) at init;
+    bool revertedBytes = lastReverted;
+    uint256 allowanceBytes = allowance(owner, spender);
+    uint256 nonceBytes = nonces(owner);
+
+    return (revertedVrs <=> revertedBytes) && allowanceVrs == allowanceBytes && nonceVrs == nonceBytes;
+}
+
+/// permit_signature_forms_equivalent (any signature path, no assumption)
+/// From one pre-state, permit(owner, spender, value, deadline, v, r, s) and
+/// permit(owner, spender, value, deadline, abi.encodePacked(r, s, v)) (built by SigPacker) have
+/// the same revert status and leave the same allowance[owner][spender] and nonces[owner], whether
+/// ECDSA or the ERC-1271 fallback decides. No assumption on ecrecover: both runs evaluate the same
+/// deterministic ecrecover point only if they decode the same (v, r, s), and both reach the same
+/// isValidSignature(owner, digest) staticcall only if they compute the same digest (same nonce).
+rule permitSignatureFormsEquivalentAnyPath(env e, address owner, address spender, uint256 value,
+                                           uint256 deadline, uint8 v, bytes32 r, bytes32 s) {
+    assert formsAgree(e, owner, spender, value, deadline, v, r, s);
+}
+
+/// permit_signature_forms_equivalent (ERC-1271 path forced)
+/// Same statement with ECDSA ruled out for (v, r, s) on every digest, so the ERC-1271 staticcall
+/// is what decides in both runs. The require constrains only the uninterpreted ecrecover function
+/// (it is the negation of the ECDSA-path assumption of permitSignatureFormsEquivalent); it makes
+/// sure the 1271 path is exercised rather than proven only through the ECDSA shortcut.
+rule permitSignatureFormsEquivalent1271Path(env e, address owner, address spender, uint256 value,
+                                            uint256 deadline, uint8 v, bytes32 r, bytes32 s) {
+    // ECDSA rejects (v, r, s) for every digest: the ERC-1271 fallback decides in both runs.
+    require forall bytes32 d. ecrecover(d, v, r, s) != owner;
+
+    assert formsAgree(e, owner, spender, value, deadline, v, r, s);
+}
+
+/// Model check (PASS 4): on the ERC-1271 path the outcome of permit is decided exactly by the
+/// isValidSigG ghost, i.e. the scene-1271 summary is really applied to SavingsDai's low-level
+/// `owner.staticcall(isValidSignature(digest, signature))` and its bytes4 is decoded as the
+/// ERC-1271 magic-value comparison expects. Without this, permitSignatureFormsEquivalent1271Path
+/// could in principle pass for an unrelated reason. `accept` fixes the ghost's answer for owner
+/// on every digest (the digest is not recomputable in CVL); both values are explored.
+rule permit1271PathDecidedBySignerGhost(env e, address owner, address spender, uint256 value,
+                                        uint256 deadline, uint8 v, bytes32 r, bytes32 s, bool accept) {
+    // ECDSA rejects (v, r, s) for every digest: the ERC-1271 fallback decides.
+    require forall bytes32 d. ecrecover(d, v, r, s) != owner;
+    // The signer's ERC-1271 answer for every digest is the magic value iff accept.
+    require forall bytes32 d. (isValidSigG(owner, d) == to_bytes4(0x1626ba7e)) == accept;
+    bool checksPass = e.block.timestamp <= deadline && owner != 0 && e.msg.value == 0;
+
+    permit@withrevert(e, owner, spender, value, deadline, v, r, s);
+
+    assert checksPass => (lastReverted <=> !accept);
 }

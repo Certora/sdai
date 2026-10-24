@@ -44,6 +44,11 @@
     "thirdPartyBalancesUnaffected": "VERIFIED",
     "totalSupplyChangesOnlyViaVaultOperations": "VERIFIED",
     "pass1_run": "https://prover.certora.com/orgs/certora/jobs/6aa78c3d-b8e4-468c-8fbc-7efdf0ec5bbd/report",
-    "pass2_note": "Barrier re-run on the pass-2 scene (real dss Dai/DaiJoin ports, SigPacker): full unfiltered, all VERIFIED; spec unchanged."
+    "pass2_note": "Barrier re-run on the pass-2 scene (real dss Dai/DaiJoin ports, SigPacker): full unfiltered, all VERIFIED; spec unchanged.",
+    "pass4_barrier": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/958bf48b-3538-4035-8b0c-84aa86254e9f/report",
+      "result": "all VERIFIED (510 nodes; the streamed log was cut by a server 401, statuses read from the archive)",
+      "note": "Pass-4 barrier re-run on scene.spec with the deterministic isValidSigG ERC-1271 model; full unfiltered, rule_sanity basic; statuses read from the job archive's treeViewStatus."
+    }
   }
 }

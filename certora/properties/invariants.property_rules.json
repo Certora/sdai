@@ -16,6 +16,11 @@
     "sharesBackedByPie": "VERIFIED",
     "zeroAndSelfHoldNoShares": "VERIFIED",
     "pass1_run": "https://prover.certora.com/orgs/certora/jobs/b91ff71e-7cb3-4cc9-85b5-b30457145a95/report",
-    "pass2_note": "Barrier re-run on the pass-2 scene (real dss Dai/DaiJoin ports, SigPacker): full unfiltered, all VERIFIED; spec unchanged."
+    "pass2_note": "Barrier re-run on the pass-2 scene (real dss Dai/DaiJoin ports, SigPacker): full unfiltered, all VERIFIED; spec unchanged.",
+    "pass4_barrier": {
+      "run": "https://prover.certora.com/orgs/certora/jobs/32094aa6-2ac4-4400-a415-4d31cf9aa9b3/report",
+      "result": "all VERIFIED (223 nodes)",
+      "note": "Pass-4 barrier re-run on scene.spec with the deterministic isValidSigG ERC-1271 model; full unfiltered, rule_sanity basic; statuses read from the job archive's treeViewStatus."
+    }
   }
 }
