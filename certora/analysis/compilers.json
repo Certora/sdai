@@ -1,0 +1,8 @@
+{
+  "source": "foundry.toml explicit pin (solc = '0.8.17'); forge not installed so `forge compiler resolve` unavailable; pragmas of all closure files (^0.8.17, ^0.8.13, harness 0.8.17) admit it",
+  "versions": ["0.8.17"],
+  "closure_versions": ["0.8.17"],
+  "alias_dir": "certora/solc-bin",
+  "aliases": {"solc8.17": "0.8.17"},
+  "binary_sources": {}
+}

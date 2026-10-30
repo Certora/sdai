@@ -1,0 +1,61 @@
+{
+  "deposit_effects_exact": [
+    "depositEffectsExact"
+  ],
+  "mint_effects_exact": [
+    "mintEffectsExact"
+  ],
+  "withdraw_effects_exact": [
+    "withdrawEffectsExact"
+  ],
+  "redeem_effects_exact": [
+    "redeemEffectsExact"
+  ],
+  "rounding_favors_vault": [
+    "vaultVatDaiNeverDecreases"
+  ],
+  "round_trip_no_profit": [
+    "depositThenRedeemNoProfit",
+    "mintThenWithdrawNoProfit"
+  ],
+  "preview_matches_action": [
+    "previewDepositMatchesDeposit",
+    "previewMintMatchesMint",
+    "previewWithdrawMatchesWithdraw",
+    "previewRedeemMatchesRedeem"
+  ],
+  "actions_price_at_accrued_rate": [
+    "actionsDripToCurrentBlock",
+    "depositEffectsExact",
+    "mintEffectsExact",
+    "withdrawEffectsExact",
+    "redeemEffectsExact",
+    "actionDripBranchReachable"
+  ],
+  "third_party_value_unaffected": [
+    "thirdPartyValueUnaffected"
+  ],
+  "share_price_independent_of_donations": [
+    "daiDonationDoesNotMovePrice",
+    "vatDaiDonationDoesNotMovePrice",
+    "daiJoinDonationDoesNotMovePrice"
+  ],
+  "share_price_never_decreases": [
+    "chiNeverDecreases"
+  ],
+  "deposit_pulls_only_from_caller": [
+    "onlyCallerDaiDecreases"
+  ],
+  "redeem_always_possible": [
+    "redeemAlwaysPossible"
+  ],
+  "max_functions_accurate": [
+    "maxRedeemIsBalance",
+    "maxRedeemSucceeds",
+    "maxWithdrawSucceeds",
+    "maxDepositAccepted",
+    "maxMintAccepted",
+    "maxDepositAlwaysReverts",
+    "maxMintAlwaysReverts"
+  ]
+}

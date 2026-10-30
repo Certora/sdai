@@ -1,0 +1,8 @@
+[
+  {"title": "total_supply_equals_sum_of_balances", "sort": "invariant", "description": "sDAI totalSupply equals the sum of balanceOf over all accounts."},
+  {"title": "shares_equal_pot_pie", "sort": "invariant", "description": "The normalized savings balance pie that the Pot records for the sDAI contract equals sDAI totalSupply: every share is backed by exactly one unit of pie and no pie is unaccounted for."},
+  {"title": "pot_total_pie_covers_sdai_pie", "sort": "invariant", "description": "The Pot's total normalized savings Pie is at least the pie it records for sDAI (sDAI's exit can never underflow the Pot's totals)."},
+  {"title": "pot_vat_dai_covers_savings", "sort": "invariant", "description": "The Pot's internal Vat dai balance is at least chi * Pie, so every unit of pie can be paid out at the current accumulator."},
+  {"title": "daijoin_vat_dai_covers_dai_supply", "sort": "invariant", "description": "DaiJoin's internal Vat dai balance is at least RAY * DAI totalSupply, so any outstanding DAI can be joined back into the Vat (DaiJoin is the only minter of DAI)."},
+  {"title": "sdai_setup_permissions_persist", "sort": "invariant", "description": "The permissions sDAI grants in its constructor persist forever: Vat.can[sDAI][DaiJoin] == 1, Vat.can[sDAI][Pot] == 1, and DAI.allowance[sDAI][DaiJoin] == max uint256."}
+]

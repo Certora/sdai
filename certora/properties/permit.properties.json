@@ -1,0 +1,7 @@
+[
+  {"title": "permit_effects_exact", "sort": "safety_property", "description": "A successful permit(owner, spender, value, deadline, sig) sets allowance[owner][spender] = value, changes owner's nonce from n to n+1 (mod 2^256), and changes no other allowance, nonce, balance or totalSupply."},
+  {"title": "permit_rejects_expired_and_zero_owner", "sort": "safety_property", "description": "permit reverts when block.timestamp > deadline or owner is the zero address."},
+  {"title": "permit_requires_owner_signature", "sort": "safety_property", "description": "permit succeeds only if ecrecover over the EIP-712 digest returns owner for a 65-byte signature, or owner's isValidSignature(digest, sig) returns the EIP-1271 magic value."},
+  {"title": "nonces_change_only_by_permit", "sort": "safety_property", "description": "For every sDAI method other than permit, no nonce changes; permit changes only the nonce of its owner argument, so a consumed nonce is never re-issued (short of 2^256 permits)."},
+  {"title": "domain_separator_bound_to_chain", "sort": "safety_property", "description": "DOMAIN_SEPARATOR() returns the cached separator on the deployment chain, and on any other chain id returns a different value, so signatures cannot be replayed across a fork."}
+]

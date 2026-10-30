@@ -1,0 +1,15 @@
+{
+  "main": "src/SavingsDai.sol:SavingsDai",
+  "scene": [
+    {"contract": "SavingsDai", "path": "src/SavingsDai.sol", "kind": "main"},
+    {"contract": "PotHarness", "path": "certora/harnesses/PotHarness.sol", "kind": "harness of in-repo PotMock + mainnet Pot drip()", "reason": "sDAI calls pot.chi/rho/dsr/drip/join/exit; PotMock lacks drip"},
+    {"contract": "VatMock", "path": "src/test/mocks/VatMock.sol", "kind": "in-repo copy of dss Vat", "reason": "sDAI calls vat.hope; Pot and DaiJoin move Vat dai"},
+    {"contract": "DaiJoinMock", "path": "src/test/mocks/DaiJoinMock.sol", "kind": "in-repo copy of dss DaiJoin", "reason": "sDAI calls daiJoin.join/exit/vat/dai"},
+    {"contract": "DaiMock", "path": "src/test/mocks/DaiMock.sol", "kind": "ERC20 extension (mint/burn by wards)", "reason": "the vault asset; kept real because DaiJoin mints/burns it"}
+  ],
+  "excluded": [
+    {"contract": "IERC1271 signer", "reason": "arbitrary external owner contract reached by staticcall in permit; left unresolved (staticcall cannot change state)"}
+  ],
+  "proxies": [],
+  "erc7201": []
+}

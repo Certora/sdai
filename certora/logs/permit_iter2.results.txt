@@ -1,0 +1,63 @@
+cachedDomainSeparatorIsEip712		constructor	VERIFIED
+cachedDomainSeparatorIsEip712		permit(address,address,uint256,uint256,uint8,bytes32,bytes32)	VERIFIED
+cachedDomainSeparatorIsEip712		permit(address,address,uint256,uint256,bytes)	VERIFIED
+cachedDomainSeparatorIsEip712		approve(address,uint256)	VERIFIED
+cachedDomainSeparatorIsEip712		transfer(address,uint256)	VERIFIED
+cachedDomainSeparatorIsEip712		decreaseAllowance(address,uint256)	VERIFIED
+cachedDomainSeparatorIsEip712		increaseAllowance(address,uint256)	VERIFIED
+cachedDomainSeparatorIsEip712		mint(uint256,address,uint16)	VERIFIED
+cachedDomainSeparatorIsEip712		deposit(uint256,address,uint16)	VERIFIED
+cachedDomainSeparatorIsEip712		withdraw(uint256,address,address)	VERIFIED
+cachedDomainSeparatorIsEip712		redeem(uint256,address,address)	VERIFIED
+cachedDomainSeparatorIsEip712		deposit(uint256,address)	VERIFIED
+cachedDomainSeparatorIsEip712		mint(uint256,address)	VERIFIED
+cachedDomainSeparatorIsEip712		transferFrom(address,address,uint256)	VERIFIED
+domainSeparatorBoundToChain			VERIFIED
+envfreeFuncsStaticCheck			VERIFIED
+noncesChangeOnlyByPermit		approve(address,uint256)	VERIFIED
+noncesChangeOnlyByPermit		transfer(address,uint256)	VERIFIED
+noncesChangeOnlyByPermit		decreaseAllowance(address,uint256)	VERIFIED
+noncesChangeOnlyByPermit		increaseAllowance(address,uint256)	VERIFIED
+noncesChangeOnlyByPermit		mint(uint256,address,uint16)	VERIFIED
+noncesChangeOnlyByPermit		deposit(uint256,address,uint16)	VERIFIED
+noncesChangeOnlyByPermit		allowance(address,address)	VERIFIED
+noncesChangeOnlyByPermit		withdraw(uint256,address,address)	VERIFIED
+noncesChangeOnlyByPermit		redeem(uint256,address,address)	VERIFIED
+noncesChangeOnlyByPermit		totalAssets()	VERIFIED
+noncesChangeOnlyByPermit		dai()	VERIFIED
+noncesChangeOnlyByPermit		deploymentChainId()	VERIFIED
+noncesChangeOnlyByPermit		daiJoin()	VERIFIED
+noncesChangeOnlyByPermit		symbol()	VERIFIED
+noncesChangeOnlyByPermit		version()	VERIFIED
+noncesChangeOnlyByPermit		pot()	VERIFIED
+noncesChangeOnlyByPermit		asset()	VERIFIED
+noncesChangeOnlyByPermit		vat()	VERIFIED
+noncesChangeOnlyByPermit		DOMAIN_SEPARATOR()	VERIFIED
+noncesChangeOnlyByPermit		decimals()	VERIFIED
+noncesChangeOnlyByPermit		PERMIT_TYPEHASH()	VERIFIED
+noncesChangeOnlyByPermit		totalSupply()	VERIFIED
+noncesChangeOnlyByPermit		name()	VERIFIED
+noncesChangeOnlyByPermit		convertToAssets(uint256)	VERIFIED
+noncesChangeOnlyByPermit		previewDeposit(uint256)	VERIFIED
+noncesChangeOnlyByPermit		convertToShares(uint256)	VERIFIED
+noncesChangeOnlyByPermit		previewMint(uint256)	VERIFIED
+noncesChangeOnlyByPermit		previewRedeem(uint256)	VERIFIED
+noncesChangeOnlyByPermit		previewWithdraw(uint256)	VERIFIED
+noncesChangeOnlyByPermit		maxDeposit(address)	VERIFIED
+noncesChangeOnlyByPermit		maxRedeem(address)	VERIFIED
+noncesChangeOnlyByPermit		maxWithdraw(address)	VERIFIED
+noncesChangeOnlyByPermit		maxMint(address)	VERIFIED
+noncesChangeOnlyByPermit		nonces(address)	VERIFIED
+noncesChangeOnlyByPermit		balanceOf(address)	VERIFIED
+noncesChangeOnlyByPermit		deposit(uint256,address)	VERIFIED
+noncesChangeOnlyByPermit		mint(uint256,address)	VERIFIED
+noncesChangeOnlyByPermit		transferFrom(address,address,uint256)	VERIFIED
+permitChangesOnlyOwnerNonce			VERIFIED
+permitEffectsExact			VERIFIED
+permitRejectsExpiredOrZeroOwner			VERIFIED
+permitRequiresOwnerSignatureBytes			VERIFIED
+permitRequiresOwnerSignatureVRS			VERIFIED
+witnessOtherChain			VERIFIED
+witnessPermitAtMaxNonce			VERIFIED
+witnessPermitVia1271			VERIFIED
+witnessPermitViaEcdsa			VERIFIED

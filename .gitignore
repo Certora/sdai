@@ -1,3 +1,12 @@
 cache/
 out/
 broadcast/
+
+# Certora directories
+**/.certora_internal
+**/.CertoraProverLiteReports
+# Certora run artifacts (large prover output archives, local compiler aliases)
+certora/logs/*
+!certora/logs/*.results.txt
+!certora/logs/SavingsDai_call_resolution.autosetup.spec
+certora/solc-bin/

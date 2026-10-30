@@ -1,0 +1,7 @@
+{
+  "permit_effects_exact": ["permitEffectsExact", "witnessPermitAtMaxNonce"],
+  "permit_rejects_expired_and_zero_owner": ["permitRejectsExpiredOrZeroOwner"],
+  "permit_requires_owner_signature": ["permitRequiresOwnerSignatureVRS", "permitRequiresOwnerSignatureBytes", "witnessPermitViaEcdsa", "witnessPermitVia1271"],
+  "nonces_change_only_by_permit": ["noncesChangeOnlyByPermit", "permitChangesOnlyOwnerNonce"],
+  "domain_separator_bound_to_chain": ["cachedDomainSeparatorIsEip712", "domainSeparatorBoundToChain", "witnessOtherChain"]
+}

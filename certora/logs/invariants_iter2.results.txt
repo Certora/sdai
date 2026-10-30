@@ -1,0 +1,255 @@
+daiJoinVatDaiCoversDaiSupply		permit(address,address,uint256,uint256,uint8,bytes32,bytes32)	VERIFIED
+daiJoinVatDaiCoversDaiSupply		permit(address,address,uint256,uint256,bytes)	VERIFIED
+daiJoinVatDaiCoversDaiSupply		approve(address,uint256)	VERIFIED
+daiJoinVatDaiCoversDaiSupply		transfer(address,uint256)	VERIFIED
+daiJoinVatDaiCoversDaiSupply		decreaseAllowance(address,uint256)	VERIFIED
+daiJoinVatDaiCoversDaiSupply		increaseAllowance(address,uint256)	VERIFIED
+daiJoinVatDaiCoversDaiSupply		mint(uint256,address,uint16)	VERIFIED
+daiJoinVatDaiCoversDaiSupply		deposit(uint256,address,uint16)	VERIFIED
+daiJoinVatDaiCoversDaiSupply		withdraw(uint256,address,address)	VERIFIED
+daiJoinVatDaiCoversDaiSupply		redeem(uint256,address,address)	VERIFIED
+daiJoinVatDaiCoversDaiSupply		deposit(uint256,address)	VERIFIED
+daiJoinVatDaiCoversDaiSupply		mint(uint256,address)	VERIFIED
+daiJoinVatDaiCoversDaiSupply		transferFrom(address,address,uint256)	VERIFIED
+daiJoinVatDaiCoversDaiSupply		constructor	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances		constructor	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	DaiJoinMock	DaiJoinMock.join(address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	DaiJoinMock	DaiJoinMock.exit(address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	DaiMock	DaiMock.permit(address,address,uint256,uint256,uint8,bytes32,bytes32)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	DaiMock	DaiMock.permit(address,address,uint256,uint256,bytes)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	DaiMock	DaiMock.approve(address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	DaiMock	DaiMock.transfer(address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	DaiMock	DaiMock.decreaseAllowance(address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	DaiMock	DaiMock.burn(address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	DaiMock	DaiMock.mint(address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	DaiMock	DaiMock.increaseAllowance(address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	DaiMock	DaiMock.rely(address)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	DaiMock	DaiMock.deny(address)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	DaiMock	DaiMock.transferFrom(address,address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	PotHarness	PotHarness.drip()	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	PotHarness	PotHarness.cage()	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	PotHarness	PotHarness.join(uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	PotHarness	PotHarness.setYield(uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	PotHarness	PotHarness.exit(uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	PotHarness	PotHarness.file(bytes32,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	PotHarness	PotHarness.deny(address)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	PotHarness	PotHarness.rely(address)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	PotHarness	PotHarness.file(bytes32,address)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	SavingsDai	SavingsDai.permit(address,address,uint256,uint256,uint8,bytes32,bytes32)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	SavingsDai	SavingsDai.permit(address,address,uint256,uint256,bytes)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	SavingsDai	SavingsDai.approve(address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	SavingsDai	SavingsDai.transfer(address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	SavingsDai	SavingsDai.decreaseAllowance(address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	SavingsDai	SavingsDai.increaseAllowance(address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	SavingsDai	SavingsDai.mint(uint256,address,uint16)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	SavingsDai	SavingsDai.deposit(uint256,address,uint16)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	SavingsDai	SavingsDai.withdraw(uint256,address,address)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	SavingsDai	SavingsDai.redeem(uint256,address,address)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	SavingsDai	SavingsDai.deposit(uint256,address)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	SavingsDai	SavingsDai.mint(uint256,address)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	SavingsDai	SavingsDai.transferFrom(address,address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.fork(bytes32,address,address,int256,int256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.frob(bytes32,address,address,address,int256,int256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.grab(bytes32,address,address,address,int256,int256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.slip(bytes32,address,int256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.fold(bytes32,address,int256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.cage()	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.init(bytes32)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.heal(uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.file(bytes32,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.file(bytes32,bytes32,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.rely(address)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.nope(address)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.hope(address)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.deny(address)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.move(address,address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.suck(address,address,uint256)	VERIFIED
+daiTotalSupplyEqualsSumOfDaiBalances	VatMock	VatMock.flux(bytes32,address,address,uint256)	VERIFIED
+envfreeFuncsStaticCheck			VERIFIED
+potTotalPieCoversSdaiPie		constructor	VERIFIED
+potTotalPieCoversSdaiPie		permit(address,address,uint256,uint256,uint8,bytes32,bytes32)	VERIFIED
+potTotalPieCoversSdaiPie		permit(address,address,uint256,uint256,bytes)	VERIFIED
+potTotalPieCoversSdaiPie		approve(address,uint256)	VERIFIED
+potTotalPieCoversSdaiPie		transfer(address,uint256)	VERIFIED
+potTotalPieCoversSdaiPie		decreaseAllowance(address,uint256)	VERIFIED
+potTotalPieCoversSdaiPie		increaseAllowance(address,uint256)	VERIFIED
+potTotalPieCoversSdaiPie		mint(uint256,address,uint16)	VERIFIED
+potTotalPieCoversSdaiPie		deposit(uint256,address,uint16)	VERIFIED
+potTotalPieCoversSdaiPie		withdraw(uint256,address,address)	VERIFIED
+potTotalPieCoversSdaiPie		redeem(uint256,address,address)	VERIFIED
+potTotalPieCoversSdaiPie		deposit(uint256,address)	VERIFIED
+potTotalPieCoversSdaiPie		mint(uint256,address)	VERIFIED
+potTotalPieCoversSdaiPie		transferFrom(address,address,uint256)	VERIFIED
+potVatDaiCoversSavings		constructor	VERIFIED
+potVatDaiCoversSavings		permit(address,address,uint256,uint256,uint8,bytes32,bytes32)	VERIFIED
+potVatDaiCoversSavings		permit(address,address,uint256,uint256,bytes)	VERIFIED
+potVatDaiCoversSavings		approve(address,uint256)	VERIFIED
+potVatDaiCoversSavings		transfer(address,uint256)	VERIFIED
+potVatDaiCoversSavings		decreaseAllowance(address,uint256)	VERIFIED
+potVatDaiCoversSavings		increaseAllowance(address,uint256)	VERIFIED
+potVatDaiCoversSavings		mint(uint256,address,uint16)	VERIFIED
+potVatDaiCoversSavings		deposit(uint256,address,uint16)	VERIFIED
+potVatDaiCoversSavings		withdraw(uint256,address,address)	VERIFIED
+potVatDaiCoversSavings		redeem(uint256,address,address)	VERIFIED
+potVatDaiCoversSavings		deposit(uint256,address)	VERIFIED
+potVatDaiCoversSavings		mint(uint256,address)	VERIFIED
+potVatDaiCoversSavings		transferFrom(address,address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	DaiJoinMock	DaiJoinMock.join(address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	DaiJoinMock	DaiJoinMock.exit(address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	DaiMock	DaiMock.approve(address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	DaiMock	DaiMock.transfer(address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	DaiMock	DaiMock.decreaseAllowance(address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	DaiMock	DaiMock.burn(address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	DaiMock	DaiMock.mint(address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	DaiMock	DaiMock.increaseAllowance(address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	DaiMock	DaiMock.rely(address)	VERIFIED
+sdaiSetupPermissionsPersist	DaiMock	DaiMock.deny(address)	VERIFIED
+sdaiSetupPermissionsPersist	DaiMock	DaiMock.transferFrom(address,address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	PotHarness	PotHarness.drip()	VERIFIED
+sdaiSetupPermissionsPersist	PotHarness	PotHarness.cage()	VERIFIED
+sdaiSetupPermissionsPersist	PotHarness	PotHarness.join(uint256)	VERIFIED
+sdaiSetupPermissionsPersist	PotHarness	PotHarness.setYield(uint256)	VERIFIED
+sdaiSetupPermissionsPersist	PotHarness	PotHarness.exit(uint256)	VERIFIED
+sdaiSetupPermissionsPersist	PotHarness	PotHarness.file(bytes32,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	PotHarness	PotHarness.deny(address)	VERIFIED
+sdaiSetupPermissionsPersist	PotHarness	PotHarness.rely(address)	VERIFIED
+sdaiSetupPermissionsPersist	PotHarness	PotHarness.file(bytes32,address)	VERIFIED
+sdaiSetupPermissionsPersist	SavingsDai	SavingsDai.permit(address,address,uint256,uint256,uint8,bytes32,bytes32)	VERIFIED
+sdaiSetupPermissionsPersist	SavingsDai	SavingsDai.permit(address,address,uint256,uint256,bytes)	VERIFIED
+sdaiSetupPermissionsPersist	SavingsDai	SavingsDai.approve(address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	SavingsDai	SavingsDai.transfer(address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	SavingsDai	SavingsDai.decreaseAllowance(address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	SavingsDai	SavingsDai.increaseAllowance(address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	SavingsDai	SavingsDai.mint(uint256,address,uint16)	VERIFIED
+sdaiSetupPermissionsPersist	SavingsDai	SavingsDai.deposit(uint256,address,uint16)	VERIFIED
+sdaiSetupPermissionsPersist	SavingsDai	SavingsDai.withdraw(uint256,address,address)	VERIFIED
+sdaiSetupPermissionsPersist	SavingsDai	SavingsDai.redeem(uint256,address,address)	VERIFIED
+sdaiSetupPermissionsPersist	SavingsDai	SavingsDai.deposit(uint256,address)	VERIFIED
+sdaiSetupPermissionsPersist	SavingsDai	SavingsDai.mint(uint256,address)	VERIFIED
+sdaiSetupPermissionsPersist	SavingsDai	SavingsDai.transferFrom(address,address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.fork(bytes32,address,address,int256,int256)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.frob(bytes32,address,address,address,int256,int256)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.grab(bytes32,address,address,address,int256,int256)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.slip(bytes32,address,int256)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.fold(bytes32,address,int256)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.cage()	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.init(bytes32)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.heal(uint256)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.file(bytes32,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.file(bytes32,bytes32,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.rely(address)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.nope(address)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.hope(address)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.deny(address)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.move(address,address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.suck(address,address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	VatMock	VatMock.flux(bytes32,address,address,uint256)	VERIFIED
+sdaiSetupPermissionsPersist	DaiMock	DaiMock.permit(address,address,uint256,uint256,bytes)	VERIFIED
+sdaiSetupPermissionsPersist	DaiMock	DaiMock.permit(address,address,uint256,uint256,uint8,bytes32,bytes32)	VERIFIED
+sdaiSetupPermissionsPersist		constructor	VERIFIED
+sharesEqualPotPie	DaiJoinMock	DaiJoinMock.join(address,uint256)	VERIFIED
+sharesEqualPotPie	DaiJoinMock	DaiJoinMock.exit(address,uint256)	VERIFIED
+sharesEqualPotPie	DaiMock	DaiMock.permit(address,address,uint256,uint256,uint8,bytes32,bytes32)	VERIFIED
+sharesEqualPotPie	DaiMock	DaiMock.permit(address,address,uint256,uint256,bytes)	VERIFIED
+sharesEqualPotPie	DaiMock	DaiMock.approve(address,uint256)	VERIFIED
+sharesEqualPotPie	DaiMock	DaiMock.transfer(address,uint256)	VERIFIED
+sharesEqualPotPie	DaiMock	DaiMock.decreaseAllowance(address,uint256)	VERIFIED
+sharesEqualPotPie	DaiMock	DaiMock.burn(address,uint256)	VERIFIED
+sharesEqualPotPie	DaiMock	DaiMock.mint(address,uint256)	VERIFIED
+sharesEqualPotPie	DaiMock	DaiMock.increaseAllowance(address,uint256)	VERIFIED
+sharesEqualPotPie	DaiMock	DaiMock.rely(address)	VERIFIED
+sharesEqualPotPie	DaiMock	DaiMock.deny(address)	VERIFIED
+sharesEqualPotPie	DaiMock	DaiMock.transferFrom(address,address,uint256)	VERIFIED
+sharesEqualPotPie	PotHarness	PotHarness.drip()	VERIFIED
+sharesEqualPotPie	PotHarness	PotHarness.cage()	VERIFIED
+sharesEqualPotPie	PotHarness	PotHarness.join(uint256)	VERIFIED
+sharesEqualPotPie	PotHarness	PotHarness.setYield(uint256)	VERIFIED
+sharesEqualPotPie	PotHarness	PotHarness.exit(uint256)	VERIFIED
+sharesEqualPotPie	PotHarness	PotHarness.file(bytes32,uint256)	VERIFIED
+sharesEqualPotPie	PotHarness	PotHarness.deny(address)	VERIFIED
+sharesEqualPotPie	PotHarness	PotHarness.rely(address)	VERIFIED
+sharesEqualPotPie	PotHarness	PotHarness.file(bytes32,address)	VERIFIED
+sharesEqualPotPie	SavingsDai	SavingsDai.permit(address,address,uint256,uint256,uint8,bytes32,bytes32)	VERIFIED
+sharesEqualPotPie	SavingsDai	SavingsDai.permit(address,address,uint256,uint256,bytes)	VERIFIED
+sharesEqualPotPie	SavingsDai	SavingsDai.approve(address,uint256)	VERIFIED
+sharesEqualPotPie	SavingsDai	SavingsDai.transfer(address,uint256)	VERIFIED
+sharesEqualPotPie	SavingsDai	SavingsDai.decreaseAllowance(address,uint256)	VERIFIED
+sharesEqualPotPie	SavingsDai	SavingsDai.increaseAllowance(address,uint256)	VERIFIED
+sharesEqualPotPie	SavingsDai	SavingsDai.mint(uint256,address,uint16)	VERIFIED
+sharesEqualPotPie	SavingsDai	SavingsDai.deposit(uint256,address,uint16)	VERIFIED
+sharesEqualPotPie	SavingsDai	SavingsDai.withdraw(uint256,address,address)	VERIFIED
+sharesEqualPotPie	SavingsDai	SavingsDai.redeem(uint256,address,address)	VERIFIED
+sharesEqualPotPie	SavingsDai	SavingsDai.deposit(uint256,address)	VERIFIED
+sharesEqualPotPie	SavingsDai	SavingsDai.mint(uint256,address)	VERIFIED
+sharesEqualPotPie	SavingsDai	SavingsDai.transferFrom(address,address,uint256)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.fork(bytes32,address,address,int256,int256)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.frob(bytes32,address,address,address,int256,int256)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.grab(bytes32,address,address,address,int256,int256)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.slip(bytes32,address,int256)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.fold(bytes32,address,int256)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.cage()	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.init(bytes32)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.heal(uint256)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.file(bytes32,uint256)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.file(bytes32,bytes32,uint256)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.rely(address)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.nope(address)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.hope(address)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.deny(address)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.move(address,address,uint256)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.suck(address,address,uint256)	VERIFIED
+sharesEqualPotPie	VatMock	VatMock.flux(bytes32,address,address,uint256)	VERIFIED
+sharesEqualPotPie		constructor	VERIFIED
+totalSupplyEqualsSumOfBalances	DaiJoinMock	DaiJoinMock.join(address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	DaiJoinMock	DaiJoinMock.exit(address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	DaiMock	DaiMock.permit(address,address,uint256,uint256,uint8,bytes32,bytes32)	VERIFIED
+totalSupplyEqualsSumOfBalances	DaiMock	DaiMock.permit(address,address,uint256,uint256,bytes)	VERIFIED
+totalSupplyEqualsSumOfBalances	DaiMock	DaiMock.approve(address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	DaiMock	DaiMock.transfer(address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	DaiMock	DaiMock.decreaseAllowance(address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	DaiMock	DaiMock.burn(address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	DaiMock	DaiMock.mint(address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	DaiMock	DaiMock.increaseAllowance(address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	DaiMock	DaiMock.rely(address)	VERIFIED
+totalSupplyEqualsSumOfBalances	DaiMock	DaiMock.deny(address)	VERIFIED
+totalSupplyEqualsSumOfBalances	DaiMock	DaiMock.transferFrom(address,address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	PotHarness	PotHarness.drip()	VERIFIED
+totalSupplyEqualsSumOfBalances	PotHarness	PotHarness.cage()	VERIFIED
+totalSupplyEqualsSumOfBalances	PotHarness	PotHarness.join(uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	PotHarness	PotHarness.setYield(uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	PotHarness	PotHarness.exit(uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	PotHarness	PotHarness.file(bytes32,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	PotHarness	PotHarness.deny(address)	VERIFIED
+totalSupplyEqualsSumOfBalances	PotHarness	PotHarness.rely(address)	VERIFIED
+totalSupplyEqualsSumOfBalances	PotHarness	PotHarness.file(bytes32,address)	VERIFIED
+totalSupplyEqualsSumOfBalances	SavingsDai	SavingsDai.permit(address,address,uint256,uint256,uint8,bytes32,bytes32)	VERIFIED
+totalSupplyEqualsSumOfBalances	SavingsDai	SavingsDai.permit(address,address,uint256,uint256,bytes)	VERIFIED
+totalSupplyEqualsSumOfBalances	SavingsDai	SavingsDai.approve(address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	SavingsDai	SavingsDai.transfer(address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	SavingsDai	SavingsDai.decreaseAllowance(address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	SavingsDai	SavingsDai.increaseAllowance(address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	SavingsDai	SavingsDai.mint(uint256,address,uint16)	VERIFIED
+totalSupplyEqualsSumOfBalances	SavingsDai	SavingsDai.deposit(uint256,address,uint16)	VERIFIED
+totalSupplyEqualsSumOfBalances	SavingsDai	SavingsDai.withdraw(uint256,address,address)	VERIFIED
+totalSupplyEqualsSumOfBalances	SavingsDai	SavingsDai.redeem(uint256,address,address)	VERIFIED
+totalSupplyEqualsSumOfBalances	SavingsDai	SavingsDai.deposit(uint256,address)	VERIFIED
+totalSupplyEqualsSumOfBalances	SavingsDai	SavingsDai.mint(uint256,address)	VERIFIED
+totalSupplyEqualsSumOfBalances	SavingsDai	SavingsDai.transferFrom(address,address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.fork(bytes32,address,address,int256,int256)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.frob(bytes32,address,address,address,int256,int256)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.grab(bytes32,address,address,address,int256,int256)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.slip(bytes32,address,int256)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.fold(bytes32,address,int256)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.cage()	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.init(bytes32)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.heal(uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.file(bytes32,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.file(bytes32,bytes32,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.rely(address)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.nope(address)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.hope(address)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.deny(address)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.move(address,address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.suck(address,address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances	VatMock	VatMock.flux(bytes32,address,address,uint256)	VERIFIED
+totalSupplyEqualsSumOfBalances		constructor	VERIFIED

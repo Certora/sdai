@@ -1,0 +1,10 @@
+{
+  "transfer_moves_exact_amount": ["transferMovesExactAmount"],
+  "transfer_from_moves_exact_amount_and_spends_allowance": ["transferFromMovesExactAmountAndSpendsAllowance"],
+  "transfer_revert_conditions": ["transferRevertConditions"],
+  "transfer_from_revert_conditions": ["transferFromRevertConditions"],
+  "balance_decrease_requires_owner_or_allowance": ["balanceDecreaseRequiresOwnerOrAllowance"],
+  "allowance_increase_requires_owner_authorization": ["allowanceChangeRequiresAuthorization"],
+  "allowance_management_functions_correct": ["approveCorrect", "increaseAllowanceCorrect", "decreaseAllowanceCorrect"],
+  "erc20_ops_preserve_vault_backing": ["erc20OpsPreserveVaultBacking"]
+}

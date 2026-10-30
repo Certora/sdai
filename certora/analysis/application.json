@@ -1,0 +1,110 @@
+{
+  "application_type": "Vault (ERC-4626 yield-bearing wrapper)",
+  "description": "Savings Dai (sDAI) is an ERC-20 / ERC-4626 tokenized share of DAI deposited into the MakerDAO Dai Savings Rate (Pot). Depositors hand in DAI, which is converted to internal Vat dai via DaiJoin and joined into the Pot; they receive sDAI shares equal to their normalized Pot balance (pie). Shares redeem for DAI at the Pot's rate accumulator chi, which grows at the DSR; sDAI also supports EIP-2612 permit with EIP-1271 contract signatures.",
+  "explicit_contracts": [
+    {
+      "name": "SavingsDai",
+      "solidity_identifier": "SavingsDai",
+      "path": "src/SavingsDai.sol",
+      "role": "The main contract: ERC-20 share token and ERC-4626 vault over DAI held in the Pot.",
+      "sort": "singleton",
+      "components": [
+        {
+          "name": "ERC20 token",
+          "description": "Fungible sDAI share token: balances, total supply, transfers, allowances and allowance adjustments.",
+          "entry_points": ["transfer", "transferFrom", "approve", "increaseAllowance", "decreaseAllowance", "totalSupply", "balanceOf", "allowance"],
+          "state_variables": ["totalSupply", "balanceOf", "allowance"],
+          "requirements": [
+            "The implementation must keep totalSupply equal to the sum of all balances.",
+            "The implementation must move exactly the transferred amount from the sender to the recipient and change no other balance.",
+            "The implementation must only let an owner, or a spender within its allowance, move the owner's shares.",
+            "The implementation must decrease a finite allowance by exactly the amount spent and never decrease an infinite allowance.",
+            "The implementation must reject transfers to the zero address and to the sDAI contract itself."
+          ],
+          "interactions": []
+        },
+        {
+          "name": "ERC4626 vault",
+          "description": "Deposits DAI and mints shares, burns shares and pays out DAI, and exposes conversion, preview and max functions computed at the live Pot rate (including not-yet-dripped interest).",
+          "entry_points": ["deposit(uint256,address)", "deposit(uint256,address,uint16)", "mint(uint256,address)", "mint(uint256,address,uint16)", "withdraw", "redeem", "asset", "totalAssets", "convertToShares", "convertToAssets", "maxDeposit", "maxMint", "maxWithdraw", "maxRedeem", "previewDeposit", "previewMint", "previewWithdraw", "previewRedeem"],
+          "state_variables": ["totalSupply", "balanceOf", "allowance", "vat", "daiJoin", "dai", "pot"],
+          "requirements": [
+            "The implementation must keep the shares it has issued fully backed by its normalized balance (pie) in the Pot.",
+            "The implementation must collect accrued DSR interest before pricing a deposit, mint, withdraw or redeem.",
+            "The implementation must round every conversion in favour of the vault (fewer shares out on deposit, more assets in on mint, more shares burned on withdraw, fewer assets out on redeem).",
+            "The implementation must make each preview function return exactly what the corresponding action returns in the same block.",
+            "The implementation must only let the owner, or a spender within its allowance, burn the owner's shares.",
+            "The implementation must deliver the withdrawn DAI to the receiver and take deposited DAI only from the caller.",
+            "The implementation must let a holder always exit with their position as long as the Maker system is functioning."
+          ],
+          "interactions": [
+            {"target": "Dai token", "description": "Pulls DAI from the caller with transferFrom on deposit and mint."},
+            {"target": "DaiJoin adapter", "description": "Converts DAI to internal Vat dai on deposit (join) and back to DAI for the receiver on exit."},
+            {"target": "Pot (DSR)", "description": "Reads chi, rho and dsr to price shares, calls drip to accrue interest, join to deposit and exit to withdraw normalized savings."}
+          ]
+        },
+        {
+          "name": "Permit",
+          "description": "Gasless approvals signed by the owner: EIP-712 typed data with per-owner nonces and a deadline, verified via ecrecover or EIP-1271 for contract owners.",
+          "entry_points": ["permit(address,address,uint256,uint256,bytes)", "permit(address,address,uint256,uint256,uint8,bytes32,bytes32)", "nonces", "DOMAIN_SEPARATOR"],
+          "state_variables": ["nonces", "allowance", "deploymentChainId"],
+          "requirements": [
+            "The implementation must only set an allowance when the owner's signature over the exact owner, spender, value, nonce and deadline is valid.",
+            "The implementation must increase the owner's nonce by one on every successful permit so a signature cannot be replayed.",
+            "The implementation must reject an expired permit and the zero owner.",
+            "The implementation must change no balance or other owner's allowance."
+          ],
+          "interactions": [
+            {"target": "EIP-1271 signer", "description": "Staticcalls isValidSignature on the owner address when ecrecover does not match."}
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Pot (DSR)",
+      "solidity_identifier": "PotHarness",
+      "path": "certora/harnesses/PotHarness.sol",
+      "role": "MakerDAO Dai Savings Rate module: tracks normalized savings pie per user and the rate accumulator chi. Modeled by the repository's PotMock plus mainnet Pot's drip().",
+      "sort": "singleton",
+      "components": []
+    },
+    {
+      "name": "Vat",
+      "solidity_identifier": "VatMock",
+      "path": "src/test/mocks/VatMock.sol",
+      "role": "MakerDAO core accounting engine holding internal dai balances (rad); sDAI hopes DaiJoin and Pot so they can move its internal dai.",
+      "sort": "singleton",
+      "components": []
+    },
+    {
+      "name": "DaiJoin adapter",
+      "solidity_identifier": "DaiJoinMock",
+      "path": "src/test/mocks/DaiJoinMock.sol",
+      "role": "Converts between ERC-20 DAI and internal Vat dai by burning/minting DAI and moving Vat dai.",
+      "sort": "singleton",
+      "components": []
+    },
+    {
+      "name": "Dai token",
+      "solidity_identifier": "DaiMock",
+      "path": "src/test/mocks/DaiMock.sol",
+      "role": "The DAI ERC-20 token (the vault's asset); DaiJoin is its minter.",
+      "sort": "singleton",
+      "components": []
+    }
+  ],
+  "external_actors": [
+    {
+      "name": "EIP-1271 signer",
+      "role": "Arbitrary contract owner whose isValidSignature is consulted by permit.",
+      "assumptions": ["May return any value or revert; is called with staticcall so it cannot change state."],
+      "interface_path": "src/SavingsDai.sol"
+    },
+    {
+      "name": "Maker governance",
+      "role": "Wards of Vat, Pot and Dai who set the DSR, cage the system and authorize DaiJoin/Pot.",
+      "assumptions": ["DaiJoin is a ward of Dai and Pot is a ward of Vat (needed for mint and suck).", "Governance does not attack the system it administers."],
+      "interface_path": null
+    }
+  ]
+}

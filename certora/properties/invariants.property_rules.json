@@ -1,0 +1,8 @@
+{
+  "total_supply_equals_sum_of_balances": ["totalSupplyEqualsSumOfBalances"],
+  "shares_equal_pot_pie": ["sharesEqualPotPie"],
+  "pot_total_pie_covers_sdai_pie": ["potTotalPieCoversSdaiPie", "potTotalPieEqualsSumOfPie"],
+  "pot_vat_dai_covers_savings": ["potVatDaiCoversSavings", "noVatPermissionsFromPotOrDaiJoin"],
+  "daijoin_vat_dai_covers_dai_supply": ["daiJoinVatDaiCoversDaiSupply", "daiTotalSupplyEqualsSumOfDaiBalances", "noVatPermissionsFromPotOrDaiJoin"],
+  "sdai_setup_permissions_persist": ["sdaiSetupPermissionsPersist"]
+}
